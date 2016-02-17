@@ -1,4 +1,4 @@
-# Sockets
+# Sockets in C
 
 Here I provide a set of examples on using [sockets](https://en.wikipedia.org/wiki/Network_socket)
 with the [`C`](https://en.wikipedia.org/wiki/C_%28programming_language%29) under both [Microsoft Windows](https://en.wikipedia.org/wiki/Windows) (using [MinGW](http://mingw.org/)) and [Linux](https://en.wikipedia.org/wiki/Linux).
