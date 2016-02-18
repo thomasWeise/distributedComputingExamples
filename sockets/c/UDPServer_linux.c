@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
+#include <stdio.h>      //compile: gcc UDPServer_linux.c -o UDPServer_linux
+#include <string.h>     //Warning: This program does not perform any error handling.
+#include <sys/socket.h> //In any real program, you need to handle errors.
 #include <arpa/inet.h>
 #include <unistd.h>
 

@@ -58,9 +58,11 @@ hs_err_pid*
 /.gradle
 /dependency-reduced-pom.xml
 
-
+## Sockets
 ## Linux Builds of C examples
 /sockets/c/TCPClient_linux
 /sockets/c/TCPServer_linux
 /sockets/c/UDPClient_linux
 /sockets/c/UDPServer_linux
+## Java
+/sockets/java/bin

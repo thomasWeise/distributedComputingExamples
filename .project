@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>distributedComputingExamples</name>
-	<comment></comment>
+	<comment>The examples of my Distributed Computing course.</comment>
 	<projects>
 	</projects>
 	<buildSpec>

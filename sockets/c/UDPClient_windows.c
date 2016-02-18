@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <winsock.h>
+#include <stdio.h>//compile: gcc UDPClient_windows.c -o UDPClient_windows.exe -lws2_32
+#include <winsock.h> //Warning: This program does not perform any error handling.
 
 int main(int argc, char *argv[])  {
   int         client;             struct sockaddr_in address;

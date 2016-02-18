@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
+#include <stdio.h>      //compile: gcc TCPClient_linux.c -o TCPClient_linux
+#include <sys/socket.h> //Warning: This program does not perform any error handling.
+#include <arpa/inet.h>  //In any real program, you need to handle errors.
 #include <string.h>
 #include <unistd.h>
 

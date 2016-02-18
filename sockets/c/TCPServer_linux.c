@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+#include <stdio.h>      //compile: gcc TCPServer_linux.c -o TCPServer_linux
+#include <sys/socket.h> //Warning: This program does not perform any error handling.
+#include <netinet/in.h> //In any real program, you need to handle errors.
 #include <arpa/inet.h>
 #include <string.h>
 #include <unistd.h>

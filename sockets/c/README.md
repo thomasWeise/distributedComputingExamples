@@ -5,17 +5,23 @@ with the [`C`](https://en.wikipedia.org/wiki/C_%28programming_language%29) under
 
 ## 1. Examples
 
+The following examples are included in this folder.
+
 ## 1.1. TCPClient / TCPServer
 
 The simple TCP Client and TCP Server examples do nothing spectacular.
-The client sends one byte with value `2` over a TCP connection to the server and terminates.
+The client sends one byte with value `2` over a TCP connection to the server listening on port 9999 of the local host and terminates.
 The server accepts 5 incoming connections, prints the received byte, and then terminates.
+
+Both programs do not perform any error handling. This is to make them shorter. In reality, you must handle errors.
 
 ## 1.2. UDPClient / UDPServer
 
-The simple UDP Client and UDP Server examples do nothing spectacular, actually, basically the same as the TCP client/server.
+The simple UDP Client and UDP Server examples do nothing spectacular, actually, basically the same as the TCP client/server, except that they use port 9998 and the UDP instead of the TCP protocol.
 The client sends one byte with value `2` in an UDP package to the server and terminates.
 The server accepts 5 incoming packages, prints the received byte, and then terminates.
+
+Both programs do not perform any error handling. This is to make them shorter. In reality, you must handle errors.
 
 ## 2. Compiling / Building
 
