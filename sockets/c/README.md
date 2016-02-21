@@ -15,6 +15,11 @@ The server accepts 5 incoming connections, prints the received byte, and then te
 
 Both programs do not perform any error handling. This is to make them shorter. In reality, you must handle errors.
 
+1. [TCPClient_linux.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/TCPClient_linux.c)
+1. [TCPServer_linux.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/TCPServer_linux.c)
+1. [TCPClient_windows.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/TCPClient_windows.c)
+1. [TCPServer_windows.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/TCPServer_windows.c)
+
 ## 1.2. UDPClient / UDPServer
 
 The simple UDP Client and UDP Server examples do nothing spectacular, actually, basically the same as the TCP client/server, except that they use port 9998 and the UDP instead of the TCP protocol.
@@ -22,6 +27,11 @@ The client sends one byte with value `2` in an UDP package to the server and ter
 The server accepts 5 incoming packages, prints the received byte, and then terminates.
 
 Both programs do not perform any error handling. This is to make them shorter. In reality, you must handle errors.
+
+1. [UDPClient_linux.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/UDPClient_linux.c)
+1. [UDPServer_linux.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/UDPServer_linux.c)
+1. [UDPClient_windows.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/UDPClient_windows.c)
+1. [UDPServer_windows.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/UDPServer_windows.c)
 
 ## 2. Compiling / Building
 
