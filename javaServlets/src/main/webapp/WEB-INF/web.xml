@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>myServlets.HelloWorldServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/HelloWorld</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>RequestData</servlet-name>
+		<servlet-class>myServlets.RequestDataServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RequestData</servlet-name>
+		<url-pattern>/RequestData</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SessionData</servlet-name>
+		<servlet-class>myServlets.SessionDataServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SessionData</servlet-name>
+		<url-pattern>/SessionData</url-pattern>
+	</servlet-mapping>
+</web-app>
