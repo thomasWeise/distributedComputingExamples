@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Example 2 for JavaScript</title>
+  </head>
+  <body>
+  	<h1>Calculator</h1>
+	<form name="Calculator" action="">
+		<table border="0">
+			<tr><td>Formula:</td><td><input type="text" size="20" name="Formula" /></td></tr>
+			<tr><td>Result: </td><td><input type="text" size="20" name="Result" disabled="disabled" /></td></tr>
+			<tr><td colspan="2">
+				<input type="button" value="Calculate!"
+					   onclick="document.Calculator.Result.value = eval(document.Calculator.Formula.value)" />
+		</td></tr></table>
+	</form>
+  </body>
+</html>

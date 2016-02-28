@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Example 1 for JavaScript</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var now           = new Date();
+      var day           = now.getDate();
+      var month         = now.getMonth() + 1;
+      var year          = now.getYear();
+      var hours         = now.getHours();
+      var minutes       = now.getMinutes();
+
+      if (year < 2000)  year = year + 1900;
+
+      document.write("<h2>Hi!<\/h2><b>Today is the " +
+                       year + "-");
+
+      if (month < 10) document.write("0");
+
+      document.write(month + "-");
+
+      if (day < 10) document.write("0");
+
+      document.write(day + ". It is now " + hours + ":");
+
+      if (minutes < 10) document.write("0");
+
+      document.write(minutes + " o'clock<\/b>");
+    </script>
+  </body>
+</html>
