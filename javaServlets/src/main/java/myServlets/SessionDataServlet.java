@@ -5,8 +5,8 @@ import java.io.PrintWriter; import java.util.Date;        import javax.servlet.h
 import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 
-public class SessionDataServlet extends HttpServlet {
-  @Override
+public class SessionDataServlet extends HttpServlet {//extend HTTP Servlet base class
+  @Override //implement the HTTP GET request handler method
   public void service(HttpServletRequest req, HttpServletResponse res)
       throws ServletException, IOException {
     res.setContentType("text/html"); // set answer format to HTML format

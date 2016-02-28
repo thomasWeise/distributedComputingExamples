@@ -4,9 +4,9 @@ import java.io.IOException; import javax.servlet.ServletException; import java.u
 import java.io.PrintWriter; import javax.servlet.http.HttpServlet; import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse;
 
-public class RequestDataServlet extends HttpServlet {
+public class RequestDataServlet extends HttpServlet {//extend HTTP Servlet base class
 
-  @Override
+  @Override //implement the HTTP GET request handler method
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     resp.setContentType("text/html"); // set answer format to HTML format

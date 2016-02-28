@@ -5,7 +5,7 @@ import java.io.PrintWriter;            import javax.servlet.http.HttpServletRequ
 import javax.servlet.ServletException; import javax.servlet.http.HttpServlet;
 
 
-public class HelloWorldServlet extends HttpServlet {
+public class HelloWorldServlet extends HttpServlet {//extend HTTP Servlet base class
 
   // this method is called by the servlet container for incoming GET requests
   @Override
