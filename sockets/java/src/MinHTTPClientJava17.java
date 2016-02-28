@@ -14,8 +14,8 @@ public class MinHTTPClientJava17 {//this is a minimum web client; see lesson 07 
       w.flush();                    // make sure that all data has been sent
       sock.shutdownOutput();        // closing down the channel for sending data to the server
 
-      try(BufferedReader r =
-           new BufferedReader(new InputStreamReader(sock.getInputStream(), "UTF-8"))) { // Baidu uses UTF-8 (*@\citep{RFC3629STC63}@*),
+      try (InputStreamReader is = new InputStreamReader(sock.getInputStream());
+          BufferedReader     r  = new BufferedReader(is)) { // Baidu uses UTF-8 encoding
           while ((response = r.readLine()) != null) { // read strings line-by-line until connection closed by serve
             System.out.println(response);             // print to output
           }

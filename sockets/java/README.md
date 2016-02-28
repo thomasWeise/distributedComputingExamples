@@ -94,7 +94,13 @@ In this example here, we therefore use a [thread pool](http://docs.oracle.com/ja
 
 1. [MinHTTPServerThreadPool.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/MinHTTPServerThreadPool.java)
 
-## 1.12. PiClient/PiServer
+## 1.12. HTTPServerPrintingRequest
+
+A simple sequential [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) server which sends back the client's requests as [HTML](https://en.wikipedia.org/wiki/HTML) files. It is single-threaded. Clients are accepted from port `9995` and everything they send is stored in a buffer. This buffer is then sent back inside `<pre>...</pre>` tags with line breaks (`<br/>`) added. 
+
+1. [HTTPServerPrintingRequests.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/HTTPServerPrintingRequests.java)
+
+## 1.13. PiClient/PiServer
 
 A [client/server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) application which tries to approximate the value of Pi. The clients therefore sample a couple of numbers randomly from the unit square and count how many of them fall into the unit circle. They send both, the number of sampled points and the number of those in the unit circle, to the server. The server manages two such counters as well and updates them with data received from the clients. It can use these numbers to estimate Pi. Many clients can work in parallel and send their numbers to the server. This should increase speed significantly.
 
