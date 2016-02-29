@@ -82,7 +82,8 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 5. Open a terminal console and go (`cd`) into folder `F`.
 6. In the folder `F` (where you unpackaged the archive), go to sub-folder `glassfish4/bin/`, i.e., to `F/glassfish4/bin/`.
 7. Type `./asadmin start-domain`. (Under Windows, type `asadmin start-domain` without the leading `./`.) The server will now start.
-8. Open your web browser and visit its configuration page at [`http://localhost:4848`](http://localhost:4848).
+8. Under Windows, a window may pop up asking you for allowing the program internet access permission, which you should OK.
+9. Open your web browser and visit its configuration page at [`http://localhost:4848`](http://localhost:4848).
 
 ##### 2.3.1.2. Deploy `war` to GlassFish
 
