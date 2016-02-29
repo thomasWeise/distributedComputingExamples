@@ -59,15 +59,6 @@
 
 	<inceptionYear>2016</inceptionYear>
 
-	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>local-file</id>
-			<name>local repository site</name>
-			<url>file://${basedir}/target/repo/</url>
-		</repository>
-	</distributionManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -75,7 +66,6 @@
 			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
-
 
 	<build>
 		<finalName>myServlets</finalName>
