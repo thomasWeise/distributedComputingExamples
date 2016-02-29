@@ -8,7 +8,7 @@ Here you can find the example [Java Servlets](https://en.wikipedia.org/wiki/Java
 
 This small servlet accepts an incoming HTTP request and sends back a `Hello World` message in `text/plain` format.
 
-If your application is running in GlassFish, you can access this servlet as [http://localhost:8080/javaServlets-0.8.0/HelloWorld](http://localhost:8080/javaServlets-0.8.0/HelloWorld).
+If your application is running in GlassFish, you can access this servlet as [http://localhost:8080/myServlets/HelloWorld](http://localhost:8080/myServlets/HelloWorld).
 
 1. [`HelloWorldServlet`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/src/main/java/myServlets/HelloWorldServlet.java)
 
@@ -16,7 +16,7 @@ If your application is running in GlassFish, you can access this servlet as [htt
 
 This servlet is similar to our [MinHTTPServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/MinHTTPServer.java) example in the Java [sockets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/) example set. It accepts an incoming HTTP request and dynamically creates a `text/html` formatted response (i.e., a web page). This web page contains all the request's data, such as the client address, all request headers, cookies, and dynamic query parameters (such as form data).
 
-If your application is running in GlassFish, you can access this servlet as [http://localhost:8080/javaServlets-0.8.0/RequestData](http://localhost:8080/javaServlets-0.8.0/RequestData).
+If your application is running in GlassFish, you can access this servlet as [http://localhost:8080/myServlets/RequestData](http://localhost:8080/myServlets/RequestData).
 
 1. [`RequestDataServlet`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/src/main/java/myServlets/RequestDataServlet.java)
 
@@ -24,7 +24,7 @@ If your application is running in GlassFish, you can access this servlet as [htt
 
 This servlet shows how sessions can be handled with Java Servlets. It accepts an incoming connection and dynamically creates a `text/html` formatted response (i.e., a web page). This web page contains all the information of (and stored in) the current session. The first time you access this servlet, there is no current session, so it is created. This session initially has no information stored in it in form of attributes. However, this servlet adds some attributes to the session. The next time you access this servlet, these attributes will be printed. Hence, sessions are a way to preserve information between HTTP requests to a servlet.
 
-If your application is running in GlassFish, you can access this servlet as [http://localhost:8080/javaServlets-0.8.0/SessionData](http://localhost:8080/javaServlets-0.8.0/SessionData).
+If your application is running in GlassFish, you can access this servlet as [http://localhost:8080/myServlets/SessionData](http://localhost:8080/myServlets/SessionData).
 
 1. [`SessionDataServlet`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/src/main/java/myServlets/SessionDataServlet.java)
 
@@ -62,8 +62,8 @@ Now you can actually build the project, i.e., generate a [`war`](https://en.wiki
 10. Under `Goals`, enter `clean compile war:war`. This will build a `war` archive.
 11. Click `Apply`
 12. Click `Run`
-13. The build will start, you will see its status output in the consolve window.
-14. The folder `target` will contain a file `javaServlets-0.8.0.war` after the buil. This is the deployable archive with our application.
+13. The build will start, you will see its status output in the console window.
+14. The folder `target` will contain a file `myServlets.war` after the build. This is the deployable archive with our application.
 
 ## 2.3. Deploy
 
@@ -86,12 +86,12 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 
 ##### 2.3.1.2. Deploy `war` to GlassFish
 
-1. Find the file `javaServlets-0.8.0.war` in the folder `target` of this example project.
+1. Find the file `myServlets.war` in the folder `target` of this example project.
 2. Copy it into the folder `F/glassfish4/glassfish/domains/domain1`.
 3. In your web browser, visit [`http://localhost:4848`](http://localhost:4848).
 4. Click `Applications` in the menu pane on the right.
-5. It should list `javaServlets-0.8.0`. If you click this menu point, you get a list of the installed servlets.
+5. It should list `myServlets`. If you click this menu point, you get a list of the installed servlets.
 6. You can access the servlets as follows
-  a. [localhost:8080/javaServlets-0.8.0/HelloWorld](localhost:8080/javaServlets-0.8.0/HelloWorld)
-  b. [http://localhost:8080/javaServlets-0.8.0/RequestData](http://localhost:8080/javaServlets-0.8.0/RequestData)
-  c. [http://localhost:8080/javaServlets-0.8.0/SessionData](http://localhost:8080/javaServlets-0.8.0/SessionData)
+  a. [localhost:8080/myServlets/HelloWorld](localhost:8080/myServlets/HelloWorld)
+  b. [http://localhost:8080/myServlets/RequestData](http://localhost:8080/myServlets/RequestData)
+  c. [http://localhost:8080/myServlets/SessionData](http://localhost:8080/myServlets/SessionData)
