@@ -7,7 +7,7 @@
 	<version>0.8.0</version>
 	<packaging>war</packaging>
 	<name>Java Servlets Examples</name>
-	<description>Examples for using JavaServlets (in Java).</description>
+	<description>Examples for using Java Servlets (in Java).</description>
 
 	<url>http://www.it-weise.de/</url>
 	<organization>
@@ -64,6 +64,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
+			<scope>provided</scope> <!-- provided by servlet container -->
 		</dependency>
 	</dependencies>
 

@@ -54,7 +54,7 @@ Now you can actually build the project, i.e., generate a [`war`](https://en.wiki
 2. Right-click on the project (`JavaServlets`) in the `package view`.
 3. In the opening pop-up menu, choose `Run As`.
 4. In the opening sub-menu choose `Run Configurations...`.
-5. in the opening window, choose `Maven Build`
+5. In the opening window, choose `Maven Build`
 6. In the new window `Run Configurations` / `Create, manage, and run configurations`, choose `Maven Build` in the small white pane on the left side.
 7. Click `New launch configuration` (the first symbol from the left on top of the small white pane).
 8. Write a useful name for this configuration in the `Name` field. You can use this configuration again later.
