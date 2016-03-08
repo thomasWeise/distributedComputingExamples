@@ -21,6 +21,9 @@ script:
    - currentDir=`pwd`
    - cd "$currentDir/sockets/java/src"
    - javac *.java
+   - cd "$currentDir/sockets/c"
+   - chmod 777 make_linux.sh
+   - ./make_linux.sh
    - cd "$currentDir/javaServlets"
    - mvn clean compile war:war
    - cd "$currentDir/javaServerPages/examples"
@@ -29,7 +32,9 @@ script:
    - mvn clean compile package
 
 before_install:
-  - sudo apt-get -q -y -f update  
+# make sure GCC is installed
+  - sudo apt-get -q -y -f update
+  - sudo apt-get -q -y -f install gcc  
 # fix for buffer overflows in getLocalHostName
 # https://github.com/travis-ci/travis-ci/issues/5227
   - cat /etc/hosts # optionally check the content *before*
