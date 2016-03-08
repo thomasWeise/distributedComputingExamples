@@ -19,12 +19,14 @@ cache:
 # custom build step
 script:
    - currentDir=`pwd`
+   - cd "$currentDir/sockets/java/src"
+   - javac *.java
+   - cd "$currentDir/javaServlets"
+   - mvn clean compile war:war
    - cd "$currentDir/javaServerPages/examples"
    - mvn clean compile war:war
    - cd "$currentDir/javaServerPages/standAloneJSPsWithJetty"
    - mvn clean compile package
-   - cd "$currentDir/javaServlets"
-   - mvn clean compile war:war
 
 before_install:
   - sudo apt-get -q -y -f update  

@@ -1,5 +1,7 @@
 # Examples for Distributed Computing
 
+[<img alt="Travis CI Build Status" src="https://img.shields.io/travis/thomasWeise/distributedComputingExamples/master.svg" height="20"/>](https://travis-ci.org/thomasWeise/distributedComputingExamples/)
+
 Here I provide the source codes of the examples that I use in my distributed computing course.
 
 1. [sockets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/)
