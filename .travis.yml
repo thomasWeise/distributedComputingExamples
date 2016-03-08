@@ -1,0 +1,40 @@
+##
+## Build with Travis.CI
+##
+## https://travis-ci.org/thomasWeise/distributedComputingExamples
+#
+language: java
+
+# By default, it runs under Java 7
+jdk:
+  - oraclejdk7
+  - openjdk7
+  - oraclejdk8
+    
+# Cache Maven dependencies to speed up builds.
+cache:
+  directories:
+  - $HOME/.m2
+
+# custom build step
+script:
+   - currentDir=`pwd`
+   - cd "$currentDir/javaServerPages/examples"
+   - mvn clean compile war:war
+   - cd "$currentDir/javaServerPages/standAloneJSPsWithJetty"
+   - mvn clean compile package
+   - cd "$currentDir/javaServlets"
+   - mvn clean compile war:war
+
+before_install:
+  - sudo apt-get -q -y -f update  
+# fix for buffer overflows in getLocalHostName
+# https://github.com/travis-ci/travis-ci/issues/5227
+  - cat /etc/hosts # optionally check the content *before*
+  - sudo hostname "$(hostname | cut -c1-63)"
+  - sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts | sudo tee /etc/hosts
+  - cat /etc/hosts # optionally check the content *after*  
+  
+# prevent Maven from running
+install:
+  - echo "Nothing."
