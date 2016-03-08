@@ -10,7 +10,7 @@ This small JSP creates a [HTML](https://en.wikipedia.org/wiki/HTML) page printin
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/greetings.jsp](http://localhost:8080/myJSPs/greetings.jsp).
 
-1. [`greetings.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/greetings.jsp)
+1. [`greetings.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/greetings.jsp)
 
 ### 1.2. Print Client Address: `printClientAddress.jsp`
 
@@ -18,7 +18,7 @@ This small JSP creates a plain text response containing the [IP address](https:/
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/printClientAddress.jsp](http://localhost:8080/myJSPs/printClientAddress.jsp).
 
-1. [`printClientAddress.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/printClientAddress.jsp)
+1. [`printClientAddress.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/printClientAddress.jsp)
 
 ### 1.3. Count Web Page Visits (unsynchronized): `counterUnsynchronized.jsp`
 
@@ -26,7 +26,7 @@ This JSP counts the number of times it was visited. It does so by creating a `lo
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/counterUnsynchronized.jsp](http://localhost:8080/myJSPs/counterUnsynchronized.jsp).
 
-1. [`counterUnsynchronized.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/counterUnsynchronized.jsp)
+1. [`counterUnsynchronized.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/counterUnsynchronized.jsp)
 
 ### 1.4. Count Web Page Visits (synchronized): `counterSynchronized.jsp`
 
@@ -34,7 +34,7 @@ This JSP counts the number of times it was visited, but avoids the synchronizati
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/counterSynchronized.jsp](http://localhost:8080/myJSPs/counterSynchronized.jsp).
 
-1. [`counterSynchronized.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/counterSynchronized.jsp)
+1. [`counterSynchronized.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/counterSynchronized.jsp)
 
 ### 1.5. Rate this Course: `rating.jsp`
 
@@ -42,7 +42,7 @@ This JSP includes a small form which allows you to rate the distributed computin
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/rating.jsp](http://localhost:8080/myJSPs/rating.jsp).
 
-1. [`rating.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/rating.jsp)
+1. [`rating.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/rating.jsp)
 
 ### 1.6. Shopping Cart: `shoppingCart.jsp`
 
@@ -50,8 +50,8 @@ This JSP is an example for [session](https://en.wikipedia.org/wiki/Session_(comp
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/shoppingCart.jsp](http://localhost:8080/myJSPs/shoppingCart.jsp).
 
-1. [`shoppingCart.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/shoppingCart.jsp)
-2. [`shoppingCartForm.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/shoppingCartForm.jsp)
+1. [`shoppingCart.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/shoppingCart.jsp)
+2. [`shoppingCartForm.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/shoppingCartForm.jsp)
 3. [`shopping.Cart.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/java/shopping/Cart.java)
 
 ### 1.7. Expression Language Examples: `expressionLanguageExamples.jsp`
@@ -60,7 +60,7 @@ This JSP includes a set of small examples for the expression language [EL](https
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/expressionLanguageExamples.jsp](http://localhost:8080/myJSPs/expressionLanguageExamples.jsp).
 
-1. [`expressionLanguageExamples.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/expressionLanguageExamples.jsp)
+1. [`expressionLanguageExamples.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/expressionLanguageExamples.jsp)
 
 ### 1.8. JSTL Examples: `jstlExamples.jsp`
 
@@ -68,7 +68,7 @@ This JSP includes a set of small examples for the JavaServer Pages Standard Tag 
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/jstlExamples.jsp](http://localhost:8080/myJSPs/jstlExamples.jsp).
 
-1. [`jstlExamples.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/jstlExamples.jsp)
+1. [`jstlExamples.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/jstlExamples.jsp)
 
 ### 1.9. Shopping Cart with JSTL and EL: `shoppingCartJSTLEL.jsp`
 
@@ -76,8 +76,8 @@ This is basically the same example as example 1.6, the session-based shopping ca
 
 If your application is running in GlassFish, you can access this JSP as [http://localhost:8080/myJSPs/shoppingCartJSTLEL.jsp](http://localhost:8080/myJSPs/shoppingCartJSTLEL.jsp).
 
-1. [`shoppingCartJSTLEL.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/shoppingCartJSTLEL.jsp)
-2. [`shoppingCartForm.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/WEB-INF/shoppingCartForm.jsp)
+1. [`shoppingCartJSTLEL.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/shoppingCartJSTLEL.jsp)
+2. [`shoppingCartForm.jsp`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/webapp/shoppingCartForm.jsp)
 3. [`shopping.Cart.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples/src/main/java/shopping/Cart.java)
 
 
