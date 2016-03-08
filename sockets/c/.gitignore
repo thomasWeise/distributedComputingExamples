@@ -60,25 +60,7 @@ hs_err_pid*
 
 ## sockets
 ## Linux Builds of C examples
-/sockets/c/TCPClient_linux
-/sockets/c/TCPServer_linux
-/sockets/c/UDPClient_linux
-/sockets/c/UDPServer_linux
-## Java
-/sockets/java/bin
-
-## javaServlets
-/javaServlets/target/
-/javaServlets/temp/
-/javaServlets/tmp/
-/javaServlets/bin/
-/javaServlets/.classpath
-
-## javaServerPages
-/javaServlets/temp/
-/javaServlets/tmp/
-/javaServerPages/examples/target/
-/javaServerPages/examples/temp/
-/javaServerPages/examples/tmp/
-/javaServerPages/examples/bin/
-/javaServerPages/examples/.classpath
+TCPClient_linux
+TCPServer_linux
+UDPClient_linux
+UDPServer_linux
