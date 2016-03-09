@@ -10,7 +10,7 @@ int main(int argc, char *argv[])  {
 
   memset(&address, 0, sizeof(address)); //clear socket address
   address.sin_family      = AF_INET;  //IPv4 address
-  address.sin_addr.s_addr = inet_addr("127.0.0.1");//create (loopback) IP address
+  address.sin_addr.s_addr = inet_addr("127.0.0.1");//set to (loopback) IP address
   address.sin_port        = htons(9999); //make port in network byte order
 
   connect(client, (struct sockaddr *)&address, sizeof(address)); //(*@\clientBox{1+2)}@*)

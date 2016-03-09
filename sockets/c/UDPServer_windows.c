@@ -10,7 +10,7 @@ int main(int argc, char *argv[])  {
   memset(&serverAddr, 0, sizeof(serverAddr));
   serverAddr.sin_family      = AF_INET;          //IPv4 address
   serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);//don't care network interface
-  serverAddr.sin_port        = htons(9998);      // set port 9998
+  serverAddr.sin_port        = htons(9998);      //set port 9998
   addrSize                   = sizeof(clientAddr);
 
   WSAStartup(MAKEWORD(2, 0), &wsaData);             //Initialize WinSock
