@@ -108,3 +108,10 @@ Different from the normal client/server structure, the client here does the work
 
 1. [PiClient.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PiClient.java)
 1. [PiServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PiServer.java)
+
+## 1.14. PrimitiveRPCClient/PrimitiveRPCServer
+
+A very simple [client/server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) application which shows the basic concept of [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC): A client sends the identifier of a method it wishes to be executed, along with its parameters, (marshalled) to an RPC server. The server reads the method it, unmarshalls the parameters, invokes the method, and sends back the results. Of course, this is done by fancy frameworks and all, but the basic idea is this simple.
+
+1. [PrimitiveRPCClient.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PrimitiveRPCClient.java)
+1. [PrimitiveRPCServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PrimitiveRPCServer.java)

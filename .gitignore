@@ -82,3 +82,10 @@ hs_err_pid*
 /javaServerPages/examples/tmp/
 /javaServerPages/examples/bin/
 /javaServerPages/examples/.classpath
+
+## javaRMI
+/javaRMI/target/
+/javaRMI/temp/
+/javaRMI/tmp/
+/javaRMI/bin/
+/javaRMI/.classpath
