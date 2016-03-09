@@ -1,4 +1,5 @@
-import java.io.DataInputStream; import java.io.DataOutputStream; import java.net.ServerSocket; import java.net.Socket;
+import java.io.DataInputStream; import java.io.DataOutputStream;
+import java.net.ServerSocket;   import java.net.Socket;
 
 public class PrimitiveRPCServer {
   public static final void main(final String[] args) {

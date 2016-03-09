@@ -1,4 +1,5 @@
-import java.io.DataInputStream; import java.io.DataOutputStream; import java.net.InetAddress; import java.net.Socket;
+import java.io.DataInputStream; import java.io.DataOutputStream;
+import java.net.InetAddress;    import java.net.Socket;
 
 public class PrimitiveRPCClient {
 

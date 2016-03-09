@@ -5,9 +5,11 @@ public class RemotePrintClient { // the remote print rmi client
     RemotePrintInterface rmiServer;         Registry registry;
 
     try {
-      registry = LocateRegistry.getRegistry(9999);      // find the object registry
+      // find the object registry
+      registry = LocateRegistry.getRegistry(9999);
 
-      rmiServer = (RemotePrintInterface) (registry.lookup("server")); // find the server object
+      // find the server object
+      rmiServer = (RemotePrintInterface) (registry.lookup("server"));
 
       rmiServer.print("Hello World"); //$NON-NLS-1$
     } catch (Throwable t) {
