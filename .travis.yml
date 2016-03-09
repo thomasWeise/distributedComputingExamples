@@ -30,6 +30,8 @@ script:
    - mvn clean compile war:war
    - cd "$currentDir/javaServerPages/standAloneJSPsWithJetty"
    - mvn clean compile package
+   - cd "$currentDir/javaRMI/src"
+   - javac *.java
 
 before_install:
 # make sure GCC is installed
