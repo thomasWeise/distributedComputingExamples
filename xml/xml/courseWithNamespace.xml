@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<course courseName="Distributed Computing"
+        xmlns="ustc:courses">
+
+  <units>60</units>
+
+  <teachers>
+    <teacher familyName="Weise" personalName="Thomas" />
+    <teacher familyName="Chen"  personalName="Xianglan" />
+  </teachers>
+
+  <students>
+    <student studentid="SA11111111" score="85.5" />
+    <student studentid="SA22222222" score="73.0" />
+    <student studentid="SA33333333" score="90.0" />
+  </students>
+
+</course>

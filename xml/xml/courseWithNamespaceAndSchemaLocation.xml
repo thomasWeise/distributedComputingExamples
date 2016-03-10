@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<course courseName="Distributed Computing"
+        xmlns="ustc:courses"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="ustc:courses https://raw.githubusercontent.com/thomasWeise/distributedComputingExamples/master/xml/xml/courses.xsd">
+
+  <units>60</units>
+
+  <teachers>
+    <teacher familyName="Weise" personalName="Thomas" />
+    <teacher familyName="Chen"  personalName="Xianglan" />
+  </teachers>
+
+  <students>
+    <student studentid="SA11111111" score="85.5" />
+    <student studentid="SA22222222" score="73.0" />
+    <student studentid="SA33333333" score="90.0" />
+  </students>
+
+</course>

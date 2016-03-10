@@ -2,7 +2,7 @@
 
 Here you can find examples on how to perform [Java Remote Method Invocation](https://en.wikipedia.org/wiki/Java_remote_method_invocation).
 
-# 1. RemotePrintServer / RemotePrintClient
+## 1. RemotePrintServer / RemotePrintClient
 
 The interface [RemotePrintInterface](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintInterface.java) provides a method `print` which receives one `String`. The RMI Server [RemotePrintServer](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintServer.java) implements this method in a straightforward fashion: it prints the `String` to `System.out`. An instance of this server is created and registerd as RMI server object under the name `server` in a registry listening for requests on port `9999`. The [RemotePrintClient](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintClient.java) wants to make use of this very valuable print service: It first obtains the registry and then, from this registry, the object names `server`. This object must be an instance of [RemotePrintInterface](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintInterface.java), so we can call its `print` method. When doing so, the string we pass in is sent to the server object. Since the object actually resides in a different Java virtual machine in a different process, the string is marshalled and sent over a socket to that other process, read and unmarshalled from the socket, handed to the server object, and then printed. This would work over the network as well, we can call a method which will be executed on a different computer. And we can do so relatively conveniently without bothering too much about details.
 
@@ -10,7 +10,7 @@ The interface [RemotePrintInterface](http://github.com/thomasWeise/distributedCo
 1. [RemotePrintServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintServer.java)
 1. [RemotePrintClient.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintClient.java)
 
-# 2. RemotePrintServer / RemotePrintClientErroneous
+## 2. RemotePrintServer / RemotePrintClientErroneous
 
 As the name [RemotePrintClientErroneous](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintClientErroneous.java) implies, this is a "wrong" version of the above example. The error is located in an incorrect typecast in the [RemotePrintClientErroneous](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintClientErroneous.java) program: The program incorrectly assumes that the object returned from the registry can be cast to [RemotePrintServer](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintServer.java), which it cannot. It can only be cast to [RemotePrintInterface](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintInterface.java), as done in [RemotePrintClient](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/src/RemotePrintClient.java).
 

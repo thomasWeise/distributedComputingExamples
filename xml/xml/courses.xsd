@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs           = "http://www.w3.org/2001/XMLSchema"
+           targetNamespace    = "ustc:courses"
+           xmlns              = "ustc:courses"
+           elementFormDefault = "qualified">
+
+<xs:element name="course">
+  <xs:complexType>
+    <xs:sequence>
+
+      <xs:element name="units" type="xs:int"/>
+
+      <xs:element name="teachers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="teacher" minOccurs="1" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="familyName"   type="xs:string"/>
+                <xs:attribute name="personalName" type="xs:string"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="students">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="student" minOccurs="1" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="studentid" type="xs:string"/>
+                <xs:attribute name="score"     type="xs:float"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+    </xs:sequence>
+
+    <xs:attribute name="courseName" type="xs:string" />
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
