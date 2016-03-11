@@ -16,7 +16,7 @@ int main(int argc, char *argv[])  {
   serverAddr.sin_port        = htons(9998);      //serve at port 9998
   addrSize                   = sizeof(clientAddr);
 
-  server = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP); //Allocate UDP socket
+  server = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP); //Allocate UDP socket
   bind(server, (struct sockaddr *) &serverAddr, sizeof(serverAddr)); //(*@\serverBox{1)}@*)
 
   for (j = 5; (--j) >= 0;)  {

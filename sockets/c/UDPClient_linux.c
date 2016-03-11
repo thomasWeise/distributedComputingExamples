@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])  {
   int client;  struct sockaddr_in address;    char data;
 
-  client = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP); //Allocate client socket
+  client = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP); //Allocate client socket
 
   memset(&address, 0, sizeof(address));  //Clear socket address
   address.sin_family      = AF_INET;     //IPv4 address

@@ -14,7 +14,7 @@ int main(int argc, char *argv[])  {
   addrSize                   = sizeof(clientAddr);
 
   WSAStartup(MAKEWORD(2, 0), &wsaData);             //Initialize WinSock
-  server = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);//Allocate UDP socket
+  server = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);//Allocate UDP socket
   bind(server, (struct sockaddr *) &serverAddr, sizeof(serverAddr)); //(*@\serverBox{1)}@*)
 
   for (j = 5; (--j) >= 0;)  {
