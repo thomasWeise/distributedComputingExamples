@@ -1,6 +1,6 @@
 # Examples for XML
 
-Here you can find some examples for the Extensible Markup Language ([XML](https://en.wikipedia.org/wiki/Xml)] and related standards.
+Here you can find some examples for the Extensible Markup Language ([XML](https://en.wikipedia.org/wiki/Xml)) and related standards.
 
 ## 1. course.xml
 
@@ -24,10 +24,14 @@ However, this declaration itself does not ensure that the document is actually v
 1. [courseWithNamespace.xml](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/xml/courseWithNamespace.xml)
 1. [courseWithNamespaceAndSchemaLocation.xml](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/xml/courseWithNamespaceAndSchemaLocation.xml)
 
+The Java program [SAXReaderExampleValidating.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/java/src/SAXReaderExampleValidating.java) demonstrate how a parser can validate an XML document while parsing it.
+
 ## 3. courses2html.xslt
 
-With Extensible Stylesheet Language Transformations ([XSLT]](https://en.wikipedia.org/wiki/XSLT)), we can transform one XML document to another - not necessarily XML - document. XSLT is basically a language which tells a transformation process what output to produce for which element and attribute. Sometimes, there might be two different XML dialects / schemas / namespaces for similar domains, e.g., there could be a `tsignhua:courses` namespace with similar purpose than our declaration in the above example. With XSLT, we could translate one document from `ustc:courses` to `tsinghua:courses`. Or we could translate our document to [HTML](https://en.wikipedia.org/wiki/HTML), i.e., we could translate our raw data to a web site. This is what we do with this example: 
+With Extensible Stylesheet Language Transformations ([XSLT]](https://en.wikipedia.org/wiki/XSLT)), we can transform one XML document to another document, which does not even necessarily need to be an XML document. XSLT is basically a language which tells a transformation process what output to produce for which element and attribute. Sometimes, there might be two different XML dialects / schemas / namespaces for similar domains, e.g., there could be a `tsignhua:courses` namespace with similar purpose than our declaration in the above example. With XSLT, we could translate one document from `ustc:courses` to `tsinghua:courses`. Or we could translate our document to [HTML](https://en.wikipedia.org/wiki/HTML), i.e., we could translate our raw data to a web site. This is what we do with this example: 
 
 1. [courses2html.xslt](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/xml/courses2html.xslt)
 1. [courseWithNamespace.xml](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/xml/courseWithNamespace.xml)
 1. [course.html](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/xml/course.html) (the result of the transformation)
+
+The actual transformation needs to be performed by a program and [XSLTTransform.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/java/src/XSLTTransform.java) is such a program.

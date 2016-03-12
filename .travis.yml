@@ -19,18 +19,25 @@ cache:
 # custom build step
 script:
    - currentDir=`pwd`
+# compile the sockets examples for Java and Linux
    - cd "$currentDir/sockets/java/src"
    - javac *.java
    - cd "$currentDir/sockets/c"
    - chmod 777 make_linux.sh
    - ./make_linux.sh
+# compile the Java Servlets
    - cd "$currentDir/javaServlets"
    - mvn clean compile war:war
+# compile the JavaServer Pages
    - cd "$currentDir/javaServerPages/examples"
    - mvn clean compile war:war
    - cd "$currentDir/javaServerPages/standAloneJSPsWithJetty"
    - mvn clean compile package
+# compile the Java RMI examples
    - cd "$currentDir/javaRMI/src"
+   - javac *.java
+# compile the Java examples for XML processing
+   - cd "$currentDir/xml/java/src"
    - javac *.java
 
 before_install:
