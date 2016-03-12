@@ -53,6 +53,8 @@ As we learn in the lesson, the memory layout of even primitive data types and st
 
 We therefore use Java's [`DataInputStream`](http://docs.oracle.com/javase/7/docs/api/java/io/DataInputStream.html)/[`DataOutputStream`](http://docs.oracle.com/javase/7/docs/api/java/io/DataOutputStream.html) API to realize a small calculator client-server application. The client sends an operation name (`add` or `sub`) and two 64 bit long integers to the server. The server computes the result and sends it back. The application uses TCP port 9996 and the client connects to the local host.
 
+This program is also a very simple [client/server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) application which shows the basic concept of [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC): A client sends the identifier of a method it wishes to be executed, along with its parameters, (marshalled) to an RPC server. The server reads the method it, unmarshalls the parameters, invokes the method, and sends back the results. Of course, this is done by fancy frameworks and all, but the basic idea is this simple.
+
 1. [TCPClientStructuredData.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/TCPClientStructuredData.java)
 1. [TCPServerStructuredData.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/TCPServerStructuredData.java)
 
@@ -108,10 +110,3 @@ Different from the normal client/server structure, the client here does the work
 
 1. [PiClient.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PiClient.java)
 1. [PiServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PiServer.java)
-
-## 1.14. PrimitiveRPCClient/PrimitiveRPCServer
-
-A very simple [client/server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) application which shows the basic concept of [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC): A client sends the identifier of a method it wishes to be executed, along with its parameters, (marshalled) to an RPC server. The server reads the method it, unmarshalls the parameters, invokes the method, and sends back the results. Of course, this is done by fancy frameworks and all, but the basic idea is this simple.
-
-1. [PrimitiveRPCClient.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PrimitiveRPCClient.java)
-1. [PrimitiveRPCServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PrimitiveRPCServer.java)
