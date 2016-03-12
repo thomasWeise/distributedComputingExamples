@@ -4,9 +4,9 @@
 
 Here I provide the source codes of the examples that I use in my distributed computing course.
 
-1. [sockets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/)
-  1. in [c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c)
-  2. in [java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java)
+1. [Sockets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/)
+  1. in [C](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c)
+  2. in [Java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java)
 
 2. [HTML, CSS, and JavaScript](http://github.com/thomasWeise/distributedComputingExamples/tree/master/html/)
 

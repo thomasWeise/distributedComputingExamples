@@ -96,3 +96,8 @@ The following steps are for Linux, but under Windows it will be pretty much the 
   a. [http://localhost:8080/myServlets/HelloWorld](http://localhost:8080/myServlets/HelloWorld)
   b. [http://localhost:8080/myServlets/RequestData](http://localhost:8080/myServlets/RequestData)
   c. [http://localhost:8080/myServlets/SessionData](http://localhost:8080/myServlets/SessionData)
+  
+  
+## 3. Stand-alone Java Servlets?
+
+In the [stand-alone JSPs](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/standAloneJSPsWithJetty) example in the [JavaServer Pages](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/) example set, I describe how stand-alone JavaServer Pages (JSPs) can be built with Jetty. These are JSPs which do not need to be deployed but where the whole application server is packaged into one `jar` archive also including the JSPs. You just need to start this `jar` to get the application running. Of course, you can modify this example to serve Java Servlets instead rather easily
