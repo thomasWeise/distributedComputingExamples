@@ -99,7 +99,7 @@ If you import this project in [Eclipse](http://www.eclipse.org), it may first sh
 6. Now the structure of the project in the `package view` should slightly change, the project will be re-compiled, and the errors should disappear.
 
 
-## 2.2. Build Project in Eclipse
+### 2.2. Build Project in Eclipse
 
 Now you can actually build the project, i.e., generate a [`war`](https://en.wikipedia.org/wiki/WAR_file_format_%28Sun%29) file that you can deploy in a [servlet container](https://en.wikipedia.org/wiki/Web_container). For building this `war`, take the following steps:
 
@@ -118,9 +118,9 @@ Now you can actually build the project, i.e., generate a [`war`](https://en.wiki
 13. The build will start, you will see its status output in the console window.
 14. The folder `target` will contain a file `myJSPs.war` after the build. This is the deployable archive with our application.
 
-## 2.3. Deploy
+### 2.3. Deploy
 
-### 2.3.1. Deploy to GlassFish
+#### 2.3.1. Deploy to GlassFish
 
 [GlassFish](https://glassfish.java.net/) is a reference implementation of a Java EE 7 application server.
 
