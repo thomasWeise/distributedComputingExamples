@@ -8,7 +8,7 @@ public class SAXReaderExampleValidating extends DefaultHandler { //derive new cl
     SAXParserFactory factory = SAXParserFactory.newInstance();
     factory.setValidating(true); // validate the document
     factory.newSAXParser()
-           .parse("../xml/courseWithNamespaceAndSchemaLocation.xml", // parse the course document 
+           .parse("../xml/courseWithNamespaceAndSchemaLocation.xml", // parse the document 
                   new SAXReaderExampleValidating());     
   }
   
