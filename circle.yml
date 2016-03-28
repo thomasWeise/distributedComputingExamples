@@ -7,6 +7,7 @@ machine:
 # Install the newest version of ant.
   pre:
 # make sure GCC is installed
+  - sudo apt-get -q -y -f autoclean
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
   - sudo apt-get -q -y -f install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686
