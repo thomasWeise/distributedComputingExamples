@@ -9,6 +9,8 @@ machine:
 # make sure GCC is installed
   - sudo rm -rf /var/cache/apt/archives/lock
   - sudo mkdir /var/cache/apt/archives/
+  - sudo rm -rf /var/cache/apt/archives/partial/
+  - sudo mkdir /var/cache/apt/archives/partial/ 
   - sudo apt-get -q -y -f autoclean
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
