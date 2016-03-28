@@ -8,6 +8,7 @@ machine:
   pre:
 # make sure GCC is installed
   - sudo rm -rf /var/cache/apt/archives/lock
+  - sudo mkdir /var/cache/apt/archives/
   - sudo apt-get -q -y -f autoclean
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
