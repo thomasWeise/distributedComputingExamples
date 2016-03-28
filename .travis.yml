@@ -22,8 +22,10 @@ script:
 
 before_install:
 # make sure GCC is installed
+  - sudo apt-get -q -y autoclean
   - sudo apt-get -q -y -f update
-  - sudo apt-get -q -y -f install gcc gcc-mingw-w64-i686
+  - sudo apt-get -q -y -f install
+  - sudo apt-get -q -y -f install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686
 # fix for buffer overflows in getLocalHostName
 # https://github.com/travis-ci/travis-ci/issues/5227
   - cat /etc/hosts # optionally check the content *before*
