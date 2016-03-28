@@ -10,9 +10,9 @@ currentDir=`pwd`
 echo "We now build all the socket examples."
 
 cd "$currentDir/c"
-"$currentDir/c/make_linux.sh"
+"$currentDir/c/make_linux_and_windows.sh"
 
 cd "$currentDir/java"
-"$currentDir/java/make_linux_and_windows.sh"
+"$currentDir/java/make_linux.sh"
 
 echo "Successfully finished building all the socket examples."
