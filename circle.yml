@@ -1,0 +1,37 @@
+##
+## Build with CircleCI
+##
+## https://circleci.com/gh/thomasWeise/distributedComputingExamples
+#
+machine:
+# Install the newest version of ant.
+  pre:
+# make sure GCC is installed
+  - sudo apt-get -q -y -f update
+  - sudo apt-get -q -y -f install gcc  
+  environment:
+# We set the environment variable JAVA_OPTS to reduce
+# the memory footprint in order to prevent unexpected
+# test termination.
+    JAVA_OPTS: -Xms1536m -Xmx1536m
+    MAVEN_OPTS: -Xms1536m -Xmx1536m
+    _JAVA_OPTIONS: -Xms1536m -Xmx1536m
+    
+    
+# We do nothing here.
+dependencies:
+  override:
+    - echo "Nothing"
+      
+# We set a high timeout to prevent the test from being
+# terminated unexpectedly.
+test:
+  override:
+   - ./make_linux.sh
+        timeout: 10000
+        
+# The branches to be ignored
+general:
+  branches:
+    ignore:
+      - gh-pages

@@ -18,7 +18,6 @@ cache:
 
 # custom build step
 script:
-   - chmod 777 make_linux.sh
    - ./make_linux.sh
 
 before_install:
