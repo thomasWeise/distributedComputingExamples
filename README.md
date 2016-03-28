@@ -1,7 +1,6 @@
 # Examples for Distributed Computing
 
 [<img alt="Travis CI Build Status" src="https://img.shields.io/travis/thomasWeise/distributedComputingExamples/master.svg" height="20"/>](https://travis-ci.org/thomasWeise/distributedComputingExamples/)
-[<img alt="CircleCI Build Status" src="https://img.shields.io/circleci/project/thomasWeise/distributedComputingExamples.svg" height="20"/>](https://circleci.com/gh/thomasWeise/distributedComputingExamples)
 [<img alt="Shippable Build Status" src="https://img.shields.io/shippable/56d905429d043da07b368422.svg" height="20"/>](https://app.shippable.com/projects/56d905429d043da07b368422)
 
 Here I provide the source codes of the examples that I use in my distributed computing course.
