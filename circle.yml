@@ -28,7 +28,6 @@ dependencies:
 test:
   override:
    - ./make_linux.sh
-        timeout: 10000
         
 # The branches to be ignored
 general:
