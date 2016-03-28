@@ -65,7 +65,7 @@ echo "Now killing axis2 $axisVersion process $axisProcess and sub-processes."
 function killtree {
   echo "Now sending STOP to process '$1'."
   kill -STOP "$1" &
-  sleep 5
+  sleep 15
   ps -e -o pid= -o ppid= | while read -r pid ppid
                            do
                              [[ $ppid = $1 ]] || continue
@@ -73,7 +73,7 @@ function killtree {
                            done
   echo "Now sending CONT to process '$1'."
   kill -CONT "$1" &
-  sleep 5         
+  sleep 15         
   echo "Now sending TERM to process '$1'."
   kill -TERM "$1" || true
 }

@@ -8,7 +8,7 @@ machine:
   pre:
 # make sure GCC is installed
   - sudo apt-get -q -y -f update
-  - sudo apt-get -q -y -f install gcc  
+  - sudo apt-get -q -y -f install gcc gcc-mingw-w64-i686
   environment:
 # We set the environment variable JAVA_OPTS to reduce
 # the memory footprint in order to prevent unexpected

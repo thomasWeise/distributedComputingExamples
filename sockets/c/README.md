@@ -45,7 +45,7 @@ The program codes whose file names end with `_linux.c` are the [Linux](https://e
     
 You will get an executable named `fileName_linux`.
  
-For your convenience, you can build all Linux examples directly by executing `make_linux.sh`. (You may need to `chmod +x make_linux.sh` first.)
+For your convenience, you can build all Linux examples directly by executing [`make_linux.sh`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/make_linux.sh). (You may need to `chmod +x make_linux.sh` first.)
 
 ### 2.2. Microsoft Windows
 
@@ -55,7 +55,7 @@ The program codes whose file names end with `_windows.c` are the [Microsoft Wind
 
 The "`-lws2_32`" at the end states that we link against [Winsock](https://en.wikipedia.org/wiki/Winsock), the Windows socket implementation. Such a compilation will result in a corresponding `.exe` executable file. 
 
-For your convenience, you can build all Windows examples directly by executing `make_windows_mingw.bat`.
+For your convenience, you can build all Windows examples directly by executing For your convenience, you can build all Linux examples directly by executing [`make_windows_mingw.bat`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/make_windows_mingw.bat).
 
 #### 2.2.1. Installing MinGW
 
@@ -67,3 +67,19 @@ To use [GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) under Window
 4. Open the system control and add the following directories to `PATH` environment variables 
    1. `C:\MinGW\msys\1.0\bin`
    2. `C:\MinGW\bin`
+   
+### 2.3. Linux and Windows (under Linux)
+
+In Linux, we can relatively easily [cross-compile](https://en.wikipedia.org/wiki/Cross_compiler) for Windows.
+For this, we need to install [MinGW](http://mingw.org/) under Linux, namely do `sudo apt-get install gcc-mingw-w64-i686`.
+Then, we can simply replace the `gcc` in the windows commands with `gcc-mingw-w64-i686`, i.e., do
+
+    gcc-mingw-w64-i686 fileName_windows.c -o fileName_windows.exe -lws2_32
+
+instead of
+
+    gcc fileName_windows.c -o fileName_windows.exe -lws2_32
+   
+and we are good.
+
+For your convenience, you can build all Linux and Windows examples directly by executing [`make_linux_and_windows.sh`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c/make_linux_and_windows.sh). (You may need to `chmod +x make_linux_and_windows.sh` first.)

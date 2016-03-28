@@ -1,7 +1,7 @@
 ##
 ## Build with Shippable
 ##
-## https://app.shippable.com/projects/??
+## https://app.shippable.com/projects/56d905429d043da07b368422
 #
 #
 language: java
@@ -18,6 +18,8 @@ before_install:
   - if [[ $SHIPPABLE_JDK_VERSION == "openjdk6" ]] ; then export JAVA_HOME="/usr/lib/jvm/java-6-openjdk-amd64"; export PATH="$PATH:/usr/lib/jvm/java-6-openjdk-amd64/bin"; export java_path="/usr/lib/jvm/java-6-openjdk-amd64/jre/bin/java"; fi
   - if [[ $SHIPPABLE_JDK_VERSION == "oraclejdk8" ]] ; then export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; export PATH="$PATH:/usr/lib/jvm/java-8-oracle/bin"; export java_path="/usr/lib/jvm/java-8-oracle/jre/bin/java"; fi
   - update-alternatives --set java $java_path
+  - shippable_retry sudo apt-get -q -y -f update
+  - shippable_retry sudo apt-get -y gcc gcc-mingw-w64-i686
   
 # install override
 install:

@@ -13,6 +13,6 @@ cd "$currentDir/c"
 "$currentDir/c/make_linux.sh"
 
 cd "$currentDir/java"
-"$currentDir/java/make_linux.sh"
+"$currentDir/java/make_linux_and_windows.sh"
 
 echo "Successfully finished building all the socket examples."
