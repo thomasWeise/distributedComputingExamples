@@ -7,6 +7,7 @@ machine:
 # Install the newest version of ant.
   pre:
 # make sure GCC is installed
+  - sudo rm -rf /var/cache/apt/archives/lock
   - sudo apt-get -q -y -f autoclean
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
