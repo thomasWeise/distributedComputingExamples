@@ -58,6 +58,10 @@ hs_err_pid*
 /.gradle
 /dependency-reduced-pom.xml
 
+#helloWorld
+/helloWorld/helloWorld
+/helloWorld/helloWorld.exe
+
 ## sockets
 ## Linux Builds of C examples
 /sockets/c/TCPClient_linux
@@ -90,10 +94,26 @@ hs_err_pid*
 /javaRMI/bin/
 /javaRMI/.classpath
 
-
 ## XML
 /xml/java/target/
 /xml/java/temp/
 /xml/java/tmp/
 /xml/java/bin/
 /xml/java/.classpath
+
+## web services
+### warehouse server example
+/webServices/warehouse/server/target/
+/webServices/warehouse/server/temp/
+/webServices/warehouse/server/tmp/
+/webServices/warehouse/server/bin/
+/webServices/warehouse/server/.classpath
+#
+### warehouse client example
+/webServices/warehouse/client/target/
+/webServices/warehouse/client/temp/
+/webServices/warehouse/client/tmp/
+/webServices/warehouse/client/bin/
+/webServices/warehouse/client/.classpath
+/webServices/warehouse/client/src/main/java/warehouseClient/WarehouseServiceCallbackHandler.java
+/webServices/warehouse/client/src/main/java/warehouseClient/WarehouseServiceStub.java

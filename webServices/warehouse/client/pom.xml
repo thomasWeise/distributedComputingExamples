@@ -1,0 +1,215 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>thomasWeise</groupId>
+	<artifactId>warehouseClient</artifactId>
+	<version>0.8.0</version>
+	<packaging>jar</packaging>
+	<name>Warehouse Service Client</name>
+	<description>The client part of the warehouse web service example.</description>
+
+	<url>http://www.it-weise.de/</url>
+	<organization>
+		<url>http://www.it-weise.de/</url>
+		<name>thomasWeise</name>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>thomasWeise</id>
+			<name>Thomas Weise</name>
+			<email>tweise@ustc.edu.cn</email>
+			<url>http://www.it-weise.de/</url>
+			<organization>University of Science and Technology of China (USTC)</organization>
+			<organizationUrl>http://www.ustc.edu.cn/</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>China Time Zone</timezone>
+		</developer>
+	</developers>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<jdk.version>1.7</jdk.version>
+		<axis2.version>1.6.3</axis2.version>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</name>
+			<url>http://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<issueManagement>
+		<url>https://github.com/thomasWeise/distributedComputingExamples/issues</url>
+		<system>GitHub</system>
+	</issueManagement>
+
+	<scm>
+		<connection>scm:git:git@github.com:thomasWeise/distributedComputingExamples.git</connection>
+		<developerConnection>scm:git:git@github.com:thomasWeise/distributedComputingExamples.git</developerConnection>
+		<url>git@github.com:thomasWeise/distributedComputingExamples.git</url>
+	</scm>
+
+	<inceptionYear>2016</inceptionYear>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-transport-local</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-transport-http</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-codegen</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>warehouseClient</finalName>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.axis2</groupId>
+										<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+										<versionRange>[${axis2.version},)</versionRange>
+										<goals>
+											<goal>wsdl2code</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${encoding}</encoding>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+
+
+
+			<plugin>
+				<groupId>org.apache.axis2</groupId>
+				<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+				<version>${axis2.version}</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>wsdl2code</goal>
+						</goals>
+						<configuration>
+							<packageName>warehouseClient</packageName>
+							<wsdlFile>http://localhost:8080/axis2/services/WarehouseService?wsdl</wsdlFile>
+							<databindingName>adb</databindingName>
+							<skipWSDL>true</skipWSDL>
+							<skipBuildXml>true</skipBuildXml>
+							<generateServerSide>false</generateServerSide>
+							<targetSourceFolderLocation>../../../../src/main/java</targetSourceFolderLocation>
+							<targetResourcesFolderLocation>../../../../src/main/resources</targetResourcesFolderLocation>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.axis2</groupId>
+						<artifactId>axis2</artifactId>
+						<version>${axis2.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- This one is for building the fat jar. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+
+							<minimizeJar>false</minimizeJar>
+							<shadedArtifactAttached>true</shadedArtifactAttached>
+							<createDependencyReducedPom>false</createDependencyReducedPom>
+							<finalName>warehouseClient-full</finalName>
+
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+
+							<transformers>
+								<!-- <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"> 
+									<mainClass>${project.mainClass}</mainClass> </transformer> -->
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer" />
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.PluginXmlResourceTransformer" />
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

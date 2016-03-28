@@ -5,6 +5,7 @@
 	<groupId>thomasWeise</groupId>
 	<artifactId>standAloneJSPsWithJetty</artifactId>
 	<version>0.0.8</version>
+  <packaging>jar</packaging>
 	<name>Stand-Alone JSPs with Jetty</name>
 	<description>An example for creating a stand-alone jar file to serve Java Server Pages (JSPs) and Java Servlets with Jetty.</description>
 
