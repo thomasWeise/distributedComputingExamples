@@ -71,7 +71,13 @@ To use [GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) under Window
 ### 2.3. Linux and Windows (under Linux)
 
 In Linux, we can relatively easily [cross-compile](https://en.wikipedia.org/wiki/Cross_compiler) for Windows.
-For this, we need to install [MinGW](http://mingw.org/) under Linux, namely do `sudo apt-get install gcc-mingw-w64-i686`.
+For this, we need to install [MinGW](http://mingw.org/) under Linux, namely do `sudo apt-get install gcc-mingw-w64-i686`. In some environments, installing this package directly and alone may fail. This is the case, for instance, in the [shippable](https://app.shippable.com/projects/56d905429d043da07b368422) build environment). There, and in many cases, this can be fixed by the following steps. If one of them fails, that is OK as long as the last line (the `install`) passes.
+
+1. sudo apt-get -q -y autoclean
+2. sudo apt-get -f install
+3. sudo apt-get -q -y update
+4. sudo apt-get -q -y install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686  
+
 Then, we can simply replace the `gcc` in the windows commands with `gcc-mingw-w64-i686`, i.e., do
 
     gcc-mingw-w64-i686 fileName_windows.c -o fileName_windows.exe -lws2_32
