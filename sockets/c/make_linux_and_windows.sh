@@ -6,7 +6,7 @@ set -o errtrace  # trace ERR through 'time command' and other functions
 set -o nounset   # set -u : exit the script if you try to use an uninitialised variable
 set -o errexit   # set -e : exit the script if any statement returns a non-true return value
 
-echo "Building socket examples in C for Linux."
+echo "Building socket examples in C for Linux and Windows."
 
 rm -f TCPClient_linux
 rm -f TCPServer_linux
@@ -28,4 +28,4 @@ i686-w64-mingw32-gcc TCPServer_windows.c -o TCPServer_windows.exe -lws2_32
 i686-w64-mingw32-gcc UDPClient_windows.c -o UDPClient_windows.exe -lws2_32
 i686-w64-mingw32-gcc UDPServer_windows.c -o UDPServer_windows.exe -lws2_32
 
-echo "Finished building socket examples in C for Linux."
+echo "Finished building socket examples in C for Linux and Windows."
