@@ -5,7 +5,6 @@
 	<groupId>thomasWeise</groupId>
 	<artifactId>warehouseServer</artifactId>
 	<version>0.8.0</version>
-	<packaging>aar</packaging>
 	<name>Warehouse Server</name>
 	<description>The server part of the warehouse web service example.</description>
 
