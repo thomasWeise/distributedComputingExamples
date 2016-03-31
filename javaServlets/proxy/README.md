@@ -29,27 +29,27 @@ In this example, we implement a HTTP Servlet which acts as a [HTTP Proxy Server]
      
 A HTTP proxy server therefore needs to do the following things:
 
-1. For each incoming HTTP connection `A` (from a client such as a web browser), read all
+1. For each incoming HTTP connection `A` (from a client such as a web browser),
 
    1. (re)construct the original URL that the client originally wanted, including
    2. the "parameters" of the URL, if any, i.e., the [query string](https://en.wikipedia.org/wiki/Query_string) and
-   3. read the [HTTP header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) and adapt them to what our proxy can support (may we cannot allow [https://en.wikipedia.org/wiki/HTTP_persistent_connection](persisten connections), as in this example)
+   3. read the [HTTP header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) and adapt them to what our proxy can support (maybe we cannot allow [persistent connections](https://en.wikipedia.org/wiki/HTTP_persistent_connection)), as in this example)
    
 2. If the request cannot be satisfied directly, open a new HTTP connection `B` to the host indicated by the original URL and
    
-   1. send the query from the original URL.
+   1. send the query from the original URL and
    2. forward the HTTP header fields from the original request coming from the browser (which is necessary to include, for instance, [cookies](https://en.wikipedia.org/wiki/HTTP_cookie) needed to enable sessions)
    
 3. From the connection `B` read the answer, including  
 
    1. the [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes),
-   2. the [HTTP header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
-   3. the [message body](https://en.wikipedia.org/wiki/HTTP_message_body), the actual resource requested by the browser in step 1, e.g., a HTML page or an image
+   2. the [HTTP header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), and
+   3. the [message body](https://en.wikipedia.org/wiki/HTTP_message_body), i.e., the actual resource requested by the browser in step 1, e.g., a HTML page or an image
   
 4. Then it will forward these elements read from connection `B` via connection `A` back to the client, i.e.,
 
-  1. the HTTP status code
-  2. the HTTP header fields (this includes, e.g., cookies sent from the server to web browser to establish a session)
+  1. the HTTP status code,
+  2. the HTTP header fields (this includes, e.g., cookies sent from the server to web browser to establish a session), and
   3. the actual message body
 
 This way, the proxy server can act more or less transparently: After the browser is configured to send its request to the proxy instead of the actual hosts, all further HTTP interactions take place entirely unchanged and in the same way as if there was no proxy.
