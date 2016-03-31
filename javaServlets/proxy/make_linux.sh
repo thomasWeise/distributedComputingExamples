@@ -7,12 +7,14 @@ set -o nounset   # set -u : exit the script if you try to use an uninitialised v
 set -o errexit   # set -e : exit the script if any statement returns a non-true return value
 
 currentDir=`pwd`
-echo "We now build all the Java Servlet examples."
+echo "We now build the Java-Servlet based Proxy."
 
-cd "$currentDir/examples"
-"$currentDir/examples/make_linux.sh"
+rm -rf target
+mvn clean compile package
+rm -rf target/generated-sources
+rm -rf target/maven-archiver
+rm -rf target/maven-status
+rm -rf target/proxy.jar
+rm -rf target/proxy-0.0.8-full.jar
 
-cd "$currentDir/proxy"
-"$currentDir/proxy/make_linux.sh"
-
-echo "Successfully finished building all the Java Servlet examples."
+echo "Successfully finished building the Java-Servlet based Proxy."

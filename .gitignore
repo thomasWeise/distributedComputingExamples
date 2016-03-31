@@ -72,20 +72,32 @@ hs_err_pid*
 /sockets/java/bin
 
 ## javaServlets
-/javaServlets/target/
-/javaServlets/temp/
-/javaServlets/tmp/
-/javaServlets/bin/
-/javaServlets/.classpath
+### examples
+/javaServlets/examples/target/
+/javaServlets/examples/temp/
+/javaServlets/examples/tmp/
+/javaServlets/examples/bin/
+/javaServlets/examples/.classpath
+### proxy
+/javaServlets/proxy/target/
+/javaServlets/proxy/temp/
+/javaServlets/proxy/tmp/
+/javaServlets/proxy/bin/
+/javaServlets/proxy/.classpath
 
 ## javaServerPages
-/javaServlets/temp/
-/javaServlets/tmp/
+### examples
 /javaServerPages/examples/target/
 /javaServerPages/examples/temp/
 /javaServerPages/examples/tmp/
 /javaServerPages/examples/bin/
 /javaServerPages/examples/.classpath
+### standAloneJSPsWithJetty
+/javaServerPages/standAloneJSPsWithJetty/target/
+/javaServerPages/standAloneJSPsWithJetty/temp/
+/javaServerPages/standAloneJSPsWithJetty/tmp/
+/javaServerPages/standAloneJSPsWithJetty/bin/
+/javaServerPages/standAloneJSPsWithJetty/.classpath
 
 ## javaRMI
 /javaRMI/target/
@@ -108,7 +120,6 @@ hs_err_pid*
 /webServices/warehouse/server/tmp/
 /webServices/warehouse/server/bin/
 /webServices/warehouse/server/.classpath
-#
 ### warehouse client example
 /webServices/warehouse/client/target/
 /webServices/warehouse/client/temp/

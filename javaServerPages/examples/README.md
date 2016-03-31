@@ -118,6 +118,10 @@ Now you can actually build the project, i.e., generate a [`war`](https://en.wiki
 13. The build will start, you will see its status output in the console window.
 14. The folder `target` will contain a file `myJSPs.war` after the build. This is the deployable archive with our application.
 
+## 2.3. Building under Linux without Eclipse
+
+Under Linux, you can also simply run `make_linux.sh` in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
+
 ### 2.3. Deploy
 
 #### 2.3.1. Deploy to GlassFish

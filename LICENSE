@@ -1,8 +1,14 @@
+This work has purely educational purposes.
+Besides everything mentioned below, for anything in this repository, I
+impose one additional licensing condition: The code must never be used
+for anything which might violate the laws of Germany, China, or the USA.
+This also holds for any other file or resource provided here.
+
 The examples in this repository are licensed under the GNU GENERAL
 PUBLIC LICENSE Version 3, 29 June 2007, with the exception of everything
-in the directory /javaServerPages/standAloneJSPsWithJetty, which is
-licensed under the Apache License v2.0
-(http://www.opensource.org/licenses/apache2.0.php) and which is
+in the directories /javaServerPages/standAloneJSPsWithJetty and
+/javaServlets/proxy, which is licensed under the Apache License v2.0
+(http://www.opensource.org/licenses/apache2.0.php) and which is parially
 derived from project embedded-jetty-jsp
 (https://github.com/jetty-project/embedded-jetty-jsp) with copyright (c)
 1995-2013 Mort Bay Consulting Pty. Ltd.

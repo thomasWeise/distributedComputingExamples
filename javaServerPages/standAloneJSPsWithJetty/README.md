@@ -6,7 +6,7 @@
 
 This small project is an example for how you can build a "fat" `jar` which includes both the JSPs *and* the servlet container (Jetty). This `jar` is stand-alone, i.e., you can directly run the `jar` and access the server page without any installation or deployment.
 
-You can compile it with [Maven](http://maven.apache.org/) with goals `compile` and `package`. As result, you will get the `standAloneJSPs-full.jar`, which you can run via `java -jar standAloneJSPs-full.jar` without any additional requirements. It will then start the internal servlet container and then a browser to visit the entry page. In other words, different from our [deployable JSP examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples), you do not need a servlet container.
+You can compile it with [Maven](http://maven.apache.org/) with goals `compile` and `package`. As result, you will get the `standAloneJSPs-full.jar`, which you can run via `java -jar standAloneJSPs-full.jar` without any additional requirements. It will then start the internal servlet container and then a browser to visit the entry page. In other words, different from our [deployable JSP examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/examples), you do not need a servlet container. This is similar to what we did in the [HTTP Proxy Servlet](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/proxy) example.
 
 ## 2. Building and Deployment
 
@@ -44,6 +44,10 @@ Now you can actually build the project, i.e., generate a [`jar`](https://en.wiki
 12. Click `Run`
 13. The build will start, you will see its status output in the console window.
 14. The folder `target` will contain a file `standAloneJSPs-full.jar` after the build. This is the executable archive with our application.
+
+## 2.3. Building under Linux without Eclipse
+
+Under Linux, you can also simply run `make_linux.sh` in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
 
 ## 3. License
 
