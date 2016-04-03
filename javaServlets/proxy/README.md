@@ -2,7 +2,9 @@
 
 ## 1. Introduction
 
-[Java Servlets](https://en.wikipedia.org/wiki/Java_Servlet) are an API for accessing the [HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol). A servlet extends the class [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) and implements a handler method for each [HTTP Request Method](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) it supports. The servlet runs in a special server, a servlet container.
+### 1.1. Java Servlets
+
+[Java Servlets](https://en.wikipedia.org/wiki/Java_Servlet) are an API for accessing the [HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol). A servlet extends the class [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) and implements a handler method for each [HTTP Request Method](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) it supports. The servlet runs in a special server, a servlet container. Here we introduce a Java Servlet which works as a HTTP Proxy server.
 
 ### 1.1. HTTP Proxy Server
 
@@ -58,15 +60,26 @@ This way, the proxy server can act more or less transparently: After the browser
 
 ### 2.1. Connection A
 
-In Java, the Java Servlet API takes the burden of HTTP interaction from us - for the connection called `A` in the above discussion. A servlet container can accept incoming HTTP connections, read all the header fields and query parameters for us, and allows us to send back a HTTP response for which we can again set arbitrary header fields, status codes, and send arbitrary contents.
+In Java, the Java Servlet API takes the burden of HTTP interaction from us - for the connection called `A` in the above discussion. A servlet container can accept *incoming* HTTP connections, read all the header fields and query parameters for us, and allows us to send back a HTTP response for which we can again set arbitrary header fields, status codes, and send arbitrary contents.
 
 ### 2.2. Connection B
 
-This leaves us to establish another connection from our proxy to the host and to acquire the resource the client (web browser) was actually looking for. For this, we can use the class [`URLConnection`](http://docs.oracle.com/javase/7/docs/api/java/net/URLConnection.html) provided by standard Java, which can be instantiated via an [`URL`](http://docs.oracle.com/javase/7/docs/api/java/net/URL.html) object. This class allows us to open a reading connection to the host identified by the host part of a URL and to query the resource targeted by the URL without much hassle. We can also set header fields for the HTTP request to be send and read header fields from the HTTP response received. If the URL [uses the HTTP protocol](https://en.wikipedia.org/wiki/URI_scheme#Syntax) (as it should, after all, we implement a HTTP proxy), the URL object will actually create a [HttpURLConnection](http://docs.oracle.com/javase/7/docs/api/java/net/HttpURLConnection.html) which furthermore allows us to read HTTP status codes from the HTTP response. As we need to construct the original query URL anyway, we might as well do it as instance of the `URL` class. Then we can use the provided `HttpURLConnection` and can fulfill all the immediate necessities of communication with the host hosting the requested resource. Hence, together with the elements from the previous section, we can build all the required functionality.
+This leaves us to establish another *(outgoing)* connection from our proxy to the actual host identified by the URL and to acquire the resource the client (web browser) was actually looking for. For this, we can use the class [`URLConnection`](http://docs.oracle.com/javase/7/docs/api/java/net/URLConnection.html) provided by standard Java, which can be instantiated via an [`URL`](http://docs.oracle.com/javase/7/docs/api/java/net/URL.html) object. This class allows us to open a reading connection to the host identified by the host part of a URL and to query the resource targeted by the URL without much hassle. We can also set header fields for the HTTP request to be send and read header fields from the HTTP response received. If the URL [uses the HTTP protocol](https://en.wikipedia.org/wiki/URI_scheme#Syntax) (as it should, after all, we implement a HTTP proxy), the URL object will actually create an instance of [HttpURLConnection](http://docs.oracle.com/javase/7/docs/api/java/net/HttpURLConnection.html). `HttpURLConnection` is a sub-class of `URLConnection` which allows us to additionally read the HTTP status code from the HTTP response (coming back from the actual host).
 
-### 2.3. Building the Proxy: Stand Alone!
+As we need to construct the original query URL anyway, we might as well do it as instance of the `URL` class. Then we can use the provided `HttpURLConnection` and can fulfill all the immediate necessities of communication with the host hosting the requested resource. Hence, together with the elements from the previous section, we can build all the required functionality.
 
-We now can build a servlet that implements all necessary proxy functionality. This servlet will be able to accept an incoming connection (from a web browser), read the query parameters and HTTP header fields, forward them appropriately to the actually queried host, and send back that host's answer to the web browser. We would configure this servlet to serve at the base URI of the servlet container, i.e., directly at URL `/`. Then we can specify the IP address and port as HTTP proxy of the servlet container in our web browsers. If the proxy runs on our local machine, this could be `127.0.0.1:8080`, for instance.
+### 2.3. Building the Proxy
+
+We now can build a servlet that implements all necessary proxy functionality. This servlet will be able to accept an incoming connection (from a web browser), read the query parameters and HTTP header fields, forward them appropriately to the actually queried host, and send back that host's answer to the web browser:
+
+1. Connection `A`: The web browser opens a TCP connection to the servlet container (instead of its real target host). Over this TCP connection, it sends a HTTP request. The servlet container translates the request to appropriate objects and invokes the corresponding handler methods of our Java servlet.
+2. Connection `B`: Our servlet reconstructs the URL that the browser has requested. Using the `URL` object, we instantiate an `URLConnection` (which actually is a `HttpURLConnection`). We set all the header fields which the browser has sent in the original request from connection `A` also for this connection (except stuff like `keep-alive` for connections and other things we cannot support). We open the new connection `B`, which means we establish a TCP connection to the real server and send the new HTTP request to that server.
+3. The server answers us and sends a HTTP response back via connection `B` to our proxy. Our proxy reads the HTTP status code, all header fields, and the response body, i.e., the actual web page or resource sent to us.
+4. In the response of our servlet, we use the object `HttpServletResponse` provided by the servlet container to forward all header fields and the HTTP status code and the HTTP response body coming from the actual server back to the web browser. 
+
+We would configure this servlet to serve at the base URI of the servlet container, i.e., directly at URL `/`. Then we can specify the IP address and port as HTTP proxy of the servlet container in our web browsers. If the proxy runs on our local machine, this could be `127.0.0.1:8080`, for instance.
+
+### 2.4. Make it Stand-Alone!
 
 Normally, in order to get your servlet to run, you deploy it into a servlet container, like [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty/), or [JBoss](http://www.jboss.org/). This means you have to install the servlet container. But using a servlet container with its architecture of servlet deployment and all seems a bit too much and too complex here.
 
