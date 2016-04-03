@@ -352,7 +352,7 @@ public class ProxyServlet extends HttpServlet {
     final Enumeration<String> headerNames;
     final HttpURLConnection httpConnection;
     int field, status;
-    String name;
+    String name, value;
 
     url = ProxyServlet.makeURL(request);
 
@@ -397,10 +397,22 @@ public class ProxyServlet extends HttpServlet {
     response.setContentType(connection.getContentType());
 
     // forward header fields from the web server to the browser
-    field = 0;
-    while ((name = connection.getHeaderFieldKey(field)) != null) {
+    for (field = 0; //
+    (name = connection.getHeaderFieldKey(field)) != null; //
+    ++field) {
+      if ("Content-Length".equalsIgnoreCase(name)) { //$NON-NLS-1$
+        continue; // let servlet container handler it
+      }
+      if ("Content-MD5".equalsIgnoreCase(name)) { //$NON-NLS-1$
+        continue; // let servlet container handler it
+      }
+      value = connection.getHeaderField(field);
+      if ("Transfer-Encoding".equalsIgnoreCase(name)) { //$NON-NLS-1$
+        if ("chunked".equalsIgnoreCase(value)) {//$NON-NLS-1$
+          continue; // let servlet container handler it
+        }
+      }
       response.setHeader(name, connection.getHeaderField(field));
-      ++field;
     }
 
     if ((status / 100) != 2) {
