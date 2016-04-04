@@ -34,6 +34,8 @@ Since I also use the same code in my slides, there are some special comments suc
 
 ## 2. Software Requirements
 
+For each example, I explicitly list the required software and discuss how it can be obtained and installed. Here I give an overview over these software components.
+
 ### 2.1. Java JDK
 
 Most of the examples I provide are written in the Java programming language and can run under arbitrary systems, given that Java is installed. In order to compile them, you need a [Java JDK](https://en.wikipedia.org/wiki/Java_Development_Kit) installed. My examples require [Java 7](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_7) or later.
@@ -65,6 +67,14 @@ For running some of the [Java Servlets](http://github.com/thomasWeise/distribute
 ### 2.5. Apache Axis2/Java
 
 For running the [Web Service](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/) examples, you will need to download [Apache Axis2/Java](http://axis.apache.org/axis2/java/core/) from the corresponding [download page](http://axis.apache.org/axis2/java/core/download.html). I recommend using at least Axis2 1.7.1.
+
+### 2.6. GCC and Libraries
+
+In order to compile the examples written in the C programming language (such as the C-based [sockets examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c)), you will need a C compiler such as GCC. Under Linux, it should normally be already installed and can otherwise be installed via `sudo apt-get install gcc`. Under Windows, you will need to install [MinGW](http://mingw.org/), usually via the [web installer](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download).
+
+#### 2.6.1. Cross-Compiling for Windows under Linux
+
+Several of the C examples come for Windows or Linux. GCC allows you to cross-compile, i.e., if you are using Linux, you can compile C programs for Windows. For this purpose, you would first install `sudo apt-get install gcc-mingw-w64-i686` and then can use the command `gcc-mingw-w64-i686` in the same way you would use `gcc` under MinGW.
 
 ## 3. Licensing
 
