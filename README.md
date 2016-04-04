@@ -48,7 +48,23 @@ Several of my Java examples are built with [Maven](https://en.wikipedia.org/wiki
 
 Under Windows, you need to download and install Maven from the [Apache website](http://maven.apache.org/download.cgi).
 
-Under Linux, you would do `sudo apt-get install maven`. 
+Under Linux, you would do `sudo apt-get install maven`.
+
+If you are using Eclipse (see below), you do not need to install Maven as it is already integrated into Eclipse.
+
+### 2.3. Eclipse 
+
+I recommend [Eclipse](http://www.eclipse.org) as developer environment for all the Java examples in this repository. Each Java example actually comes already with an Eclipse `.project` file and with Eclipse `.settings`. Eclipse integrates both Maven and git. This means you can clone this repository from within Eclipse and directly import the Jave projects during this process. If you then right-click the Maven projects and choosen `Maven` -> `Update Project...`, Eclipse will also download and use all required libraries and dependencies as specified by the Maven `pom.xml` for you.
+
+You can download Eclipse from the [Eclipse website](http://www.eclipse.org). I recommend to use at least Eclipse Mars.1 for its excellent Maven and git support.
+
+### 2.4. GlassFish Server
+
+For running some of the [Java Servlets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/) and [JavaServer Pages](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/) examples, you need to download the [GlassFish Server](https://glassfish.java.net/) from the corresponding [download website](https://glassfish.java.net/download.html). I recommend using at least GlassFish 4.1.1.
+
+### 2.5. Apache Axis2/Java
+
+For running the [Web Service](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/) examples, you will need to download [Apache Axis2/Java](http://axis.apache.org/axis2/java/core/) from the corresponding [download page](http://axis.apache.org/axis2/java/core/download.html). I recommend using at least Axis2 1.7.1.
 
 ## 3. Licensing
 
