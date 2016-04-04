@@ -54,6 +54,9 @@ echo "Axis2 server is up and running."
 echo "We can now build the examples."
 
 cd "$currentDir"
+cd "$currentDir/textClient"
+"$currentDir/textClient/make_linux.sh"
+
 cd "$currentDir/warehouse"
 "$currentDir/warehouse/make_linux.sh"
 

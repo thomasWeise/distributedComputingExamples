@@ -128,3 +128,11 @@ hs_err_pid*
 /webServices/warehouse/client/.classpath
 /webServices/warehouse/client/src/main/java/warehouseClient/WarehouseServiceCallbackHandler.java
 /webServices/warehouse/client/src/main/java/warehouseClient/WarehouseServiceStub.java
+### text client example
+/webServices/textClient/target/
+/webServices/textClient/temp/
+/webServices/textClient/tmp/
+/webServices/textClient/bin/
+/webServices/textClient/.classpath
+/webServices/textClient/src/main/java/textClient/TextCasingCallbackHandler.java
+/webServices/textClient/src/main/java/textClient/TextCasingStub.java

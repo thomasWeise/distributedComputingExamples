@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>thomasWeise</groupId>
-	<artifactId>warehouseClient</artifactId>
+	<artifactId>textClient</artifactId>
 	<version>0.8.0</version>
 	<packaging>jar</packaging>
-	<name>Warehouse Service Client</name>
-	<description>The client part of the warehouse web service example.</description>
+	<name>Text Casing Service Client</name>
+	<description>A client for the text casing service offered by Data Access Worldwide.</description>
 
 	<url>http://www.it-weise.de/</url>
 	<organization>
@@ -37,6 +37,7 @@
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
 		<axis2.version>1.6.3</axis2.version>
+		<project.mainClass>textClient.TestClient</project.mainClass>
 	</properties>
 
 	<licenses>
@@ -140,8 +141,8 @@
 							<goal>wsdl2code</goal>
 						</goals>
 						<configuration>
-							<packageName>warehouseClient</packageName>
-							<wsdlFile>http://localhost:8080/axis2/services/WarehouseService?wsdl</wsdlFile>
+							<packageName>textClient</packageName>
+							<wsdlFile>http://www.dataaccess.com/webservicesserver/textcasing.wso?WSDL</wsdlFile>
 							<databindingName>adb</databindingName>
 							<skipWSDL>true</skipWSDL>
 							<skipBuildXml>true</skipBuildXml>
@@ -176,7 +177,7 @@
 							<minimizeJar>false</minimizeJar>
 							<shadedArtifactAttached>true</shadedArtifactAttached>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
-							<finalName>warehouseClient-full</finalName>
+							<finalName>textClient-full</finalName>
 
 							<filters>
 								<filter>
@@ -190,6 +191,10 @@
 							</filters>
 
 							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>${project.mainClass}</mainClass>
+								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
 								<transformer
