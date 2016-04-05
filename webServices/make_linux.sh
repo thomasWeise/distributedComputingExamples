@@ -60,6 +60,9 @@ cd "$currentDir/textClient"
 cd "$currentDir/warehouse"
 "$currentDir/warehouse/make_linux.sh"
 
+cd "$currentDir/calculator"
+"$currentDir/calculator/make_linux.sh"
+
 echo "Finished building the examples."
 
 echo "Now killing axis2 $axisVersion process $axisProcess and sub-processes."

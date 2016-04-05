@@ -136,3 +136,17 @@ hs_err_pid*
 /webServices/textClient/.classpath
 /webServices/textClient/src/main/java/textClient/TextCasingCallbackHandler.java
 /webServices/textClient/src/main/java/textClient/TextCasingStub.java
+### calculator server example
+/webServices/calculator/server/target/
+/webServices/calculator/server/temp/
+/webServices/calculator/server/tmp/
+/webServices/calculator/server/bin/
+/webServices/calculator/server/.classpath
+### calculator client example
+/webServices/calculator/client/target/
+/webServices/calculator/client/temp/
+/webServices/calculator/client/tmp/
+/webServices/calculator/client/bin/
+/webServices/calculator/client/.classpath
+/webServices/calculator/client/src/main/java/calculatorClient/CalculatorCallbackHandler.java
+/webServices/calculator/client/src/main/java/calculatorClient/CalculatorStub.java

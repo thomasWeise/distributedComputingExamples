@@ -1,0 +1,18 @@
+<service name="Calculator" scope="application">
+  <description>A simple calculator service.</description>
+
+  <beanMapping qname="ns:complex" xmlns:ns="ustc:calculator"
+    languageSpecificType="calculator.Complex"/>
+
+	<messageReceivers>
+		<messageReceiver mep="http://www.w3.org/ns/wsdl/in-only"
+			class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+
+		<messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+			class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+	</messageReceivers>
+
+  <parameter name="ServiceClass">
+    calculator.Calculator
+  </parameter>
+</service>
