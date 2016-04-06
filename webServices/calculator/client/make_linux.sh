@@ -15,6 +15,6 @@ mvn clean compile package
 rm -rf target/generated-sources
 rm -rf target/maven-archiver
 rm -rf target/maven-status
-rm -rf target/warehouseClient.jar
+rm -rf target/calculatorClient.jar
 
 echo "Successfully finished building the calculator service client."

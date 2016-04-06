@@ -11,12 +11,12 @@ public class TestClient {
     Multiply mul = new CalculatorStub.Multiply();
 
     m = new Complex();
-    m.setRealPart(10);
-    m.setImaginaryPart(10);
+    m.setRealPart(3);
+    m.setImaginaryPart(11);
 
     n = new Complex();
-    n.setRealPart(10);
-    n.setImaginaryPart(10);
+    n.setRealPart(5);
+    n.setImaginaryPart(7);
 
     mul.setX(m);
     mul.setY(n);

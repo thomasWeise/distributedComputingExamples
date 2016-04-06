@@ -11,7 +11,7 @@
     
     <h2>Rate this Course</h2>
     <form method="get">    
-      <p>If ratingInt that this course is:</p>
+      <p>Give a rating how you like this course:</p>
       <table border="1">
         <tr>
           <td bgcolor="#ff0000">rubbish, makes no sense<input type="radio" name="rating" value="1" /></td>          
@@ -29,15 +29,15 @@
   
     <%  String  rating = request.getParameter("rating"); //get the "GET" parameter, i.e., the form result
         int     ratingInt   = -1;
-        if (rating != null) {          
-          try {
-            ratingInt = Integer.parseInt(rating);
+        if (rating != null) {//if the page is not loaded because of form submit, rating will be null      
+          try { //only if submit was clicked, we get here
+            ratingInt = Integer.parseInt(rating); //check if rating is int (as it should be)
           } catch (Exception e) {
             ratingInt = -1;
           }
             
-          if ((ratingInt >= 1) && (ratingInt <= ratings.length)) {
-            synchronized(this) {
+          if ((ratingInt >= 1) && (ratingInt <= ratings.length)) { //a valid rating was cast
+            synchronized(this) { //synchronized update and read of member variables
             ratings[ratingInt - 1]++;
             ratingsCount++;
     %>

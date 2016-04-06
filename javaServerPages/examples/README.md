@@ -118,17 +118,17 @@ Now you can actually build the project, i.e., generate a [`war`](https://en.wiki
 13. The build will start, you will see its status output in the console window.
 14. The folder `target` will contain a file `myJSPs.war` after the build. This is the deployable archive with our application.
 
-## 2.3. Building under Linux without Eclipse
+### 2.3. Building under Linux without Eclipse
 
 Under Linux, you can also simply run `make_linux.sh` in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
 
-### 2.3. Deploy
+### 2.4. Deploy
 
-#### 2.3.1. Deploy to GlassFish
+#### 2.4.1. Deploy to GlassFish
 
 [GlassFish](https://glassfish.java.net/) is a reference implementation of a Java EE 7 application server.
 
-##### 2.3.1.1. Install GlassFish
+##### 2.4.1.1. Install GlassFish
 
 The following steps are for Linux, but under Windows it will be pretty much the same.
 
@@ -142,7 +142,7 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 8. Under Windows, a window may pop up asking you for allowing the program internet access permission, which you should OK.
 9. Open your web browser and visit its configuration page at [`http://localhost:4848`](http://localhost:4848).
 
-##### 2.3.1.2. Deploy `war` to GlassFish
+##### 2.4.1.2. Deploy `war` to GlassFish
 
 1. Find the file `myServlets.war` in the folder `target` of this example project.
 2. Copy it into the folder `F/glassfish4/glassfish/domains/domain1`.
