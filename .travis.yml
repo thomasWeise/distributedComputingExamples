@@ -23,6 +23,7 @@ script:
 before_install:
 # make sure GCC is installed
   - sudo apt-get -q -y autoclean
+  - sudo echo "deb http://us.archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
   - sudo apt-get -q -y -f install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686 mpich libmpich-dev
