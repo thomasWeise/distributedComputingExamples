@@ -198,5 +198,5 @@ We basically now create the environment variable on the fly when starting the se
 3. In your web browser, visit [`http://localhost:8080`](http://localhost:8080).
 4. The service should now be listed on the web page. If you click it, you can get the automatically-generated WSDL, e.g.,
 
-  a. [http://localhost:8080/axis2/services/Calculator?wsdl](http://localhost:8080/axis2/services/Calculator?wsdl)
-  b. [http://localhost:8080/axis2/services/WarehouseService?wsdl](http://localhost:8080/axis2/services/WarehouseService?wsdl)
+  1. [http://localhost:8080/axis2/services/Calculator?wsdl](http://localhost:8080/axis2/services/Calculator?wsdl)
+  2. [http://localhost:8080/axis2/services/WarehouseService?wsdl](http://localhost:8080/axis2/services/WarehouseService?wsdl)

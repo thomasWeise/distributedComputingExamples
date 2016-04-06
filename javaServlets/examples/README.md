@@ -98,9 +98,9 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 5. It should list `myServlets`. If you click this menu point, you get a list of the installed servlets.
 6. You can access the servlets as follows
 
-  a. [http://localhost:8080/myServlets/HelloWorld](http://localhost:8080/myServlets/HelloWorld)
-  b. [http://localhost:8080/myServlets/RequestData](http://localhost:8080/myServlets/RequestData)
-  c. [http://localhost:8080/myServlets/SessionData](http://localhost:8080/myServlets/SessionData)
+  1. [http://localhost:8080/myServlets/HelloWorld](http://localhost:8080/myServlets/HelloWorld)
+  2. [http://localhost:8080/myServlets/RequestData](http://localhost:8080/myServlets/RequestData)
+  3. [http://localhost:8080/myServlets/SessionData](http://localhost:8080/myServlets/SessionData)
   
   
 ## 3. Stand-alone Java Servlets?
