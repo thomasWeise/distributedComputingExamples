@@ -30,5 +30,8 @@ cd "$currentDir/xml"
 cd "$currentDir/webServices"
 "$currentDir/webServices/make_linux.sh"
 
+cd "$currentDir/mpi"
+"$currentDir/mpi/make_linux.sh"
+
 
 echo "Successfully finished building the examples in directory'$currentDir'."

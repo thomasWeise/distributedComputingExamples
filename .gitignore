@@ -68,6 +68,11 @@ hs_err_pid*
 /sockets/c/TCPServer_linux
 /sockets/c/UDPClient_linux
 /sockets/c/UDPServer_linux
+## Windows Builds of C examples
+/sockets/c/TCPClient_windows.exe
+/sockets/c/TCPServer_windows.exe
+/sockets/c/UDPClient_windows.exe
+/sockets/c/UDPServer_windows.exe
 ## Java
 /sockets/java/bin
 
@@ -150,3 +155,10 @@ hs_err_pid*
 /webServices/calculator/client/.classpath
 /webServices/calculator/client/src/main/java/calculatorClient/CalculatorCallbackHandler.java
 /webServices/calculator/client/src/main/java/calculatorClient/CalculatorStub.java
+
+
+## MPI
+### Linux Builds of C examples
+mpi/bareBones
+## Windows Builds of C examples
+mpi/bareBones.exe

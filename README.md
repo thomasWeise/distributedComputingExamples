@@ -29,6 +29,8 @@ Distributed systems surround us everywhere today. Their most prominent example i
   
 7. [Web Services](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/)
   
+8. [Message Passing Interface](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/)
+  
 
 Each of the above links leads you to a sub-directory containing a set of examples. Each sub-directory has an own `README.md` file with detailed descriptions.
 

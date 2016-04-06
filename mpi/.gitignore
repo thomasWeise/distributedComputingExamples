@@ -58,14 +58,8 @@ hs_err_pid*
 /.gradle
 /dependency-reduced-pom.xml
 
-## sockets
+## MPI
 ## Linux Builds of C examples
-TCPClient_linux
-TCPServer_linux
-UDPClient_linux
-UDPServer_linux
+bareBones
 ## Windows Builds of C examples
-TCPClient_windows.exe
-TCPServer_windows.exe
-UDPClient_windows.exe
-UDPServer_windows.exe
+bareBones.exe

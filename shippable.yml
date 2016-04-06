@@ -20,7 +20,7 @@ before_install:
   - update-alternatives --set java $java_path
   - shippable_retry sudo apt-get -q -y autoclean
   - shippable_retry sudo apt-get -q -y update
-  - shippable_retry sudo apt-get -q -y install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686
+  - shippable_retry sudo apt-get -q -y install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686 mpich libmpich-dev
   
 # install override
 install:
