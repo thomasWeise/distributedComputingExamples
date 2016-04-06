@@ -27,6 +27,8 @@ Distributed systems surround us everywhere today. Their most prominent example i
   1. [examples for XML documents and related standards](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/xml)
   1. [examples for XML processing with Java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/java)
   
+7. [Web Servuces](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/)
+  
 
 Each of the above links leads you to a sub-directory containing a set of examples. Each sub-directory has an own `README.md` file with detailed descriptions.
 
