@@ -150,5 +150,6 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 4. Click `Applications` in the menu pane on the right.
 5. It should list `myJSPs`. If you click this menu point, you get a list of the installed servlets.
 6. You can access the JavaServer Pages as follows
+
   a. [http://localhost:8080/myJSPs/index.jsp](http://localhost:8080/myJSPs/index.jsp)
   b. [http://localhost:8080/myJSPs/greetings.jsp](http://localhost:8080/myJSPs/greetings.jsp)

@@ -97,6 +97,7 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 4. Click `Applications` in the menu pane on the right.
 5. It should list `myServlets`. If you click this menu point, you get a list of the installed servlets.
 6. You can access the servlets as follows
+
   a. [http://localhost:8080/myServlets/HelloWorld](http://localhost:8080/myServlets/HelloWorld)
   b. [http://localhost:8080/myServlets/RequestData](http://localhost:8080/myServlets/RequestData)
   c. [http://localhost:8080/myServlets/SessionData](http://localhost:8080/myServlets/SessionData)

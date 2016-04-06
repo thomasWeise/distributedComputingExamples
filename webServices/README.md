@@ -175,7 +175,7 @@ Under Linux, we can solve this in a rather crude way, by editing the server star
 2. Scroll to the second line, right after `#!/bin/sh`.
 3. Insert `export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))`
 4. Save and close the file.
-5. Try again `./axis2-server.sh`, now it should work.
+5. Try again to execute `./axis2-server.sh`, now it should work.
 
 We basically now create the environment variable on the fly when starting the server.
 
@@ -187,15 +187,16 @@ Under Windows, we can solve this in a similar crude way, by editing the server s
 2. Scroll to the end of the fist line (the one with `@echo off`) and press enter.
 3. Insert `SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0_66`, where `C:\Program Files\Java\jdk1.8.0_66` is to be replaced with the installation folder of your JDK. You can find this folder by going into `C:\Program Files\Java` with the Explorer and searching for something looking like a JDK.  
 4. Save and close the file.
-5. Try again `./axis2-server.bat`, now it should work.
+5. Try again to execute `axis2-server.bat`, now it should work.
 
 We basically now create the environment variable on the fly when starting the server.
 
 ##### 2.5.3. Deploy `aar` to Axis2
 
 1. Find the `aar` archive of your Web Service server component. This will usually be in the folder `target` of the example projects.
-2. Copy it into the folder `F/axis2-1.7.1/repositories/services`.
+2. Copy it into the folder `F/axis2-1.7.1/repositories/services` (where, again, `1.7.1` is to be replaced by your actual Axis2 version).
 3. In your web browser, visit [`http://localhost:8080`](http://localhost:8080).
 4. The service should now be listed on the web page. If you click it, you can get the automatically-generated WSDL, e.g.,
+
   a. [http://localhost:8080/axis2/services/Calculator?wsdl](http://localhost:8080/axis2/services/Calculator?wsdl)
   b. [http://localhost:8080/axis2/services/WarehouseService?wsdl](http://localhost:8080/axis2/services/WarehouseService?wsdl)
