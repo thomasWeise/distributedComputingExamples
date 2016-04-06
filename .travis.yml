@@ -23,16 +23,31 @@ script:
 before_install:
 # make sure GCC is installed
   - sudo apt-get -q -y autoclean
-  - sudo echo "deb http://us.archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
-  - sudo apt-get -q -y -f install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686 mpich libmpich-dev
+  - sudo apt-get -q -y -f install gcc binutils-mingw-w64-i686 gcc-mingw-w64-i686
 # fix for buffer overflows in getLocalHostName
 # https://github.com/travis-ci/travis-ci/issues/5227
   - cat /etc/hosts # optionally check the content *before*
   - sudo hostname "$(hostname | cut -c1-63)"
   - sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts | sudo tee /etc/hosts
-  - cat /etc/hosts # optionally check the content *after*  
+  - cat /etc/hosts # optionally check the content *after*
+# Install MPICH
+  - if [ ! -d "${HOME}/mpich" ]; then
+  - wget --no-check-certificate -q http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+  - tar -xzf mpich-3.2.tar.gz
+  - cd mpich-3.2
+  - mkdir build && cd build
+  - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich
+  - make -j2
+  - make install
+  - else
+  - echo "MPICH installed..."
+  - find ${HOME}/mpich -name mpiexec
+  - find ${HOME}/mpich -name mpicc
+  - fi
+
+
   
 # prevent Maven from running
 install:
