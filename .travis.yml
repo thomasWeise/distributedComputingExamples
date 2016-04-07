@@ -41,12 +41,9 @@ before_install:
   - tar -xzf mpich-$mpichVersion.tar.gz
   - cd mpich-$mpichVersion
   - mkdir build && cd build
-  - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich --disable-fortran --disable-romio
-  - make -j2
-  - make install
-  - chmod 777 "$currentDir/mpich-$mpichVersion/build/src/env/mpicc.sh"
-  - sudo ln "$currentDir/mpich-$mpichVersion/build/src/env/mpicc.sh" /usr/bin/mpicc 
-  - sudo cp $currentDir/mpich-$mpichVersion/src/include/*.* /usr/local/include 
+  - sudo ../configure CC=$CC CXX=$CXX --disable-fortran --disable-romio
+  - sudo make -j2
+  - sudo make install 
   - cd "$currentDir"
   
 # prevent Maven from running
