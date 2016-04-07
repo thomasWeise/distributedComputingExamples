@@ -33,11 +33,12 @@ before_install:
   - sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts | sudo tee /etc/hosts
   - cat /etc/hosts # optionally check the content *after*
 # Install MPICH
+# based on https://github.com/travis-ci/apt-package-whitelist/issues/406
   - wget --no-check-certificate -q http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
   - tar -xzf mpich-3.2.tar.gz
   - cd mpich-3.2
   - mkdir build && cd build
-  - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich
+  - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich --disable-fortran
   - make -j2
   - make install
   
