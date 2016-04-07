@@ -22,6 +22,7 @@ script:
 
 before_install:
 # make sure GCC is installed
+  - currentDir=`pwd`
   - sudo apt-get -q -y autoclean
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
@@ -41,7 +42,7 @@ before_install:
   - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich --disable-fortran --disable-romio
   - make -j2
   - make install
-  - cd ..
+  - cd "$currentDir$.
   
 # prevent Maven from running
 install:
