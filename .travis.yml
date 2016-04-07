@@ -32,9 +32,7 @@ before_install:
   - sudo hostname "$(hostname | cut -c1-63)"
   - sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts | sudo tee /etc/hosts
   - cat /etc/hosts # optionally check the content *after*
-# Install MPICH
-# based on https://github.com/travis-ci/apt-package-whitelist/issues/406
-# with extensions to create mpicc via hard link in bin
+# Install MPICH based on https://github.com/travis-ci/apt-package-whitelist/issues/406
   - currentDir=`pwd`
   - mpichVersion=3.2
   - wget --no-check-certificate -q http://www.mpich.org/static/downloads/$mpichVersion/mpich-$mpichVersion.tar.gz
