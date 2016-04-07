@@ -35,6 +35,7 @@ before_install:
   - cat /etc/hosts # optionally check the content *after*
 # Install MPICH
 # based on https://github.com/travis-ci/apt-package-whitelist/issues/406
+# with extensions to create mpicc via hard link in bin
   - wget --no-check-certificate -q http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
   - tar -xzf mpich-3.2.tar.gz
   - cd mpich-3.2
@@ -42,6 +43,8 @@ before_install:
   - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich --disable-fortran --disable-romio
   - make -j2
   - make install
+  - chmod 777 "$currentDir/mpich-3.2/build/src/env/mpicc.sh"
+  - sudo ln "$currentDir/mpich-3.2/build/src/env/mpicc.sh" /usr/bin/mpicc 
   - cd "$currentDir"
   
 # prevent Maven from running
