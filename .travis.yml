@@ -22,7 +22,6 @@ script:
 
 before_install:
 # make sure GCC is installed
-  - currentDir=`pwd`
   - sudo apt-get -q -y autoclean
   - sudo apt-get -q -y -f update
   - sudo apt-get -q -y -f install
@@ -36,6 +35,7 @@ before_install:
 # Install MPICH
 # based on https://github.com/travis-ci/apt-package-whitelist/issues/406
 # with extensions to create mpicc via hard link in bin
+  - currentDir=`pwd`
   - mpichVersion=3.2
   - wget --no-check-certificate -q http://www.mpich.org/static/downloads/$mpichVersion/mpich-$mpichVersion.tar.gz
   - tar -xzf mpich-$mpichVersion.tar.gz
@@ -46,7 +46,7 @@ before_install:
   - make install
   - chmod 777 "$currentDir/mpich-$mpichVersion/build/src/env/mpicc.sh"
   - sudo ln "$currentDir/mpich-$mpichVersion/build/src/env/mpicc.sh" /usr/bin/mpicc 
-  - cp $currentDir/mpich-$mpichVersion/src/include/*.* /usr/local/include 
+  - sudo cp $currentDir/mpich-$mpichVersion/src/include/*.* /usr/local/include 
   - cd "$currentDir"
   
 # prevent Maven from running
