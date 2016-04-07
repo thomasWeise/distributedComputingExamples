@@ -72,13 +72,19 @@ For running some of the [Java Servlets](http://github.com/thomasWeise/distribute
 
 For running the [Web Service](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/) examples, you will need to download [Apache Axis2/Java](http://axis.apache.org/axis2/java/core/) from the corresponding [download page](http://axis.apache.org/axis2/java/core/download.html). I recommend using at least Axis2 1.7.1.
 
-### 2.6. GCC and Libraries
+### 2.6. GCC
 
 In order to compile the examples written in the C programming language (such as the C-based [sockets examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c)), you will need a C compiler such as GCC. Under Linux, it should normally be already installed and can otherwise be installed via `sudo apt-get install gcc`. Under Windows, you will need to install [MinGW](http://mingw.org/), usually via the [web installer](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download).
 
-#### 2.6.1. Cross-Compiling for Windows under Linux
+### 2.7. Cross-Compiling for Windows under Linux with GCC
 
 Several of the C examples come for Windows or Linux. GCC allows you to cross-compile, i.e., if you are using Linux, you can compile C programs for Windows. For this purpose, you would first install `sudo apt-get install gcc-mingw-w64-i686` and then can use the command `gcc-mingw-w64-i686` in the same way you would use `gcc` under MinGW.
+
+### 2.8. MPICH
+
+In order to build and compile our [examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/) for using the Message Passing Interface (MPI), we need an MPI implementation. We choose MPICH.
+
+Under Linux, you can install the required files via `sudo apt-get install mpich libmpich-dev`.
 
 ## 3. Licensing
 
