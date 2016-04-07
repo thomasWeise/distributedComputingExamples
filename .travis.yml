@@ -42,7 +42,7 @@ before_install:
   - ../configure CC=$CC CXX=$CXX --prefix=${HOME}/mpich --disable-fortran --disable-romio
   - make -j2
   - make install
-  - cd "$currentDir".
+  - cd "$currentDir"
   
 # prevent Maven from running
 install:
