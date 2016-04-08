@@ -1,6 +1,6 @@
 package shopping;
 
-import java.io.Serializable; import java.util.ArrayList; import java.util.LinkedHashMap;
+import java.io.Serializable; import java.util.ArrayList;
 
 public class Cart implements Serializable {
   private ArrayList<String> contents; // the item list
