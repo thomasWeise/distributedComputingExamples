@@ -110,3 +110,5 @@ Different from the normal client/server structure, the client here does the work
 
 1. [PiClient.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PiClient.java)
 1. [PiServer.java](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/java/src/PiServer.java)
+
+[Here](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/piPointToPoint.c) you can find a C implementation for computing Pi in a similar fashion by using the [Message Passing Interface](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/).

@@ -158,7 +158,36 @@ hs_err_pid*
 
 
 ## MPI
-### Linux Builds of C examples
+## Linux Builds of C examples
 mpi/bareBones
+mpi/basicInfo
+mpi/simplePointToPoint1
+mpi/simplePointToPoint2
+mpi/piPointToPoint
+mpi/deadlock
+mpi/nonBlockingPointToPoint
+mpi/piNonBlockingPointToPoint
+mpi/broadcast
+mpi/gatherScatterBareBones
+mpi/gatherScatterPrimes
+mpi/piGatherScatter
+mpi/reducePrimes
+mpi/structTest
+mpi/structScatter
 ## Windows Builds of C examples
 mpi/bareBones.exe
+mpi/basicInfo.exe
+mpi/simplePointToPoint1.exe
+mpi/simplePointToPoint2.exe
+mpi/piPointToPoint.exe
+mpi/simplePtP2.exe
+mpi/deadlock.exe
+mpi/nonBlockingPointToPoint.exe
+mpi/piNonBlockingPointToPoint.exe
+mpi/broadcast.exe
+mpi/gatherScatterBareBones.exe
+mpi/gatherScatterPrimes.exe
+mpi/piGatherScatter.exe
+mpi/reducePrimes.exe
+mpi/structTest.exe
+mpi/structScatter.exe

@@ -61,5 +61,34 @@ hs_err_pid*
 ## MPI
 ## Linux Builds of C examples
 bareBones
+basicInfo
+simplePointToPoint1
+simplePointToPoint2
+piPointToPoint
+deadlock
+nonBlockingPointToPoint
+piNonBlockingPointToPoint
+broadcast
+gatherScatterBareBones
+gatherScatterPrimes
+piGatherScatter
+reducePrimes
+structTest
+structScatter
 ## Windows Builds of C examples
 bareBones.exe
+basicInfo.exe
+simplePointToPoint1.exe
+simplePointToPoint2.exe
+piPointToPoint.exe
+simplePtP2.exe
+deadlock.exe
+nonBlockingPointToPoint.exe
+piNonBlockingPointToPoint.exe
+broadcast.exe
+gatherScatterBareBones.exe
+gatherScatterPrimes.exe
+piGatherScatter.exe
+reducePrimes.exe
+structTest.exe
+structScatter.exe
