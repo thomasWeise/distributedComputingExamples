@@ -82,7 +82,7 @@ Several of the C examples come for Windows or Linux. GCC allows you to cross-com
 
 ### 2.8. MPICH
 
-In order to build and compile our [examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/) for using the Message Passing Interface (MPI), we need an MPI implementation. We choose MPICH.
+In order to build and compile our [examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/) for using the Message Passing Interface (MPI), we need an [MPI implementation](https://en.wikipedia.org/wiki/Message_Passing_Interface#Implementations). We choose [MPICH](https://en.wikipedia.org/wiki/MPICH).
 
 Under Linux, you can install the required files via `sudo apt-get install mpich libmpich-dev`.
 
