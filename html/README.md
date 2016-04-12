@@ -2,7 +2,7 @@
 
 Here you can find some _very simple_ examples for [HTML](https://en.wikipedia.org/wiki/HTML), [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), and [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
 
-## 1. example_plain
+## 1. `example_plain`
 
 Just a plain HTML document with an image inside.
 
