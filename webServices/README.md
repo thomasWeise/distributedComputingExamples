@@ -110,7 +110,7 @@ Now you can build the server projects, i.e., generate an [`aar`](http://axis.apa
 13. The build will start, you will see its status output in the console window.
 14. The folder `target` will contain a file `calculatorServer.aar` after the build. This is the deployable archive with our web service.
 
-##### 2.3.2. Bulding a Client (for using a Web Service) in Eclipse
+##### 2.3.2. Building a Client (for using a Web Service) in Eclipse
 
 Now you can actually build the client projects, i.e., generate the normal [`jar`](https://en.wikipedia.org/wiki/JAR_%28file_format%29) which you can directly execute via `java -jar ...`. Please notice that for doing this, you must have the web service running for this build procedure: 
 
