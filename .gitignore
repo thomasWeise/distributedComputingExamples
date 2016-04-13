@@ -109,14 +109,12 @@ hs_err_pid*
 /javaRMI/temp/
 /javaRMI/tmp/
 /javaRMI/bin/
-/javaRMI/.classpath
 
 ## XML
 /xml/java/target/
 /xml/java/temp/
 /xml/java/tmp/
 /xml/java/bin/
-/xml/java/.classpath
 
 ## web services
 ### warehouse server example

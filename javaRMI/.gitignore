@@ -14,7 +14,6 @@ hs_err_pid*
 /target/
 
 # other files, potentially created by build tools
-/.classpath
 /bin
 /classes
 /build
