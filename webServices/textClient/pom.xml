@@ -85,7 +85,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>warehouseClient</finalName>
+		<finalName>textClient</finalName>
 
 		<pluginManagement>
 			<plugins>
