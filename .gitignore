@@ -154,6 +154,20 @@ hs_err_pid*
 /webServices/calculator/client/src/main/java/calculatorClient/CalculatorCallbackHandler.java
 /webServices/calculator/client/src/main/java/calculatorClient/CalculatorStub.java
 
+## JSON RPC
+### calculator server example
+/jsonRPC/calculator/server/target/
+/jsonRPC/calculator/server/temp/
+/jsonRPC/calculator/server/tmp/
+/jsonRPC/calculator/server/bin/
+/jsonRPC/calculator/server/.classpath
+### calculator client example
+/jsonRPC/calculator/client/target/
+/jsonRPC/calculator/client/temp/
+/jsonRPC/calculator/client/tmp/
+/jsonRPC/calculator/client/bin/
+/jsonRPC/calculator/client/.classpath
+
 
 ## MPI
 ## Linux Builds of C examples

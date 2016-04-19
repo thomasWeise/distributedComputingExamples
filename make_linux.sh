@@ -30,6 +30,9 @@ cd "$currentDir/xml"
 cd "$currentDir/webServices"
 "$currentDir/webServices/make_linux.sh"
 
+cd "$currentDir/jsonRPC"
+"$currentDir/jsonRPC/make_linux.sh"
+
 cd "$currentDir/mpi"
 "$currentDir/mpi/make_linux.sh"
 
