@@ -41,3 +41,16 @@ It gets even worse: Asian languages such as Chinese have far more than 256 chara
 Today, [Unicode](https://en.wikipedia.org/wiki/Unicode) assigns one unique number to virtually all characters used anywhere on earth. Via the [UTF-8](https://en.wikipedia.org/wiki/UTF-8), these numbers can efficiently be transformed to variable-length sequences of bytes. This is the [predominant encoding](https://en.wikipedia.org/wiki/File:UnicodeGrow2b.png) now found in the internet.
 
 ### 2.3. Parallelism
+
+Using sockets and being able to properly represent data are the foundations needed to implement correctly working web applications. However, we want these applications to be efficient and fast. Creating a server which, in a loop, accepts an incoming connection, processes it, closes it, then accepts the next one, and so on, will not give us that. Processing a single connection at a time is wasteful for two reasons:
+
+1. Most computers today have multi-core CPUs or hyperthreadding. If we only have a single main loop doing all the work, we use one thread on one core. We waste the chance for parallelizing tasks.
+2. Often, processing an connection may require us to perform additional IO or blocking operations. Maybe we need to read a file and send its contents back via the connection to the client. Such a blocking interaction with the operating system means that we wait for an operation to complete and effectively do nothing while waiting. We could instead already process another connection.
+
+Using multiple threads is an answer. A process, such as our server, may be considered as a container for threads. Usually, such a process has one single main thread. But we can create more threads. All the threads in a process run quasi-parallel and share the same resources. For each incoming connection, we could create a new thread processing this connection. Hence, all connections would be processed in parallel.
+
+This makes the server faster, but, too, is wasteful. First of all, if many users connect at once, we may create many many threads. Since they all share the same actual CPU resources, the fraction of runtime per thread will decrease. Our system gets slower. Second, threads are operating system resources. Creating them takes time and consumes memory. Creating a new thread for each incoming connection and throwing it away after the connection was closed is thus wasteful.
+
+Thread pools are the answer: We create a fixed set of (worker) threads when our server starts. The main loop does no longer process incoming connections directly, but enters them into a queue. If one of worker threads is idle, i.e., has nothing to do, it will try to extract a new connection to be processed from the queue. If the queue was not empty and it got such a new job, it will process the job. After finishing it, it becomes idle again.
+
+Since the number of threads is limited, we cannot run out of memory or resources due to too many connections because of the thread creation, at least. Also, we avoid that too many threads compete for the CPU, as the number of threads is limited. Finally, since we re-use threads again and again instead of creating one for each connection and disposing it afterwards, we also become generally more resource friendly and efficient.
