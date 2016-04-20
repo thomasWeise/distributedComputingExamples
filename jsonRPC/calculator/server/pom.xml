@@ -5,7 +5,7 @@
 	<groupId>thomasWeise</groupId>
 	<artifactId>calculatorJSONServer</artifactId>
 	<version>0.8.0</version>
-  <packaging>war</packaging>
+	<packaging>war</packaging>
 	<name>Calculator Server</name>
 	<description>The server part of the calculator JSON RPC example.</description>
 
@@ -36,7 +36,6 @@
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
-		<axis2.version>1.6.4</axis2.version>
 	</properties>
 
 	<licenses>
@@ -76,11 +75,12 @@
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
 			<version>2.0</version>
-		</dependency> <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.7.2</version>
-  </dependency>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -98,13 +98,6 @@
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.axis2</groupId>
-				<artifactId>axis2-aar-maven-plugin</artifactId>
-				<version>${axis2.version}</version>
-				<extensions>true</extensions>
 			</plugin>
 
 		</plugins>

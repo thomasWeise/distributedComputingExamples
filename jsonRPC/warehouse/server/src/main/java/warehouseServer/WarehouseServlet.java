@@ -1,4 +1,4 @@
-package calculator;
+package warehouseServer;
 
 import java.io.IOException;
 
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.googlecode.jsonrpc4j.JsonRpcServer;
 
-public class CalculatorServlet extends HttpServlet {
+public class WarehouseServlet extends HttpServlet {
 
-  private Calculator service;
+  private Warehouse service;
   private JsonRpcServer jsonRpcServer;
 
   @Override
@@ -29,8 +29,8 @@ public class CalculatorServlet extends HttpServlet {
 
   @Override
   public void init(final ServletConfig config) {
-    this.service = new Calculator();
+    this.service = new Warehouse();
     this.jsonRpcServer = new JsonRpcServer(new ObjectMapper(),
-        this.service, CalculatorInterface.class);
+        this.service, WarehouseInterface.class);
   }
 }

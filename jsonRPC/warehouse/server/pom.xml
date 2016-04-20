@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>thomasWeise</groupId>
-	<artifactId>calculatorJSONClient</artifactId>
+	<artifactId>warehouseJSONServer</artifactId>
 	<version>0.8.0</version>
 	<packaging>jar</packaging>
-	<name>Calculator Service Client</name>
-	<description>The client part of the calculator web service example.</description>
+	<name>Warehouse JSON Server</name>
+	<description>The server part of the warehouse JSON RPC example.</description>
 
 	<url>http://www.it-weise.de/</url>
 	<organization>
@@ -36,7 +36,8 @@
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
-		<project.mainClass>calculatorClient.TestClient</project.mainClass>
+		<jetty.version>9.2.10.v20150310</jetty.version>
+    <project.mainClass>warehouseServer.Main</project.mainClass>
 	</properties>
 
 	<licenses>
@@ -59,17 +60,65 @@
 	</scm>
 
 	<inceptionYear>2016</inceptionYear>
-
 	<dependencies>
+		<!-- Java Servlets -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- Requirements for embedded Jetty. -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-annotations</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<!-- This one seems to be missing in https://github.com/jetty-project/embedded-jetty-jsp/blob/master/pom.xml 
+				- maybe that's a version issue? -->
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>apache-jsp</artifactId>
+			<version>${jetty.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>apache-jstl</artifactId>
+			<version>${jetty.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- JSON RPC -->
 		<dependency>
 			<groupId>com.github.briandilley.jsonrpc4j</groupId>
 			<artifactId>jsonrpc4j</artifactId>
 			<version>1.4.4</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>calculatorJSONClient</finalName>
+		<finalName>warehouseJSONServer</finalName>
 
 		<plugins>
 			<plugin>
@@ -101,7 +150,7 @@
 							<minimizeJar>false</minimizeJar>
 							<shadedArtifactAttached>true</shadedArtifactAttached>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
-							<finalName>calculatorJSONClient-full</finalName>
+							<finalName>warehouseJSONServer-full</finalName>
 
 							<filters>
 								<filter>

@@ -167,6 +167,18 @@ hs_err_pid*
 /jsonRPC/calculator/client/tmp/
 /jsonRPC/calculator/client/bin/
 /jsonRPC/calculator/client/.classpath
+### warehouse server example
+/jsonRPC/warehouse/server/target/
+/jsonRPC/warehouse/server/temp/
+/jsonRPC/warehouse/server/tmp/
+/jsonRPC/warehouse/server/bin/
+/jsonRPC/warehouse/server/.classpath
+### warehouse client example
+/jsonRPC/warehouse/client/target/
+/jsonRPC/warehouse/client/temp/
+/jsonRPC/warehouse/client/tmp/
+/jsonRPC/warehouse/client/bin/
+/jsonRPC/warehouse/client/.classpath
 
 
 ## MPI

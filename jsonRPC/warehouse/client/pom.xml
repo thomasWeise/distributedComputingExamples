@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>thomasWeise</groupId>
-	<artifactId>calculatorJSONClient</artifactId>
+	<artifactId>warehouseJSONClient</artifactId>
 	<version>0.8.0</version>
 	<packaging>jar</packaging>
-	<name>Calculator Service Client</name>
-	<description>The client part of the calculator web service example.</description>
+	<name>Warehouse JSON RPC  Client</name>
+	<description>The client part of the warehouse JSON RPC example.</description>
 
 	<url>http://www.it-weise.de/</url>
 	<organization>
@@ -36,7 +36,7 @@
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
-		<project.mainClass>calculatorClient.TestClient</project.mainClass>
+		<project.mainClass>warehouseClient.WarehouseTest</project.mainClass>
 	</properties>
 
 	<licenses>
@@ -68,8 +68,9 @@
 		</dependency>
 	</dependencies>
 
+
 	<build>
-		<finalName>calculatorJSONClient</finalName>
+		<finalName>warehouseJSONClient</finalName>
 
 		<plugins>
 			<plugin>
@@ -101,7 +102,7 @@
 							<minimizeJar>false</minimizeJar>
 							<shadedArtifactAttached>true</shadedArtifactAttached>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
-							<finalName>calculatorJSONClient-full</finalName>
+							<finalName>warehouseJSONClient-full</finalName>
 
 							<filters>
 								<filter>

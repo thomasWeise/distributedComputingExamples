@@ -7,12 +7,12 @@ set -o nounset   # set -u : exit the script if you try to use an uninitialised v
 set -o errexit   # set -e : exit the script if any statement returns a non-true return value
 
 currentDir=`pwd`
-echo "We now build all the JSON RPC examples."
+echo "We now build the warehouse service and client."
 
-cd "$currentDir/calculator"
-"$currentDir/calculator/make_linux.sh"
+cd "$currentDir/server"
+"$currentDir/server/make_linux.sh"
 
-cd "$currentDir/warehouse"
-"$currentDir/warehouse/make_linux.sh"
+cd "$currentDir/client"
+"$currentDir/client/make_linux.sh"
 
-echo "Successfully finished building all the JSON RPC examples."
+echo "Successfully finished building the warehouse service and client."
