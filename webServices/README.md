@@ -51,6 +51,8 @@ The complex number [calculator](http://github.com/thomasWeise/distributedComputi
 
 You need to compile (via [Maven](http://maven.apache.org/)) and deploy (to [Axis2](http://axis.apache.org/axis2/java/core/)) this web service before you can compile the calculator web service client, the next example below.
 
+A similar example has been provided as [JSON RPC](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/).
+
 ### 1.5. (Complex Number) Calculator Web Service Client
 
 The example client of the calculator web service introduced above creates two complex numbers `3+11i` and `5+7i`, multiplies then with each other, and prints the result. The multiplication is, of course, done by the web service.
@@ -58,6 +60,8 @@ The example client of the calculator web service introduced above creates two co
 In order to build the calculator service client, you need to have the calculator web service running on `localhost` and providing its WSDL [http://localhost:8080/axis2/services/Calculator?wsdl](http://localhost:8080/axis2/services/Calculator?wsdl) (as [Axis2](http://axis.apache.org/axis2/java/core/) does in its default configuration). The reason is that our [Maven](http://maven.apache.org/) [build](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/examples/calculator/client/pom.xml) will use that WSDL to generate two classes, `CalculatorCallbackHandler.java` and `CalculatorStub.java` (which are not part of this repository) during the build process. These classes are needed by the client and without them it won't compile. Hence you will not be able to compile the warehouse service client before compiling and deploying the warehouse web service.
 
 The compiled jar archive is a stand-alone executable which you can run via `java -jar calculatorClient-full.jar`.
+
+A similar example has been provided as [JSON RPC](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/).
 
 ## 2. Building and Deployment
 
