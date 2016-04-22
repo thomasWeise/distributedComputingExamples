@@ -54,7 +54,7 @@ Under Linux, you can also simply run `make_linux.sh` in this project's folder to
 
 ### 2.4. Setting Up a Single-Node Hadoop Cluster
 
-In order to test our example, we now need to set up a single-node hadoop cluster. We therefore follow the guide given at [http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html). Here we provide the installation guide for Hadoop 2.7.2 Linux / Ubuntu.
+In order to test our example, we now need to set up a single-node Hadoop cluster. We therefore follow the guide given at [http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html). Here we provide the installation guide for Hadoop 2.7.2 Linux / Ubuntu.
 
 #### 2.4.1. Download, Unpacking, and Setup
 

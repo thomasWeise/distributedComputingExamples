@@ -120,6 +120,10 @@ In order to build and compile our [examples](http://github.com/thomasWeise/distr
 
 Under Linux, you can install the required files via `sudo apt-get install mpich libmpich-dev`.
 
+### 2.9. Hadoop (also `ssh` and `rsync`)
+
+In order to test our Hadoop examples, we now need to set up a single-node Hadoop cluster. We therefore follow the guide given at [http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html). We need to install pre-requisits such as `ssh` and `rsync`. In the [Hadoop example readme](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/README.md), we provide the installation guide for Hadoop 2.7.2 Linux / Ubuntu. It boils down to downloading and installing Hadoop from one of the mirrors provided at [http://www.apache.org/dyn/closer.cgi/hadoop/common/](http://www.apache.org/dyn/closer.cgi/hadoop/common/), plus following the guidelines of the linked tutorial.
+
 ## 3. Licensing
 
 This work has purely educational purposes. Besides everything mentioned below, for anything in this repository, I impose one additional licensing condition: The code must never be used for anything which might violate the laws of Germany, China, or the USA. This also holds for any other file or resource provided here.
