@@ -215,3 +215,12 @@ mpi/piGatherScatter.exe
 mpi/reducePrimes.exe
 mpi/structTest.exe
 mpi/structScatter.exe
+
+
+## Hadoop
+### word count example
+/hadoop/wwordCount/target/
+/hadoop/wwordCount/temp/
+/hadoop/wwordCount/tmp/
+/hadoop/wwordCount/bin/
+/hadoop/wwordCount/.classpath

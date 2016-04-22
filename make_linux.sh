@@ -36,5 +36,8 @@ cd "$currentDir/jsonRPC"
 cd "$currentDir/mpi"
 "$currentDir/mpi/make_linux.sh"
 
+cd "$currentDir/hadoop"
+"$currentDir/hadoop/make_linux.sh"
+
 
 echo "Successfully finished building the examples in directory'$currentDir'."
