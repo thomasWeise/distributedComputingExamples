@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>thomasWeise</groupId>
-	<artifactId>wordCount</artifactId>
+	<artifactId>webFinder</artifactId>
 	<version>0.8.0</version>
 	<packaging>jar</packaging>
-	<name>Hadoop Word Counting Example</name>
-	<description>The famous word counting example for Hadoop.</description>
+	<name>Web Finder Example</name>
+	<description>An example for finding connections and shared resources from web pages with Hadoop.</description>
 
 	<url>http://www.it-weise.de/</url>
 	<organization>
@@ -36,7 +36,7 @@
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
-<project.mainClass>wordCount.WordCountDriver</project.mainClass>
+		<project.mainClass>webFinder.WebFinderDriver</project.mainClass>
 	</properties>
 
 	<licenses>
@@ -69,7 +69,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>wordCount</finalName>
+		<finalName>webFinder</finalName>
 
 		<plugins>
 			<plugin>
@@ -101,7 +101,7 @@
 							<minimizeJar>false</minimizeJar>
 							<shadedArtifactAttached>true</shadedArtifactAttached>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
-							<finalName>wordCount-full</finalName>
+							<finalName>webFinder-full</finalName>
 
 							<filters>
 								<filter>

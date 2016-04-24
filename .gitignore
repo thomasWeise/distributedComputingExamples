@@ -219,8 +219,14 @@ mpi/structScatter.exe
 
 ## Hadoop
 ### word count example
-/hadoop/wwordCount/target/
-/hadoop/wwordCount/temp/
-/hadoop/wwordCount/tmp/
-/hadoop/wwordCount/bin/
-/hadoop/wwordCount/.classpath
+/hadoop/wordCount/target/
+/hadoop/wordCount/temp/
+/hadoop/wordCount/tmp/
+/hadoop/wordCount/bin/
+/hadoop/wordCount/.classpath
+### web finder example
+/hadoop/webFinder/target/
+/hadoop/webFinder/temp/
+/hadoop/webFinder/tmp/
+/hadoop/webFinder/bin/
+/hadoop/webFinder/.classpath

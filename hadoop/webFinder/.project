@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-  <name>wordCount</name>
-  <comment>The famous word count example for using Hadoop's map reduce.</comment>
+  <name>webFinder</name>
+  <comment>The page speed example for finding interconnections between websites using Hadoop's map reduce.</comment>
   <projects>
   </projects>
   <buildSpec>

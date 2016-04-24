@@ -1,4 +1,4 @@
-package wordCountExample;
+package wordCount;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;

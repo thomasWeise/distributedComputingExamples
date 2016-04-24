@@ -1,4 +1,4 @@
-package wordCountExample;
+package wordCount;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class WordCountMapper
         .split("\\s+")) {
       word = word.trim();
       if (word.length() > 0) {
-        context.write(new Text(word), WordCountMapper.ONE);
+        context.write(new Text(word.toLowerCase()), WordCountMapper.ONE);
       }
     }
   }
