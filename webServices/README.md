@@ -2,6 +2,14 @@
 
 Here you can find examples for using [Web Services](https://en.wikipedia.org/wiki/Web_service). Web services are the basic foundation of many distributed enterprise computing systems and [service-oriented architectures](https://en.wikipedia.org/wiki/Service-oriented_architecture). Since they use the [XML](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/)-based [SOAP](https://en.wikipedia.org/wiki/SOAP) protocol usually over [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol), they can be implemented as Java Servlets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/). How to find and use a given web service is often specified in [WSDL](https://en.wikipedia.org/wiki/Web_Services_Description_Language).
 
+Web services are the primary technology used to build distributed enterprise application systems. A web service is a self-contained, coarse-grained building block of such a system, basically an encapsulated and published application.
+
+Assume that we have an imaginary company. It is easy to see that the software of the human resource (HR) department of a company should interact with the software of its financial department, which, in turn, should interact with the software of the bank where the company has its account. If a new person is hired, the HR department will fill her information into its software system. This should automatically notify the system of the financial department to now pay salary to that new employee. Every month, this software could then invoke a transaction for sending the salary to the new employee in the bank's software. The three software components thus are not something like libraries or simple classes. They are self-contained, each using its own database, and provide high-level functionality. The question how this functionality is provided has the answer "Web Service".
+
+A web service can be invoked with the XML-based SOAP protocol and can be described via WSDL. Frameworks like [Axis2](http://axis.apache.org/axis2/java/core/) can publish the functions of a normal Java class as service routines on the server side. They take care of all necessary communication, e.g., implement [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (or are [Java Servlets](https://en.wikipedia.org/wiki/Java_Servlet)), parse both  XML and SOAP, and (un)mashall data to and from XML/SOAP. For the client side, they can read a WSDL service description and generate corresponding Java classes for invoking the service described in the WSDL.
+
+In a service-oriented architecture ([SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture)), web services encapsulating stand-alone applications form the building blocks of [business processes](https://en.wikipedia.org/wiki/Business_Process). (But this is outside the scope of this example.)
+
 ## 1. Examples
 
 ### 1.1. Warehouse Web Service
