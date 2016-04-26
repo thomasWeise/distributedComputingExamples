@@ -146,14 +146,15 @@ Now you can actually build the imported project(s), i.e., generate a [`jar`](htt
 
 ### 2.3. Building under Linux without Eclipse
 
-Under Linux, you can also simply run <code>make_linux.sh</code> in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
+Under Linux, you can also simply run `make_linux.sh` in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
 
 ### 2.4. Setting Up a Single-Node Hadoop Cluster
 
 In order to test our example, we now need to set up a single-node Hadoop cluster. We therefore follow the guide given at [http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html). Here we provide the installation guide for Hadoop 2.7.2 Linux / Ubuntu.
 
-#### 2.4.1. Download, Unpacking, and Setup
+### 2.4.1. Download, Unpacking, and Setup
 
+Here we discuss how to download and unpack Hadoop. 
 <ol>
 <li>Install prerequisites by running <code>sudo apt-get install ssh rsync</code>.</li>
 <li>Go into a base folder where you want to install Hadoop. Let's call this folder <code>X</code>.<</li>
@@ -204,10 +205,11 @@ For really using Hadoop in a pseudo-distributed fashion on our local computer, w
     </property>
 </configuration>
 </pre></li></ol>
-    
 
 #### 2.4.4. Setup for SSH for Passwordless Connection to Local Host
-        
+
+In order to run Hadoop in a pseudo-distributed fashion, we need to enable passwordless SSH connections to the local host. 
+
 <ol>
 <li>In the terminal, execute <code>ssh localhost</code> to test if you can open a <a href="https://en.wikipedia.org/wiki/Secure_Shell">secure shell</a> connection to your current, local computer <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup_passphraseless_ssh">without needing a password</a>.
 </li>
