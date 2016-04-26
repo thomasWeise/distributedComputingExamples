@@ -185,25 +185,25 @@ For really using Hadoop in a pseudo-distributed fashion on our local computer, w
 <li>Enter the directory <code>X/hadoop-2.7.2/etc</code> in order to create the basic <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Configuration">configuration</a>.</li>
 <li>Open the file <code>core-site.xml</code> in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
 <pre>
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<configuration>
-    <property>
-        <name>fs.defaultFS</name>
-        <value>hdfs://localhost:9000</value>
-    </property>
-</configuration>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
 </pre></li>
 <li>Open the file <code>hdfs-site.xml</code> in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
 <pre>
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<configuration>
-    <property>
-        <name>dfs.replication</name>
-        <value>1</value>
-    </property>
-</configuration>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
 </pre></li></ol>
 
 <h4>2.4.4. Setup for SSH for Passwordless Connection to Local Host</h4>
