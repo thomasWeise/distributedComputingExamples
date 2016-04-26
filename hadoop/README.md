@@ -161,7 +161,7 @@ Here we discuss how to download and unpack Hadoop.
 <li>Download Hadoop from one of the mirrors provided at <a href="http://www.apache.org/dyn/closer.cgi/hadoop/common/">http://www.apache.org/dyn/closer.cgi/hadoop/common/</a>. I choose <a href="http://www-eu.apache.org/dist/hadoop/common/">http://www-eu.apache.org/dist/hadoop/common/</a> and from there <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/">hadoop-2.7.2</a> from where I download <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz">hadoop-2.7.2.tar.gz</a> into <code>X</code>. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
 <li>Once <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz">hadoop-2.7.2.tar.gz</a> has fully been downloaded, I either can do <code>Extract Here</code> in the file explorer or <code>tar -xf hadoop-2.7.2.tar.gz</code> in the terminal window to extract the archive.</li>
 <li>A new folder named <code>X/hadoop-2.7.2</code> should have appeared. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
-<li>In order to run Hadoop, you  must have <code>JAVA_HOME</code> set correctly. Open the file <code>X/etc/hadoop/hadoop-env.sh</code>. Find the line <code>export JAVA_HOME=${JAVA_HOME}</code> and replace it with <code>export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))</code>.</li></ol>
+<li>In order to run Hadoop, you  must have <code>JAVA&#95;HOME</code> set correctly. Open the file <code>X/etc/hadoop/hadoop-env.sh</code>. Find the line <code>export JAVA&#95;HOME=${JAVA&#95;HOME}</code> and replace it with <code>export JAVA&#95;HOME=$(dirname $(dirname $(readlink -f $(which javac))))</code>.</li></ol>
 
 #### 2.4.2. Testing basic Functionality
 
@@ -180,7 +180,7 @@ This third command should produce a lot of logging output and the last one shoul
 
 #### 2.4.3. Setup for Single-Computer Pseudo-Distributed Execution
 
-For really using Hadoop in a pseudo-distributed fashion on our local computer, we have to do <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Pseudo-Distributed_Operation">more</a>:
+For really using Hadoop in a pseudo-distributed fashion on our local computer, we have to do <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Pseudo-Distributed&#95;Operation">more</a>:
 <ol>
 <li>Enter the directory <code>X/hadoop-2.7.2/etc</code> in order to create the basic <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Configuration">configuration</a>.</li>
 <li>Open the file <code>core-site.xml</code> in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
@@ -211,7 +211,7 @@ For really using Hadoop in a pseudo-distributed fashion on our local computer, w
 In order to run Hadoop in a pseudo-distributed fashion, we need to enable passwordless SSH connections to the local host. 
 
 <ol>
-<li>In the terminal, execute <code>ssh localhost</code> to test if you can open a <a href="https://en.wikipedia.org/wiki/Secure_Shell">secure shell</a> connection to your current, local computer <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup_passphraseless_ssh">without needing a password</a>.
+<li>In the terminal, execute <code>ssh localhost</code> to test if you can open a <a href="https://en.wikipedia.org/wiki/Secure&#95;Shell">secure shell</a> connection to your current, local computer <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup&#95;passphraseless&#95;ssh">without needing a password</a>.
 </li>
 <li>It may ask you something like 
 <pre>
@@ -223,11 +223,11 @@ If it does ask you this, just type <code>yes</code> and hit enter (it may then s
 <li>
 The important thing is the next step: IF it asks you something like <code>xyz@localhost's password:</code>, hit <code>Ctrl-C</code> and do the things below. Otherwise, you can directly skip to the next point 2.4.5. So, If you were asked for a password, enter the following into your terminal:
 <pre>
-ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
-cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
-chmod 0600 ~/.ssh/authorized_keys 
+ssh-keygen -t dsa -P '' -f ~/.ssh/id&#95;dsa
+cat ~/.ssh/id&#95;dsa.pub &gt;&gt; ~/.ssh/authorized&#95;keys
+chmod 0600 ~/.ssh/authorized&#95;keys 
 </pre></li>
-<li>You will get displayed some text such as <code>Generating public/private dsa key pair.</code> followed by a couple of other things. After completing the above commands, you should test the result by again executing <code>ssh localhost</code>. You will now no longer be asked for a password and directly receive a welcome message, something like <code>Welcome to Ubuntu 15.10 (GNU/Linux 4.2.0-35-generic x86_64)</code> or whatever Linux distribution you use. Via a ssh connection, you can, basically, open a terminal to and run commands on a remote computer (which, in this case, is your own, current computer). You can return to the normal (non-ssh) terminal by entering <code>exit</code> and pressing return, after which you will be notified that <code>Connection to localhost closed.</code></li>
+<li>You will get displayed some text such as <code>Generating public/private dsa key pair.</code> followed by a couple of other things. After completing the above commands, you should test the result by again executing <code>ssh localhost</code>. You will now no longer be asked for a password and directly receive a welcome message, something like <code>Welcome to Ubuntu 15.10 (GNU/Linux 4.2.0-35-generic x86&#95;64)</code> or whatever Linux distribution you use. Via a ssh connection, you can, basically, open a terminal to and run commands on a remote computer (which, in this case, is your own, current computer). You can return to the normal (non-ssh) terminal by entering <code>exit</code> and pressing return, after which you will be notified that <code>Connection to localhost closed.</code></li>
 </ol>
 
 #### 2.4.6. Running the Hadoop-Provided Map-Reduce Job Locally
@@ -241,7 +241,7 @@ The authenticity of host '0.0.0.0 (0.0.0.0)' can't be established.
 ECDSA key fingerprint is SHA256:HZUVFF77GAh5cF/sg8YhjRf1gSGJ9ui5ksdf2GAl5Ha.
 Are you sure you want to continue connecting (yes/no)? 
 </pre>    
-which you would answer with <code>yes</code> followed by a hit to the enter button. If, after that, you get a message like <code>0.0.0.0: packet_write_wait: Connection to 127.0.0.1: Broken pipe</code>, enter <code>sbin/stop-dfs.sh</code>, hit return, and do <code>sbin/start-dfs.sh</code> again.</li>
+which you would answer with <code>yes</code> followed by a hit to the enter button. If, after that, you get a message like <code>0.0.0.0: packet&#95;write&#95;wait: Connection to 127.0.0.1: Broken pipe</code>, enter <code>sbin/stop-dfs.sh</code>, hit return, and do <code>sbin/start-dfs.sh</code> again.</li>
 <li>In your web browser, open <code>http://localhost:50070/</code>. It should display a web page giving an overview about the Hadoop system now running on your local computer.</li>
 <li>Now we can setup the required stuff for the example jobs (making HDFS directories and copying the input files). Make sure to replace <code><userName></code> with your user/login name on your current machine.
 <pre>
@@ -284,7 +284,7 @@ If you actually properly cleaned up the file system after running your last exam
 <li>Do <code>bin/hdfs dfs -ls output</code>. You will see output like
 <pre>
 Found 2 items
--rw-r--r--   1 tweise supergroup          0 2016-04-22 18:48 output/_SUCCESS
+-rw-r--r--   1 tweise supergroup          0 2016-04-22 18:48 output/&#95;SUCCESS
 -rw-r--r--   1 tweise supergroup        303 2016-04-22 18:48 output/part-r-00000
 </pre></li>
 <li>You can read the results via <code>bin/hdfs dfs -cat output/part-r-00000 | less</code> which will result - in the case of the <code>wordCount</code> example - in something like
