@@ -146,7 +146,7 @@ Now you can actually build the imported project(s), i.e., generate a [`jar`](htt
 
 ### 2.3. Building under Linux without Eclipse
 
-Under Linux, you can also simply run `make_linux.sh` in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
+Under Linux, you can also simply run <code>make_linux.sh</code> in this project's folder to build the servlet without Eclipse, given that you have Maven installed.
 
 ### 2.4. Setting Up a Single-Node Hadoop Cluster
 
@@ -154,164 +154,171 @@ In order to test our example, we now need to set up a single-node Hadoop cluster
 
 #### 2.4.1. Download, Unpacking, and Setup
 
-1. Install prerequisites by running `sudo apt-get install ssh rsync`.
-2. Go into a base folder where you want to install Hadoop. Let's call this folder 'X'.
-3. Download Hadoop from one of the mirrors provided at [http://www.apache.org/dyn/closer.cgi/hadoop/common/](http://www.apache.org/dyn/closer.cgi/hadoop/common/). I choose [http://www-eu.apache.org/dist/hadoop/common/](http://www-eu.apache.org/dist/hadoop/common/) and from there [hadoop-2.7.2](http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/) from where I download [hadoop-2.7.2.tar.gz](http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz) into 'X'. If you chose a different Hadoop version, replace `2.7.2.` accordingly in the following steps.
-4. Once [hadoop-2.7.2.tar.gz](http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz) has fully been downloaded, I either can do `Extract Here` in the file explorer or `tar -xf hadoop-2.7.2.tar.gz` in the terminal window to extract the archive. 
-5. A new folder named `X/hadoop-2.7.2` should have appeared. If you chose a different Hadoop version, replace `2.7.2.` accordingly in the following steps.
-6. In order to run Hadoop, you  must have `JAVA_HOME` set correctly. Open the file `X/etc/hadoop/hadoop-env.sh`. Find the line `export JAVA_HOME=${JAVA_HOME}` and replace it with `export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))`.
+<ol>
+<li>Install prerequisites by running <code>sudo apt-get install ssh rsync</code>.</li>
+<li>Go into a base folder where you want to install Hadoop. Let's call this folder <code>X</code>.<</li>
+<li>Download Hadoop from one of the mirrors provided at <a href="http://www.apache.org/dyn/closer.cgi/hadoop/common/">http://www.apache.org/dyn/closer.cgi/hadoop/common/</a>. I choose <a href="http://www-eu.apache.org/dist/hadoop/common/">http://www-eu.apache.org/dist/hadoop/common/</a> and from there <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/">hadoop-2.7.2</a> from where I download <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz">hadoop-2.7.2.tar.gz</a> into <code>X</code>. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
+<li>Once <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz">hadoop-2.7.2.tar.gz</a> has fully been downloaded, I either can do <code>Extract Here</code> in the file explorer or <code>tar -xf hadoop-2.7.2.tar.gz</code> in the terminal window to extract the archive.</li>
+<li>A new folder named <code>X/hadoop-2.7.2</code> should have appeared. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
+<li>In order to run Hadoop, you  must have <code>JAVA_HOME</code> set correctly. Open the file <code>X/etc/hadoop/hadoop-env.sh</code>. Find the line <code>export JAVA_HOME=${JAVA_HOME}</code> and replace it with <code>export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))</code>.</li></ol>
 
 #### 2.4.2. Testing basic Functionality
 
 We can now test whether everything above has turned out well and all is downloaded, unpacked, and set up correctly.
-
-1. In the terminal, enter `X/hadoop-2.7.2/` and execute the command `bin/hadoop`. It should display some help and command line options.
-2. We can further test whether Hadoop works by running the single-node example from the [tutorial](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html). Therefore, in your terminal enter
-
-    mkdir input
-    cp etc/hadoop/*.xml input
-    bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output 'dfs[a-z.]+'
-    cat output/*
-
-The third command should produce a lot of logging output and the last one should say something like `1 dfsadmin`. If that is the case, you are doing well.
+<ol>
+<li>In the terminal, enter <code>X/hadoop-2.7.2/</code> and execute the command <code>bin/hadoop</code>. It should display some help and command line options.</li>
+<li>We can further test whether Hadoop works by running the single-node example from the <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html">tutorial</a>. Therefore, in your terminal enter
+<pre>
+mkdir input
+cp etc/hadoop/*.xml input
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output 'dfs[a-z.]+'
+cat output/*
+</pre>
+This third command should produce a lot of logging output and the last one should say something like <code>1 dfsadmin</code>. If that is the case, you are doing well.
+</li></ol>
 
 #### 2.4.3. Setup for Single-Computer Pseudo-Distributed Execution
 
-For really using Hadoop in a pseudo-distributed fashion on our local computer, we have to do [more](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Pseudo-Distributed_Operation):
-
-1. Enter the directory `X/hadoop-2.7.2/etc` in order to create the basic [configuration](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Configuration).
-2. Open the file `core-site.xml` in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-    <configuration>
-        <property>
-            <name>fs.defaultFS</name>
-            <value>hdfs://localhost:9000</value>
-        </property>
-    </configuration>
-
-
-3. Open the file `hdfs-site.xml` in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-    <configuration>
-        <property>
-            <name>dfs.replication</name>
-            <value>1</value>
-        </property>
-    </configuration>
+For really using Hadoop in a pseudo-distributed fashion on our local computer, we have to do <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Pseudo-Distributed_Operation">more</a>:
+<ol>
+<li>Enter the directory <code>X/hadoop-2.7.2/etc</code> in order to create the basic <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Configuration">configuration</a>.</li>
+<li>Open the file <code>core-site.xml</code> in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
+<pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
+</pre></li>
+<li>Open the file <code>hdfs-site.xml</code> in the text editor. It should exist, if not, there is something wrong. Try your best by creating it. Remove everything in the file and store the following text, then save and close the file. In other words, the complete contents of the file should become:
+<pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+</pre></li></ol>
     
 
 #### 2.4.4. Setup for SSH for Passwordless Connection to Local Host
         
-In the terminal, execute `ssh localhost` to test if you can open a [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) connection to your current, local computer [without needing a password](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup_passphraseless_ssh). It may ask you something like 
-
-    The authenticity of host 'localhost (127.0.0.1)' can't be established.
-    ECDSA key fingerprint is SHA256:HZUVFF77GAh5cF/sg8YhjRf1gSGJ9ui5ksdf2GAl5Ha.
-    Are you sure you want to continue connecting (yes/no)? 
-
-If it does ask you this, just type `yes` and hit enter (it may then say something like `Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.`). If it does not ask you this, it does not matter. 
-
-The important thing is the next step: IF it asks you something like `xyz@localhost's password:`, hit `Ctrl-C` and do the things below. Otherwise, you can directly skip to the next point 2.4.5. So, If you were asked for a password, enter the following into your terminal:
-    
-    ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
-    cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
-    chmod 0600 ~/.ssh/authorized_keys 
-    
-You will get displayed some text such as `Generating public/private dsa key pair.` followed by a couple of other things. After completing the above commands, you should test the result by again executing `ssh localhost`. You will now no longer be asked for a password and directly receive a welcome message, something like `Welcome to Ubuntu 15.10 (GNU/Linux 4.2.0-35-generic x86_64)` or whatever Linux distribution you use. Via a ssh connection, you can, basically, open a terminal to and run commands on a remote computer (which, in this case, is your own, current computer). You can return to the normal (non-ssh) terminal by entering `exit` and pressing return, after which you will be notified that `Connection to localhost closed.`
+<ol>
+<li>In the terminal, execute <code>ssh localhost</code> to test if you can open a <a href="https://en.wikipedia.org/wiki/Secure_Shell">secure shell</a> connection to your current, local computer <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup_passphraseless_ssh">without needing a password</a>.
+</li>
+<li>It may ask you something like 
+<pre>
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:HZUVFF77GAh5cF/sg8YhjRf1gSGJ9ui5ksdf2GAl5Ha.
+Are you sure you want to continue connecting (yes/no)? 
+</pre>
+If it does ask you this, just type <code>yes</code> and hit enter (it may then say something like <code>Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.</code>). If it does not ask you this, it does not matter.</li>
+<li>
+The important thing is the next step: IF it asks you something like <code>xyz@localhost's password:</code>, hit <code>Ctrl-C</code> and do the things below. Otherwise, you can directly skip to the next point 2.4.5. So, If you were asked for a password, enter the following into your terminal:
+<pre>
+ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys 
+</pre></li>
+<li>You will get displayed some text such as <code>Generating public/private dsa key pair.</code> followed by a couple of other things. After completing the above commands, you should test the result by again executing <code>ssh localhost</code>. You will now no longer be asked for a password and directly receive a welcome message, something like <code>Welcome to Ubuntu 15.10 (GNU/Linux 4.2.0-35-generic x86_64)</code> or whatever Linux distribution you use. Via a ssh connection, you can, basically, open a terminal to and run commands on a remote computer (which, in this case, is your own, current computer). You can return to the normal (non-ssh) terminal by entering <code>exit</code> and pressing return, after which you will be notified that <code>Connection to localhost closed.</code></li>
+</ol>
 
 #### 2.4.6. Running the Hadoop-Provided Map-Reduce Job Locally
 
-We now want to test whether our installation and setup works correctly by further following the steps given in the [tutorial](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Execution).
-
-1. Format the HDFS file system by entering `bin/hdfs namenode -format` followed by return. You will receive a lot of log output.
-2. Start the `NameNode` and `DataNode` daemons by running `sbin/start-dfs.sh`. You may get some logging output messages, which *may* be followed by something like
-
-    The authenticity of host '0.0.0.0 (0.0.0.0)' can't be established.
-    ECDSA key fingerprint is SHA256:HZUVFF77GAh5cF/sg8YhjRf1gSGJ9ui5ksdf2GAl5Ha.
-    Are you sure you want to continue connecting (yes/no)? 
-    
-which you would answer with `yes` followed by a hit to the enter button. If, after that, you get a message like `0.0.0.0: packet_write_wait: Connection to 127.0.0.1: Broken pipe`, enter `sbin/stop-dfs.sh`, hit return, and do `sbin/start-dfs.sh` again.
-3. In your web browser, open `http://localhost:50070/`. It should display a web page giving an overview about the Hadoop system now running on your local computer.
-4. Now we can setup the required stuff for the example jobs (making HDFS directories and copying the input files). Make sure to replace `<userName>` with your user/login name on your current machine.
-
-    bin/hdfs dfs -mkdir /user
-    bin/hdfs dfs -mkdir /user/<userName>
-    bin/hdfs dfs -put etc/hadoop input
-    
-5. We can now run the job via
-    
-    bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output 'dfs[a-z.]+'
-    
-6. We obtain the output of the job via
-
-    bin/hdfs dfs -get output output
-    cat output/*
-
-7. Like in the local test from point 2.4.2., after a lot of log output, we should sett something like `1 dfsadmin`.
-8. Finally, we need to shutdown Hadoop by running `sbin/stop-dfs.sh` 
+We now want to test whether our installation and setup works correctly by further following the steps given in the <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Execution">tutorial</a>.
+<ol>
+<li>Format the HDFS file system by entering <code>bin/hdfs namenode -format</code> followed by return. You will receive a lot of log output.</li>
+<li>Start the <code>NameNode</code> and <code>DataNode</code> daemons by running <code>sbin/start-dfs.sh</code>. You may get some logging output messages, which *may* be followed by something like
+<pre>
+The authenticity of host '0.0.0.0 (0.0.0.0)' can't be established.
+ECDSA key fingerprint is SHA256:HZUVFF77GAh5cF/sg8YhjRf1gSGJ9ui5ksdf2GAl5Ha.
+Are you sure you want to continue connecting (yes/no)? 
+</pre>    
+which you would answer with <code>yes</code> followed by a hit to the enter button. If, after that, you get a message like <code>0.0.0.0: packet_write_wait: Connection to 127.0.0.1: Broken pipe</code>, enter <code>sbin/stop-dfs.sh</code>, hit return, and do <code>sbin/start-dfs.sh</code> again.</li>
+<li>In your web browser, open <code>http://localhost:50070/</code>. It should display a web page giving an overview about the Hadoop system now running on your local computer.</li>
+<li>Now we can setup the required stuff for the example jobs (making HDFS directories and copying the input files). Make sure to replace <code><userName></code> with your user/login name on your current machine.
+<pre>
+bin/hdfs dfs -mkdir /user
+bin/hdfs dfs -mkdir /user/<userName>
+bin/hdfs dfs -put etc/hadoop input
+</pre></li>
+<li>We can now run the job via
+<pre>
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar grep input output 'dfs[a-z.]+'
+</pre></li>
+<li>We obtain the output of the job via
+<pre>
+bin/hdfs dfs -get output output
+cat output/*
+</pre></li>
+<li>Like in the local test from point 2.4.2., after a lot of log output, we should sett something like <code>1 dfsadmin</code>.</li>
+<li>Finally, we need to shutdown Hadoop by running <code>sbin/stop-dfs.sh</code></li>
+</ol> 
 
 ### 2.5. Running a Compiled Example project
 
-We now want to run one of the provided examples. Let us assume we want to run the `wordCount` example. For other examples, just replace `wordCount` with their names in the following text. I assume that the `distributedComputingExamples` repository is located in a folder `Y` on your machine.
-
-1. Open a terminal and enter your Hadoop installation folder. I assume you installed Hadoop version `2.7.2` into a folder named `X`, so you would `cd` into `X/hadoop-2.7.2/`.
-2. We want to start with a "clean" file system, so let us repeat some of the setup steps. Don't forget to replace `<userName>` with your local login/user name.
-
-    bin/hdfs namenode -format
-    
-(answer with `Y` when asked whether to re-format the file system)
-    
-    sbin/start-dfs.sh
-    bin/hdfs dfs -mkdir /user
-    bin/hdfs dfs -mkdir /user/<userName>
-
-If you actually properly cleaned up the file system after running your last examples (see the second-to-last step here), you just need to do `sbin/start-dfs.sh` and do not need to format the HDFS.
-
-3. Copy the input data of the example into HDFS. You find this data in the example folder `Y/distributedComputingExamples/wordCount/input`. So you will perform `bin/hdfs dfs -put Y/distributedComputingExamples/hadoop/wordCount/input input`. Make sure to replace `Y` with the proper path. If copying fails, go to "2.6. Troubleshooting".
-3. Do `bin/hdfs dfs -ls input` to check if the files have properly been copied.
-4. You can now do `bin/hadoop jar Y/distributedComputingExamples/hadoop/wordCount/target/wordCount-full.jar input output`. This command will start the main class of the example, which resides in the fat jar `wordCount-full.jar`, with the parameters `input` and `output`. `input` here is the input folder, which we previously have copied to the Hadoop file system. `output` is the output folder to be created. If you execute this command, you will see lots of logging information.
-5. Do `bin/hdfs dfs -ls output`. You will see output like
-
-    Found 2 items
-    -rw-r--r--   1 tweise supergroup          0 2016-04-22 18:48 output/_SUCCESS
-    -rw-r--r--   1 tweise supergroup        303 2016-04-22 18:48 output/part-r-00000
-
-7. You can read the results via `bin/hdfs dfs -cat output/part-r-00000 | less` which will result - in the case of the `wordCount` example - in something like
-
-    A       1
-    API     4
-    Actually        2
-    All     1
-    Apache  1
-    As      2
-    Axis    1
-    Based   1
-    Both    1
-    By      1
-    C       2
-    CSS     2
-    Calls   1
-    Cascading       1
-    Communication   1
-    Control 2
-    Datagram        1
-    Description     2
-    Each    1
-    Everything      2
-    Extensible      1
-    Finally 1
-    For     3
-
-8. You can download the result file to your local folder via `bin/hdfs dfs -copyToLocal output/part-r-00000 .`. Now you will find the text file with the results in the current folder, i.e., `X/hadoop-2.7.2/`.
-9. After being done, you should clean up the file system by deleting the `input` and `output` folder in the HDFS (not the original input folder of the project!). This way, you do not need to format the HDFS for the next example. Anyway, you do:
-
-    bin/hdfs dfs -rm -R input
-    bin/hdfs dfs -rm -R output    
-
-10. Finally, shut down the system by calling `sbin/stop-dfs.sh`.
+We now want to run one of the provided examples. Let us assume we want to run the <code>wordCount</code> example. For other examples, just replace <code>wordCount</code> with their names in the following text. I assume that the <code>distributedComputingExamples</code> repository is located in a folder <code>Y</code> on your machine.
+<ol>
+<li>Open a terminal and enter your Hadoop installation folder. I assume you installed Hadoop version <code>2.7.2</code> into a folder named <code>X</code>, so you would <code>cd</code> into <code>X/hadoop-2.7.2/</code>.</li>
+<li>We want to start with a "clean" file system, so let us repeat some of the setup steps. Don't forget to replace <code><userName></code> with your local login/user name.
+<pre>
+bin/hdfs namenode -format
+</pre>
+(answer with <code>Y</code> when asked whether to re-format the file system)
+<pre>
+sbin/start-dfs.sh
+bin/hdfs dfs -mkdir /user
+bin/hdfs dfs -mkdir /user/<userName>
+</pre>
+If you actually properly cleaned up the file system after running your last examples (see the second-to-last step here), you just need to do <code>sbin/start-dfs.sh</code> and do not need to format the HDFS.</li>
+<li>Copy the input data of the example into HDFS. You find this data in the example folder <code>Y/distributedComputingExamples/wordCount/input</code>. So you will perform <code>bin/hdfs dfs -put Y/distributedComputingExamples/hadoop/wordCount/input input</code>. Make sure to replace <code>Y</code> with the proper path. If copying fails, go to "2.6. Troubleshooting".</li>
+<li>Do <code>bin/hdfs dfs -ls input</code> to check if the files have properly been copied.</li>
+<li>You can now do <code>bin/hadoop jar Y/distributedComputingExamples/hadoop/wordCount/target/wordCount-full.jar input output</code>. This command will start the main class of the example, which resides in the fat jar <code>wordCount-full.jar</code>, with the parameters <code>input</code> and <code>output</code>. <code>input</code> here is the input folder, which we previously have copied to the Hadoop file system. <code>output</code> is the output folder to be created. If you execute this command, you will see lots of logging information.</li>
+<li>Do <code>bin/hdfs dfs -ls output</code>. You will see output like
+<pre>
+Found 2 items
+-rw-r--r--   1 tweise supergroup          0 2016-04-22 18:48 output/_SUCCESS
+-rw-r--r--   1 tweise supergroup        303 2016-04-22 18:48 output/part-r-00000
+</pre></li>
+<li>You can read the results via <code>bin/hdfs dfs -cat output/part-r-00000 | less</code> which will result - in the case of the <code>wordCount</code> example - in something like
+<pre>
+A       1
+API     4
+Actually        2
+All     1
+Apache  1
+As      2
+Axis    1
+Based   1
+Both    1
+By      1
+C       2
+CSS     2
+Calls   1
+Cascading       1
+Communication   1
+Control 2
+Datagram        1
+Description     2
+Each    1
+Everything      2
+Extensible      1
+Finally 1
+For     3
+</pre></li>
+<li>You can download the result file to your local folder via <code>bin/hdfs dfs -copyToLocal output/part-r-00000 .</code>. Now you will find the text file with the results in the current folder, i.e., <code>X/hadoop-2.7.2/</code>.</li>
+<li>After being done, you should clean up the file system by deleting the <code>input</code> and <code>output</code> folder in the HDFS (not the original input folder of the project!). This way, you do not need to format the HDFS for the next example. Anyway, you do:
+<pre>
+bin/hdfs dfs -rm -R input
+bin/hdfs dfs -rm -R output    
+</pre></li>
+<li>Finally, shut down the system by calling <code>sbin/stop-dfs.sh</code>.</li>
+</ol>
 
 ### 2.6 Troubleshooting
 
@@ -320,8 +327,8 @@ If you actually properly cleaned up the file system after running your last exam
 Sometimes, you may try to copy some file or folder to HDFS and get an error that no such file or directory exists. Then do the following: 
 
 <ol>
-<li>Execute `sbin/stop-dfs.sh`</li>
-<li>Delete the folder `/tmp/hadoop-<userName>`, where `<userName>` is to replaced with your local login/user name.</li>
+<li>Execute <code>sbin/stop-dfs.sh</code></li>
+<li>Delete the folder <code>/tmp/hadoop-<userName></code>, where <code><userName></code> is to replaced with your local login/user name.</li>
 <li>Now perform
 <pre>
 bin/hdfs namenode -format 
@@ -336,6 +343,6 @@ If you now repeat the operation that failed before, it should succeed.
 
 ## 3. Licensing
 
-Some of the examples take some inspiration from the [maven-hadoop-java-wordcount-template](https://github.com/H4ml3t/maven-hadoop-java-wordcount-template) by [H3ml3t](https://github.com/H4ml3t), for which no licensing information is provided. The examples, are entirely differently in several ways, for instance in the way we build fat jars. Anyway, this original project is nicely described in [this blog entry](https://nosqlnocry.wordpress.com/2015/03/13/hadoop-mapreduce-wordcount-example-in-java-introduction-to-hadoop-job/).
+Some of the examples take some inspiration from the <a href="https://github.com/H4ml3t/maven-hadoop-java-wordcount-template">maven-hadoop-java-wordcount-template</a> by <a href="https://github.com/H4ml3t">H3ml3t</a>, for which no licensing information is provided. The examples, are entirely differently in several ways, for instance in the way we build fat jars. Anyway, this original project is nicely described in <a href="https://nosqlnocry.wordpress.com/2015/03/13/hadoop-mapreduce-wordcount-example-in-java-introduction-to-hadoop-job/">this blog entry</a>.
 
-Furthermore, the our `wordCount` is based on the well-known [word counting example](http://wiki.apache.org/hadoop/WordCount) for Hadoop's map reduce functionality. It is based on the version by provided Luca Menichetti [meniluca@gmail.com](mailto:meniluca@gmail.com) under the GNU General Public License version 2.
+Furthermore, the our `wordCount` is based on the well-known <a href="http://wiki.apache.org/hadoop/WordCount">word counting example</a> for Hadoop's map reduce functionality. It is based on the version by provided Luca Menichetti <a href="mailto:meniluca@gmail.com">meniluca@gmail.com</a> under the GNU General Public License version 2.
