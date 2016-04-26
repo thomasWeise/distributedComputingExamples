@@ -152,7 +152,7 @@ Under Linux, you can also simply run `make_linux.sh` in this project's folder to
 
 In order to test our example, we now need to set up a single-node Hadoop cluster. We therefore follow the guide given at [http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html). Here we provide the installation guide for Hadoop 2.7.2 Linux / Ubuntu.
 
-### 2.4.1. Download, Unpacking, and Setup
+<h4>2.4.1. Download, Unpacking, and Setup</h4>
 
 Here we discuss how to download and unpack Hadoop. 
 <ol>
@@ -163,7 +163,7 @@ Here we discuss how to download and unpack Hadoop.
 <li>A new folder named <code>X/hadoop-2.7.2</code> should have appeared. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
 <li>In order to run Hadoop, you  must have <code>JAVA&#95;HOME</code> set correctly. Open the file <code>X/etc/hadoop/hadoop-env.sh</code>. Find the line <code>export JAVA&#95;HOME=${JAVA&#95;HOME}</code> and replace it with <code>export JAVA&#95;HOME=$(dirname $(dirname $(readlink -f $(which javac))))</code>.</li></ol>
 
-#### 2.4.2. Testing basic Functionality
+<h4>2.4.2. Testing basic Functionality</h4>
 
 We can now test whether everything above has turned out well and all is downloaded, unpacked, and set up correctly.
 <ol>
@@ -178,7 +178,7 @@ cat output/*
 This third command should produce a lot of logging output and the last one should say something like <code>1 dfsadmin</code>. If that is the case, you are doing well.
 </li></ol>
 
-#### 2.4.3. Setup for Single-Computer Pseudo-Distributed Execution
+<h4>2.4.3. Setup for Single-Computer Pseudo-Distributed Execution</h4>
 
 For really using Hadoop in a pseudo-distributed fashion on our local computer, we have to do <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Pseudo-Distributed&#95;Operation">more</a>:
 <ol>
@@ -206,7 +206,7 @@ For really using Hadoop in a pseudo-distributed fashion on our local computer, w
 </configuration>
 </pre></li></ol>
 
-#### 2.4.4. Setup for SSH for Passwordless Connection to Local Host
+<h4>2.4.4. Setup for SSH for Passwordless Connection to Local Host</h4>
 
 In order to run Hadoop in a pseudo-distributed fashion, we need to enable passwordless SSH connections to the local host. 
 
@@ -230,7 +230,7 @@ chmod 0600 ~/.ssh/authorized&#95;keys
 <li>You will get displayed some text such as <code>Generating public/private dsa key pair.</code> followed by a couple of other things. After completing the above commands, you should test the result by again executing <code>ssh localhost</code>. You will now no longer be asked for a password and directly receive a welcome message, something like <code>Welcome to Ubuntu 15.10 (GNU/Linux 4.2.0-35-generic x86&#95;64)</code> or whatever Linux distribution you use. Via a ssh connection, you can, basically, open a terminal to and run commands on a remote computer (which, in this case, is your own, current computer). You can return to the normal (non-ssh) terminal by entering <code>exit</code> and pressing return, after which you will be notified that <code>Connection to localhost closed.</code></li>
 </ol>
 
-#### 2.4.6. Running the Hadoop-Provided Map-Reduce Job Locally
+<h4>2.4.6. Running the Hadoop-Provided Map-Reduce Job Locally</h4>
 
 We now want to test whether our installation and setup works correctly by further following the steps given in the <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Execution">tutorial</a>.
 <ol>
@@ -324,7 +324,7 @@ bin/hdfs dfs -rm -R output
 
 ### 2.6 Troubleshooting
 
-#### 2.6.1. "No such file or directory"
+<h4>2.6.1. "No such file or directory"</h4>
 
 Sometimes, you may try to copy some file or folder to HDFS and get an error that no such file or directory exists. Then do the following: 
 
