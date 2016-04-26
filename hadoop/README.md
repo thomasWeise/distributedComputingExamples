@@ -157,7 +157,7 @@ In order to test our example, we now need to set up a single-node Hadoop cluster
 Here we discuss how to download and unpack Hadoop. 
 <ol>
 <li>Install prerequisites by running <code>sudo apt-get install ssh rsync</code>.</li>
-<li>Go into a base folder where you want to install Hadoop. Let's call this folder <code>X</code>.<</li>
+<li>Go into a base folder where you want to install Hadoop. Let's call this folder <code>X</code>.</li>
 <li>Download Hadoop from one of the mirrors provided at <a href="http://www.apache.org/dyn/closer.cgi/hadoop/common/">http://www.apache.org/dyn/closer.cgi/hadoop/common/</a>. I choose <a href="http://www-eu.apache.org/dist/hadoop/common/">http://www-eu.apache.org/dist/hadoop/common/</a> and from there <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/">hadoop-2.7.2</a> from where I download <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz">hadoop-2.7.2.tar.gz</a> into <code>X</code>. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
 <li>Once <a href="http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz">hadoop-2.7.2.tar.gz</a> has fully been downloaded, I either can do <code>Extract Here</code> in the file explorer or <code>tar -xf hadoop-2.7.2.tar.gz</code> in the terminal window to extract the archive.</li>
 <li>A new folder named <code>X/hadoop-2.7.2</code> should have appeared. If you chose a different Hadoop version, replace <code>2.7.2.</code> accordingly in the following steps.</li>
