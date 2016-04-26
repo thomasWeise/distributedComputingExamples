@@ -319,16 +319,20 @@ If you actually properly cleaned up the file system after running your last exam
 
 Sometimes, you may try to copy some file or folder to HDFS and get an error that no such file or directory exists. Then do the following: 
 
-1. Execute `sbin/start-dfs.sh`
-2. Delete the folder `/tmp/hadoop-<userName>`, where `<userName>` is to replaced with your local login/user name.
-3. Now perform
-
-    bin/hdfs namenode -format 
-    sbin/start-dfs.sh
-    bin/hdfs dfs -mkdir /user
-    bin/hdfs dfs -mkdir /user/<userName>
-
-4. If you now repeat the operation that failed before, it should succeed.
+<ol>
+<li>Execute `sbin/stop-dfs.sh`</li>
+<li>Delete the folder `/tmp/hadoop-<userName>`, where `<userName>` is to replaced with your local login/user name.</li>
+<li>Now perform
+<pre>
+bin/hdfs namenode -format 
+sbin/start-dfs.sh
+bin/hdfs dfs -mkdir /user
+bin/hdfs dfs -mkdir /user/<userName>
+</pre>
+</li><li>
+If you now repeat the operation that failed before, it should succeed.
+</li>
+</ol>
 
 ## 3. Licensing
 
