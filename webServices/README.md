@@ -116,7 +116,7 @@ Now you can build the server projects, i.e., generate an [`aar`](http://axis.apa
 7. Click `New launch configuration` (the first symbol from the left on top of the small white pane).
 8. Write a useful name for this configuration in the `Name` field. You can use this configuration again later.
 9. In the tab `Main` enter the `Base directory` of the project, this is the folder called `webServices/calculator/server` containing the Eclipse/Maven project.
-10. Under `Goals`, enter `clean compile package axis2-aar:aar`. This will build a `aar` archive.
+10. Under `Goals`, enter `clean compile axis2-aar:aar`. This will build a `aar` archive.
 11. Click `Apply`
 12. Click `Run`
 13. The build will start, you will see its status output in the console window.

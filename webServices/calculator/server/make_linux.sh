@@ -9,7 +9,7 @@ set -o errexit   # set -e : exit the script if any statement returns a non-true 
 echo "We now build the calculator example web service."
 
 rm -rf target
-mvn clean compile package axis2-aar:aar
+mvn clean compile axis2-aar:aar
 rm -rf target/aar
 rm -rf target/generated-sources
 rm -rf target/maven-status
