@@ -2,6 +2,16 @@
 
 The Message Passing Interface ([MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)) is a standard framework for highly-efficient communication in distributed systems.
 
+## 1. Introduction
+
+In our past lessons, we have focused on the outside and inside view of an organization's distributed application environment, i.e., how the applications can be represented as interactive websites to the users and how they can interact with each other under the hood. This is mainly interesting for business and enterprise software developing and distribution is mainly used for inter-operability, not for performance gain.
+
+But what if we want to use distribution for performance gain? Well, [web services](https://en.wikipedia.org/wiki/Web_service) ([examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/)) would probably not our technology of choice. What would we want? Well, if we want performance, then what we want is to solve a problem faster. By dividing it into smaller pieces, into sub-problems. Each of these problems would be solved by a different process on a different computer - in parallel.
+
+We are, hence, looking for a technology that allows us to first send the different sub-problems to different processes on different computers in our network (usually in our cluster). The processes should solve these problems (which means they may also need to exchange some information while doing so, if the problems are related and depending on each other). Finally, all the results of the sub-problems should be sent to a central process which combines them to a final result of the overall problem. Something like this what we would like. And this is MPI, the message passing interface.
+
+MPI is implemented for a variety of programming languages, but lower-level and higher-performance languages like `C` and `Fortran` are usually what we would like to choose to implement a program for high-performance computing. Here we discuss examples for the former language, i.e., `C`.
+
 ## 1. Examples
 
 The following examples are included in this folder.

@@ -2,7 +2,16 @@
 
 [JSON RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call ([RPC](https://en.wikipedia.org/wiki/Remote_procedure_call)) approach (specified [here](http://json-rpc.org/)) where the exchanged data structures are encoded in the JavaScript Object Notation ([JSON](https://en.wikipedia.org/wiki/JSON)). The data is exchanged via either [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
 
-JSON RCPs are somehow similar to [web services](https://en.wikipedia.org/wiki/Web_service) ([examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/)), but are more light-weight (as the data structures smaller and simpler than [SOAP](https://en.wikipedia.org/wiki/SOAP)/[XML](https://en.wikipedia.org/wiki/XML), [examples for XML processing](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/java)).
+JSON RCPs are an alternative to [web services](https://en.wikipedia.org/wiki/Web_service) ([examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/)), but are more light-weight (as the data structures smaller and simpler than [SOAP](https://en.wikipedia.org/wiki/SOAP)/[XML](https://en.wikipedia.org/wiki/XML), [examples for XML processing](http://github.com/thomasWeise/distributedComputingExamples/tree/master/xml/java)).
+
+If we compare JSON RPC implemented with [briandilley](https://github.com/briandilley)'s [jsonrpc4j](https://github.com/briandilley/jsonrpc4j) framework to web services implemented with [Axis2](http://axis.apache.org/axis2/java/core/) and [Java RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) ([examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaRMI/)), then we find that
+
+1. It has many positive features of web services (which Java RMI lacks), namely is human-readable and can be transported over HTTP.
+2. The implementation is more light-weight: The protocol data units are smaller, the codebase seems to be smaller.
+3. No code needs to be generated and we can specify services as interfaces that we can use on both the client and server side - exactly as we do in Java RMI.
+4. JSON RPC services can either be deployed into a servlet container or compiled into a fat jar, which is quite nice.
+
+So JSON RPCs are quite a nice technology.
 
 ## 1. Examples
 
