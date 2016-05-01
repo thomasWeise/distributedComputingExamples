@@ -125,6 +125,8 @@ Build: `mpicc reducePrimes.c -o reducePrimes -lm`
 This example does no communication at all, but it prints the memory layout of a `struct`. This shows that the compiler may align fields in many ways and we cannot compute on where a field of a `struct` but need to use proper addressing. 
 
 1. [structTest.c](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/structTest.c)
+2. [structTest_32bit_intel_atom_N280_gcc_4.8.4.txt](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/structTest_32bit_intel_atom_N280_gcc_4.8.4.txt)
+2. [structTest_64bit_intel_xeon_e3-1230_gcc_5.2.1.txt](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/structTest_64bit_intel_xeon_e3-1230_gcc_5.2.1.txt)
 
 Build: `mpicc structTest.c -o structTest`
 

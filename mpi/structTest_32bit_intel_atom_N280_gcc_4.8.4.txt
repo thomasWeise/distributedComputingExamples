@@ -1,0 +1,8 @@
+Struct is 28 bytes large.
+Field "myIntA"   begins at offset 0 and is 4 bytes large.
+Field "myIntB"   begins at offset 4 and is 4 bytes large.
+Field "myShort"  begins at offset 8 and is 2 bytes large.
+Field "myDouble" begins at offset 12 and is 8 bytes large.
+Field "myChar"   begins at offset 20 and is 1 bytes large.
+Field "myFloat"  begins at offset 24 and is 4 bytes large.
+Effectively used data size is 23.
