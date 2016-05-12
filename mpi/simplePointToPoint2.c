@@ -1,6 +1,6 @@
-#include <mpi.h>
-#include <stdio.h>
-#include <string.h>
+#include <mpi.h>    // import MPI header
+#include <stdio.h>  // needed for printf
+#include <string.h> // needed for strlen
 
 int main(int argc, char *argv[]) {
   char message[20];
