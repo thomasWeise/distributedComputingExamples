@@ -166,11 +166,11 @@ The following steps are for Linux, but under Windows it will be pretty much the 
 
 1. Go to the [http://axis.apache.org/axis2/java/core/](http://axis.apache.org/axis2/java/core/) .
 2. Select [Downloads](http://axis.apache.org/axis2/java/core/download.html).
-3. Click to download the `Binary Distribution`, at the time of this writing, this is [Axis2-1.7.1](http://www.apache.org/dyn/closer.lua/axis/axis2/java/core/1.7.1/axis2-1.7.1-bin.zip)
-4 The click leads you to a page to select the mirror. Choose the one closest to you and click the corresponding link. Here let's use [this link](http://www-eu.apache.org/dist/axis/axis2/java/core/1.7.1/axis2-1.7.1-bin.zip).
+3. Click to download the `Binary Distribution`, at the time of this writing, this is [Axis2-1.7.2](http://www.apache.org/dyn/closer.lua/axis/axis2/java/core/1.7.2/axis2-1.7.2-bin.zip)
+4 The click leads you to a page to select the mirror. Choose the one closest to you and click the corresponding link. Here let's use [this link](http://www-eu.apache.org/dist/axis/axis2/java/core/1.7.2/axis2-1.7.2-bin.zip).
 4. Unpack the downloaded archive into a folder of your liking (let's call this folder `F`).
 5. Open a terminal console and go (`cd`) into folder `F`.
-6. In the folder `F` (where you unpackaged the archive), go to sub-folder `axis2-1.7.1/bin/`, i.e., to `F/axis2-1.7.1/bin/`, where the `1.7.1` is to be replaced by the version number of your actual download.
+6. In the folder `F` (where you unpackaged the archive), go to sub-folder `axis2-1.7.2/bin/`, i.e., to `F/axis2-1.7.2/bin/`, where the `1.7.2` is to be replaced by the version number of your actual download.
 7. Type `./axis2-server.sh` under Linux or `axis2server.bat` under Windows. The server will now start or it may say something like `You must set the JAVA_HOME variable before running Axis2 Script.`. In the latter case, we need to set `JAVA_HOME` properly. We discuss later how to do that. For now let us assume success.
 8. Under Windows, a window may pop up asking you for allowing the program internet access permission, which you should OK.
 9. Open your web browser and visit its configuration page at [`http://localhost:8080`](http://localhost:8080).
@@ -206,7 +206,7 @@ We basically now create the environment variable on the fly when starting the se
 ##### 2.5.3. Deploy `aar` to Axis2
 
 1. Find the `aar` archive of your Web Service server component. This will usually be in the folder `target` of the example projects.
-2. Copy it into the folder `F/axis2-1.7.1/repositories/services` (where, again, `1.7.1` is to be replaced by your actual Axis2 version).
+2. Copy it into the folder `F/axis2-1.7.2/repositories/services` (where, again, `1.7.2` is to be replaced by your actual Axis2 version).
 3. In your web browser, visit [`http://localhost:8080`](http://localhost:8080).
 4. The service should now be listed on the web page. If you click it, you can get the automatically-generated WSDL, e.g.,
 
