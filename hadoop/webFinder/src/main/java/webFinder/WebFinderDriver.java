@@ -29,18 +29,18 @@ public class WebFinderDriver extends Configured implements Tool {
 
   @Override
   public int run(final String[] args) throws Exception {
+    final Configuration conf;
+    final Job job;
 
-    final Configuration conf = new Configuration();
-    final Job job = Job.getInstance(conf, "Your job name");
+    conf = new Configuration();
+    job = Job.getInstance(conf, "Your job name");
 
     job.setJarByClass(WebFinderDriver.class);
 
     if (args.length < 2) {
       return 1;
     }
-
-    if (args.length > 2) {// set max depth
-      // pass parameter to mapper
+    if (args.length > 2) {// set max depth and pass parameter to mapper
       conf.setInt("maxDepth", Integer.parseInt(args[2]));
     }
 
@@ -56,11 +56,8 @@ public class WebFinderDriver extends Configured implements Tool {
     job.setInputFormatClass(TextInputFormat.class);
     job.setOutputFormatClass(TextOutputFormat.class);
 
-    final Path filePath = new Path(args[0]);
-    FileInputFormat.setInputPaths(job, filePath);
-
-    final Path outputPath = new Path(args[1]);
-    FileOutputFormat.setOutputPath(job, outputPath);
+    FileInputFormat.setInputPaths(job, new Path(args[0]));
+    FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
     job.waitForCompletion(true);
     return 0;

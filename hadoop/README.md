@@ -215,6 +215,36 @@ In order to run Hadoop in a pseudo-distributed fashion, we need to enable passwo
 <ol>
 <li>In the terminal, execute <code>ssh localhost</code> to test if you can open a <a href="https://en.wikipedia.org/wiki/Secure&#95;Shell">secure shell</a> connection to your current, local computer <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup&#95;passphraseless&#95;ssh">without needing a password</a>.
 </li>
+<li>It may say something like:
+<pre>ssh: connect to host localhost port 22: Connection refused</pre>.
+If it does say this, then do
+<pre>sudo apt-get install ssh</pre>
+and it may say something like
+<pre>
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libck-connector0 ncurses-term openssh-server openssh-sftp-server
+  ssh-import-id
+Suggested packages:
+  rssh molly-guard monkeysphere
+The following NEW packages will be installed:
+  libck-connector0 ncurses-term openssh-server openssh-sftp-server ssh
+  ssh-import-id
+0 upgraded, 6 newly installed, 0 to remove and 0 not upgraded.
+Need to get 661 kB of archives.
+After this operation, 3,528 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+...
+Setting up ssh-import-id (4.5-0ubuntu1) ...
+Processing triggers for ufw (0.34-2) ...
+Setting up ssh (1:6.9p1-2ubuntu0.2) ...
+Processing triggers for libc-bin (2.21-0ubuntu4.1) ...
+Processing triggers for systemd (225-1ubuntu9.1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+</pre>
+OK, now you've got SSH installed. Do <code>ssh localhost</code> again.</li>
 <li>It may ask you something like 
 <pre>
 The authenticity of host 'localhost (127.0.0.1)' can't be established.
@@ -245,10 +275,10 @@ Are you sure you want to continue connecting (yes/no)?
 </pre>    
 which you would answer with <code>yes</code> followed by a hit to the enter button. If, after that, you get a message like <code>0.0.0.0: packet&#95;write&#95;wait: Connection to 127.0.0.1: Broken pipe</code>, enter <code>sbin/stop-dfs.sh</code>, hit return, and do <code>sbin/start-dfs.sh</code> again.</li>
 <li>In your web browser, open <code>http://localhost:50070/</code>. It should display a web page giving an overview about the Hadoop system now running on your local computer.</li>
-<li>Now we can setup the required stuff for the example jobs (making HDFS directories and copying the input files). Make sure to replace <code><userName></code> with your user/login name on your current machine.
+<li>Now we can setup the required stuff for the example jobs (making HDFS directories and copying the input files). Make sure to replace <code>&lt;userName&gt;</code> with your user/login name on your current machine.
 <pre>
 bin/hdfs dfs -mkdir /user
-bin/hdfs dfs -mkdir /user/<userName>
+bin/hdfs dfs -mkdir /user/&lt;userName&gt;
 bin/hdfs dfs -put etc/hadoop input
 </pre></li>
 <li>We can now run the job via
@@ -269,7 +299,7 @@ cat output/*
 We now want to run one of the provided examples. Let us assume we want to run the <code>wordCount</code> example. For other examples, just replace <code>wordCount</code> with their names in the following text. I assume that the <code>distributedComputingExamples</code> repository is located in a folder <code>Y</code> on your machine.
 <ol>
 <li>Open a terminal and enter your Hadoop installation folder. I assume you installed Hadoop version <code>2.7.2</code> into a folder named <code>X</code>, so you would <code>cd</code> into <code>X/hadoop-2.7.2/</code>.</li>
-<li>We want to start with a "clean" file system, so let us repeat some of the setup steps. Don't forget to replace <code><userName></code> with your local login/user name.
+<li>We want to start with a "clean" file system, so let us repeat some of the setup steps. Don't forget to replace <code>&lt;userName&gt;</code> with your local login/user name.
 <pre>
 bin/hdfs namenode -format
 </pre>
@@ -277,10 +307,10 @@ bin/hdfs namenode -format
 <pre>
 sbin/start-dfs.sh
 bin/hdfs dfs -mkdir /user
-bin/hdfs dfs -mkdir /user/<userName>
+bin/hdfs dfs -mkdir /user/&lt;userName&gt;
 </pre>
 If you actually properly cleaned up the file system after running your last examples (see the second-to-last step here), you just need to do <code>sbin/start-dfs.sh</code> and do not need to format the HDFS.</li>
-<li>Copy the input data of the example into HDFS. You find this data in the example folder <code>Y/distributedComputingExamples/wordCount/input</code>. So you will perform <code>bin/hdfs dfs -put Y/distributedComputingExamples/hadoop/wordCount/input input</code>. Make sure to replace <code>Y</code> with the proper path. If copying fails, go to "2.6. Troubleshooting".</li>
+<li>Copy the input data of the example into HDFS. You find this data in the example folder <code>Y/distributedComputingExamples/hadoop/wordCount/input</code>. So you will perform <code>bin/hdfs dfs -put Y/distributedComputingExamples/hadoop/wordCount/input input</code>. Make sure to replace <code>Y</code> with the proper path. If copying fails, go to "2.6. Troubleshooting".</li>
 <li>Do <code>bin/hdfs dfs -ls input</code> to check if the files have properly been copied.</li>
 <li>You can now do <code>bin/hadoop jar Y/distributedComputingExamples/hadoop/wordCount/target/wordCount-full.jar input output</code>. This command will start the main class of the example, which resides in the fat jar <code>wordCount-full.jar</code>, with the parameters <code>input</code> and <code>output</code>. <code>input</code> here is the input folder, which we previously have copied to the Hadoop file system. <code>output</code> is the output folder to be created. If you execute this command, you will see lots of logging information.</li>
 <li>Do <code>bin/hdfs dfs -ls output</code>. You will see output like
@@ -332,13 +362,13 @@ Sometimes, you may try to copy some file or folder to HDFS and get an error that
 
 <ol>
 <li>Execute <code>sbin/stop-dfs.sh</code></li>
-<li>Delete the folder <code>/tmp/hadoop-<userName></code>, where <code><userName></code> is to replaced with your local login/user name.</li>
+<li>Delete the folder <code>/tmp/hadoop-&lt;userName&gt;</code>, where <code>&lt;userName&gt;</code> is to replaced with your local login/user name.</li>
 <li>Now perform
 <pre>
 bin/hdfs namenode -format 
 sbin/start-dfs.sh
 bin/hdfs dfs -mkdir /user
-bin/hdfs dfs -mkdir /user/<userName>
+bin/hdfs dfs -mkdir /user/&lt;userName&gt;
 </pre>
 </li><li>
 If you now repeat the operation that failed before, it should succeed.
