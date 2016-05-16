@@ -16,21 +16,17 @@ import org.apache.hadoop.util.ToolRunner;
 public class WordCountDriver extends Configured implements Tool {
 
   public static void main(final String[] args) throws Exception {
-    try {
-      final int res = ToolRunner.run(new Configuration(),
-          new WordCountDriver(), args);
-      System.exit(res);
-    } catch (final Exception e) {
-      e.printStackTrace();
-      System.exit(255);
-    }
+    System.exit(ToolRunner.run(new Configuration(), //
+        new WordCountDriver(), args));
   }
 
   @Override
   public int run(final String[] args) throws Exception {
+    final Configuration conf;
+    final Job job;
 
-    final Configuration conf = new Configuration();
-    final Job job = Job.getInstance(conf, "Your job name");
+    conf = new Configuration();
+    job = Job.getInstance(conf, "Word Count Map-Reduce");
 
     job.setJarByClass(WordCountDriver.class);
 
@@ -39,10 +35,6 @@ public class WordCountDriver extends Configured implements Tool {
     }
 
     job.setMapperClass(WordCountMapper.class);
-
-    // job.setMapOutputKeyClass(Text.class);
-    // job.setMapOutputValueClass(IntWritable.class);
-
     job.setReducerClass(WordCountReducer.class);
     job.setCombinerClass(WordCountReducer.class);
 
@@ -50,14 +42,10 @@ public class WordCountDriver extends Configured implements Tool {
     job.setOutputValueClass(IntWritable.class);
 
     job.setInputFormatClass(TextInputFormat.class);
-
     job.setOutputFormatClass(TextOutputFormat.class);
 
-    final Path filePath = new Path(args[0]);
-    FileInputFormat.setInputPaths(job, filePath);
-
-    final Path outputPath = new Path(args[1]);
-    FileOutputFormat.setOutputPath(job, outputPath);
+    FileInputFormat.setInputPaths(job, new Path(args[0]));
+    FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
     job.waitForCompletion(true);
     return 0;

@@ -36,7 +36,7 @@
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<jdk.version>1.7</jdk.version>
-<project.mainClass>wordCount.WordCountDriver</project.mainClass>
+		<project.mainClass>wordCount.WordCountDriver</project.mainClass>
 	</properties>
 
 	<licenses>
