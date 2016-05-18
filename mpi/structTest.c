@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> // for printf
 
 typedef struct {  int     myIntA; // an integer (usually 4 bytes)
                   int     myIntB; // another integer (usually 4 bytes)
