@@ -5,21 +5,21 @@
 int main(int argc, char **argv) {
   int         rank, size, prev, next;
   MPI_Status  status;
-  char        message[20];
+  char        messageIn[20], messageOut[20];
 
-  MPI_Init(&argc, &argv);
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &size);
+  MPI_Init(&argc, &argv); // initialize MPI
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank); // get own rank/ID
+  MPI_Comm_size(MPI_COMM_WORLD, &size); // get total number of processes
 
-  prev = ((size + rank - 1) % size);
-  next = ((rank + 1) % size);
-  strcpy(message, "Important message!");
+  prev = ((size + rank - 1) % size); // get rank of process to receive from, wrap at 0
+  MPI_Recv(messageIn, 20, MPI_CHAR, prev, 0, MPI_COMM_WORLD, &status); // receive msg
+  printf("Process %d received message %s from process %d.\n", rank, messageIn, prev);
 
-  MPI_Recv(message, 20, MPI_CHAR, prev, 0, MPI_COMM_WORLD, &status);
-  printf("Process %d received message %s from process %d.\n", rank, message, prev);
-  printf("Process %d is sending message %s to process %d.\n", rank, message, next);
-  MPI_Send(message, 20, MPI_CHAR, next, 0, MPI_COMM_WORLD);
+  next = ((rank + 1) % size); // get rank of process to send message to
+  strcpy(messageOut, "Important message!"); // construct message
+  printf("Process %d is sending message %s to process %d.\n", rank, messageOut, next);
+  MPI_Send(messageOut, 20, MPI_CHAR, next, 0, MPI_COMM_WORLD); // send message
 
-  MPI_Finalize();
+  MPI_Finalize(); // shut down MPI
   return 0;
 }

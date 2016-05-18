@@ -1,8 +1,8 @@
-#include <mpi.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <stdio.h>
+#include <mpi.h>    // import MPI header
+#include <stdio.h>  // needed for printf
+#include <stdlib.h> // for rand and RAND_MAX
+#include <string.h> // for memset
+#include <time.h>   // for srand(time(NULL));
 
 int main(int argc, char **argv) {
   int           i, size, rank;     double     x, y;
