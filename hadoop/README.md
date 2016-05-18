@@ -1,6 +1,25 @@
 # Hadoop Examples
 
-[Apache](http://hadoop.apache.org/) [Hadoop](https://en.wikipedia.org/wiki/Apache_Hadoop) is a framework for performing large-scale distributed computations in a cluster. Different from [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) (which we discussed [here](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/)), it is based on Java technologies. It may thus be slower than MPI, but can reap the full benefit of the rich libraries and programming environment of the Java ecosystem (just think about all the things we already did in this course). One of the most well-known ways to use Hadoop is to perform computations following the [MapReduce](https://en.wikipedia.org/wiki/MapReduce) pattern (which is a tiny little bit similar to scatter/gather/reduce in MPI).  
+[Apache](http://hadoop.apache.org/) [Hadoop](https://en.wikipedia.org/wiki/Apache_Hadoop) is a framework for performing large-scale distributed computations in a cluster. Different from [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) (which we discussed [here](http://github.com/thomasWeise/distributedComputingExamples/tree/master/mpi/)), it is based on Java technologies. It may thus be slower than MPI, but can reap the full benefit of the rich libraries and programming environment of the Java ecosystem (just think about all the things we already did in this course). One of the most well-known ways to use Hadoop is to perform computations following the [MapReduce](https://en.wikipedia.org/wiki/MapReduce) pattern (which is a tiny little bit similar to scatter/gather/reduce in MPI).
+
+Let us now shortly compare use cases of MPI versus MapReduce with Hadoop. MPI is the technology of choice if
+
+- communication is expensive and the bottleneck of our application,
+- frequent communication is required between processes solving related sub-problems,
+- the available hardware is homogenous (and we can use an MPI implementation optimized for it),
+- processes need to be organized in groups or topological structures to make efficient use of collective communication to achieve high performance,
+- the size of data that needs to be transmitted is smaller in comparison to runtime of computations, and when
+- we do not need to worry much about exchanging data with a heterogeneous distributed application environment.
+
+Hadoop, on the other hand, covers use cases where
+
+- communication is not the bottleneck, because computation takes much longer than communication (think Machine Learning), when
+- the environment is heterogeneous,
+- processes do not need to be organized in a special way and
+- the division of tasks into sub-problems can be done efficiently by just slicing the input data into equal-sized pieces, where
+- sub-problems have batch job character, where
+- data is unstructured (e.g., text) and potentially huge (eating away the advantages of MPI-style communication), or where
+- data comes from and results must be pushed back to other applications in the environment, say to HTTP/Java Servlet/Web Service stacks.
 
 ## 1. Examples
 
