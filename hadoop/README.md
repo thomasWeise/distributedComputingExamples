@@ -47,9 +47,9 @@ The reducer here also acts as combinator, meaning that a reduction step is also 
 
 After the reduction step, we therefore know how often each word occurred in the text. Furthermore, since the tuples are sorted automatically before reduction, the word/occurrences list is also nicely sorted alphabetically.
 
-1. [`WordCountDriver`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/wordCount/src/main/java/wordCount/WordCountDriver.java)
-1. [`WordCountMapper`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/wordCount/src/main/java/wordCount/WordCountMapper.java)
-1. [`WordCountReducer`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/wordCount/src/main/java/wordCount/WordCountReducer.java)
+1. [`WordCountDriver`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/hadoop/wordCount/src/main/java/wordCount/WordCountDriver.java)
+1. [`WordCountMapper`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/hadoop/wordCount/src/main/java/wordCount/WordCountMapper.java)
+1. [`WordCountReducer`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/hadoop/wordCount/src/main/java/wordCount/WordCountReducer.java)
 
 ### 1.2. Web Finder
 
@@ -122,9 +122,9 @@ In other words, we can see that some of the top sites in China link to each othe
 
 By the way, we also find lots of dodgy links which lead to nowhere or contain illegal characters, causing some warnings to be logged by our system.
 
-1. [`WebFinderDriver`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/wordCount/src/main/java/webFinder/WebFinderDriver.java)
-1. [`WebFinderMapper`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/wordCount/src/main/java/webFinder/WebFinderMapper.java)
-1. [`WebFinderReducer`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/hadoop/wordCount/src/main/java/webFinder/WebFinderReducer.java)
+1. [`WebFinderDriver`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/hadoop/wordCount/src/main/java/webFinder/WebFinderDriver.java)
+1. [`WebFinderMapper`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/hadoop/wordCount/src/main/java/webFinder/WebFinderMapper.java)
+1. [`WebFinderReducer`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/hadoop/wordCount/src/main/java/webFinder/WebFinderReducer.java)
 
 ## 2. Building and Deployment
 

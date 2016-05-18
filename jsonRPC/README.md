@@ -17,15 +17,15 @@ So JSON RPCs are quite a nice technology.
 
 ### 1.1. (Complex Number) Calculator RPC Server
 
-The complex number [calculator](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Calculator.java) JSON RPC server offers methods to add, subtract, multiply, and divide [complex numbers](https://en.wikipedia.org/wiki/Complex_number). This example is very similar to the Complex Number Calculator [Web Service](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/) example server.
+The complex number [calculator](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Calculator.java) JSON RPC server offers methods to add, subtract, multiply, and divide [complex numbers](https://en.wikipedia.org/wiki/Complex_number). This example is very similar to the Complex Number Calculator [Web Service](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/) example server.
 
-We introduce a new [data type](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Complex.java) for representing a complex number in form of a [JavaBean](https://en.wikipedia.org/wiki/JavaBeans).
+We introduce a new [data type](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Complex.java) for representing a complex number in form of a [JavaBean](https://en.wikipedia.org/wiki/JavaBeans).
 
-1. [`Complex.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Complex.java)
-1. [`CalculatorInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/java/calculator/CalculatorInterface.java)
-1. [`Calculator.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Calculator.java)
-1. [`CalculatorServlet.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/java/calculator/CalculatorServlet.java)
-1. [`web.xml`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/server/src/main/webapp/WEB-INF/web.xml) 
+1. [`Complex.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Complex.java)
+1. [`CalculatorInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/java/calculator/CalculatorInterface.java)
+1. [`Calculator.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/java/calculator/Calculator.java)
+1. [`CalculatorServlet.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/java/calculator/CalculatorServlet.java)
+1. [`web.xml`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/server/src/main/webapp/WEB-INF/web.xml) 
 
 You need to compile (via [Maven](http://maven.apache.org/)) and deploy to a [servlet container](https://en.wikipedia.org/wiki/Web_container).
 
@@ -35,22 +35,22 @@ The example client of the calculator JSON RPC introduced above creates two compl
 
 The compiled jar archive is a stand-alone executable which you can run via `java -jar calculatorJSONClient-full.jar`.
 
-1. [`Complex.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/client/src/main/java/calculator/Complex.java)
-1. [`CalculatorInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/client/src/main/java/calculator/CalculatorInterface.java)
-1. [`TestClient.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/calculator/client/src/main/java/calculator/TestClient.java)
+1. [`Complex.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/client/src/main/java/calculator/Complex.java)
+1. [`CalculatorInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/client/src/main/java/calculator/CalculatorInterface.java)
+1. [`TestClient.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/calculator/client/src/main/java/calculator/TestClient.java)
 
 
 ### 1.3. Warehouse JSON RPC Service
 
 The warehouse RPC service example shows how we can construct a stand-alone JSON RPC service managing the number of certain stocks in a warehouse. It basically maintains a [`HashMap`](http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html) storing the number of available items of a given type. This example is very similar to the Warehouse [Web Service](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/) example server.
 
-The RPC server offers a method for getting the number of items of a given type and one method for changing it. The [Warehouse class](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/warehouse/server/src/main/java/warehouseServer/Warehouse.java) implementing [service interface](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/warehouse/server/src/main/java/warehouseServer/WarehouseInterface.java) itself is a plain Java object without any annotation or fancy stuff. 
+The RPC server offers a method for getting the number of items of a given type and one method for changing it. The [Warehouse class](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/warehouse/server/src/main/java/warehouseServer/Warehouse.java) implementing [service interface](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/warehouse/server/src/main/java/warehouseServer/WarehouseInterface.java) itself is a plain Java object without any annotation or fancy stuff. 
 
-1. [`WarehouseInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/WarehouseInterface.java)
-1. [`Warehouse.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/Warehouse.java)
-1. [`WarehouseServlet.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/WarehouseServlet.java)
-1. [`Main.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/Main.java)
-1. [`web.xml`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/webServices/examples/jsonRPC/server/src/main/resources/webapp/WEB-INF/web.xml) 
+1. [`WarehouseInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/WarehouseInterface.java)
+1. [`Warehouse.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/Warehouse.java)
+1. [`WarehouseServlet.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/WarehouseServlet.java)
+1. [`Main.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/webServices/examples/jsonRPC/server/src/main/java/warehouseServer/Main.java)
+1. [`web.xml`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/webServices/examples/jsonRPC/server/src/main/resources/webapp/WEB-INF/web.xml) 
 
 You need to compile this example with [Maven](http://maven.apache.org/)) to build a stand-alone `jar` archive. This archive does not need to be deployed anywhere, since it already contains the (Jetty) servlet container. You will obtain the fat `jar` file `warehouseJSONServer-full.jar` which you can run as `java -jar warehouseJSONServer-full.jar` from the command line. 
 
@@ -58,8 +58,8 @@ You need to compile this example with [Maven](http://maven.apache.org/)) to buil
 
 The example client of the warehouse JSON RPC service introduced above: It checks the warehouse for the number of "cars" and "cats", changes these numbers, and checks back the results. The client is compiled into a fat jar named `warehouseJSONClient-full.jar` containing all the required libraries. You can directly execute it via `java -jar warehouseJSONClient-full.jar` from the command line.
 
-1. [`WarehouseInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/warehouse/client/src/main/java/warehouseClient/WarehouseInterface.java)
-2. [`WarehouseTest.java`](http://github.com/thomasWeise/distributedComputingExamples/tree/master/jsonRPC/examples/warehouse/client/src/main/java/warehouseClient/WarehouseTest.java)
+1. [`WarehouseInterface.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/warehouse/client/src/main/java/warehouseClient/WarehouseInterface.java)
+2. [`WarehouseTest.java`](http://github.com/thomasWeise/distributedComputingExamples/blob/master/jsonRPC/examples/warehouse/client/src/main/java/warehouseClient/WarehouseTest.java)
 
 
 ## 2. Building and Deployment
