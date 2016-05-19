@@ -13,12 +13,22 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.log4j.Logger;
 
-public class WebFinderMapper
-    extends Mapper<LongWritable, Text, Text, Text> {
+/**
+ * This is the Mapper component of the Web Finder example. Its input are
+ * text lines, where each line stands for a website URL. It finds all
+ * resources that are loaded by a given website URL and emits tuples of
+ * kind {@code <resource URL, website URL>}.
+ */
+public class WebFinderMapper extends
+    Mapper<LongWritable, Text, Text, Text> {
 
   /** the logger we use */
   private static Logger LOGGER = Logger.getLogger(WebFinderMapper.class);
 
+  /**
+   * Map tuples of type {@code <line number, website url text>} to tuples
+   * of kind {@code <resource url text, website url text>}.
+   */
   @Override
   protected void map(final LongWritable offset, final Text line,
       final Context context) throws IOException, InterruptedException {
@@ -171,8 +181,8 @@ public class WebFinderMapper
                 error.addSuppressed(error2);
                 error.addSuppressed(error3);
                 if (WebFinderMapper.LOGGER != null) {
-                  WebFinderMapper.LOGGER
-                      .warn("Error while trying to build URL with string '"
+                  WebFinderMapper.LOGGER.warn(
+                      "Error while trying to build URL with string '"
                           + test + "' under load URL '"
                           + loadUrl.toString() + "' for base URL '"
                           + baseUrl.toString() + "'.", error2);
@@ -215,8 +225,8 @@ public class WebFinderMapper
       }
     } catch (final Throwable error) {
       if (WebFinderMapper.LOGGER != null) {
-        WebFinderMapper.LOGGER.warn(
-            "Error while trying to load URL '" + loadUrl + "'.", error);
+        WebFinderMapper.LOGGER.warn("Error while trying to load URL '"
+            + loadUrl + "'.", error);
       }
     }
 
@@ -314,7 +324,7 @@ public class WebFinderMapper
 
   /** the link descriptions */
   static final __LinkDesc[] DESCS = { //
-      new __LinkDesc(false, "<link rel=\"stylesheet\"", "href="), //
+  new __LinkDesc(false, "<link rel=\"stylesheet\"", "href="), //
       new __LinkDesc(false, "<link rel='stylesheet'", "href="), //
       new __LinkDesc(false, "<img", "src="), //
       new __LinkDesc(false, "<script", "src="), //

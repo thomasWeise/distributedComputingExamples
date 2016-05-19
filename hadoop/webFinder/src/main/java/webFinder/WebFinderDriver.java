@@ -14,6 +14,10 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+/**
+ * The driver of the web finder sets up the distributed computation by
+ * defining what the mapper and reducer classes, amongst other things.
+ */
 public class WebFinderDriver extends Configured implements Tool {
 
   public static void main(final String[] args) throws Exception {
@@ -27,6 +31,7 @@ public class WebFinderDriver extends Configured implements Tool {
     }
   }
 
+  /** Setting up the computation. */
   @Override
   public int run(final String[] args) throws Exception {
     final Configuration conf;

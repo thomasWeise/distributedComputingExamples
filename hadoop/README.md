@@ -235,8 +235,8 @@ In order to run Hadoop in a pseudo-distributed fashion, we need to enable passwo
 <li>In the terminal, execute <code>ssh localhost</code> to test if you can open a <a href="https://en.wikipedia.org/wiki/Secure&#95;Shell">secure shell</a> connection to your current, local computer <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html#Setup&#95;passphraseless&#95;ssh">without needing a password</a>.
 </li>
 <li>It may say something like:
-<pre>ssh: connect to host localhost port 22: Connection refused</pre>.
-If it does say this, then do
+<pre>ssh: connect to host localhost port 22: Connection refused</pre>
+If it does say this (i.e., you did not install the pre-requisites&hellip;), then do
 <pre>sudo apt-get install ssh</pre>
 and it may say something like
 <pre>

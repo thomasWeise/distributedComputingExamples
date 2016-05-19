@@ -11,9 +11,23 @@ import java.util.List;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class WebFinderReducer
-    extends Reducer<Text, Text, Text, List<Text>> {
+/**
+ * This is the reducer component of the web finder example. For each key (
+ * {@code resource URL}) of the tuples produced by the mapper, it receives
+ * the list of all values ({@code website URLs}). If such a list contains
+ * more than one unique element, this means that the resource is shared by
+ * multiple websites. This reducer emits tuples of the form
+ * {@code <resource URL, list of website urls>}.
+ */
+public class WebFinderReducer extends
+    Reducer<Text, Text, Text, List<Text>> {
 
+  /**
+   * The actual reduction step: From the tuples of form
+   * {@code <resource URL, iterable of referencing website URLs>}, select
+   * all resources referenced by more than one unique website. For these,
+   * output tuples of the form {@code <resource URL, list of website URLs>}.
+   */
   @Override
   protected void reduce(final Text key, final Iterable<Text> values,
       final Context context) throws IOException, InterruptedException {
