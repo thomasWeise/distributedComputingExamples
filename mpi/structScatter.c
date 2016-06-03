@@ -52,17 +52,17 @@ int main(int argc, char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &size); // get number of processes
 
     send = (myStruct*)malloc(sizeof(myStruct) * size); // allocate memory
-    for(i = size; (--i) >= 0; ) {
+    for(i = size; (--i) >= 0; ) { // store some dummy data
       send[i].myIntA    = rank;
       send[i].myIntB    = i;
       send[i].myShort   = (rank * rank) % size;
-      send[i].myDouble  = *((double*)("Hi you!"));
+      send[i].myDouble  = *((double*)("Hi you!")); // haha
       send[i].myChar    = 'V';
       send[i].myFloat   = (i / (float)size);
     }
   }
 
-  MPI_Scatter(send, 1, myStructType, &data, 1, myStructType, 0, MPI_COMM_WORLD);
+  MPI_Scatter(send, 1, myStructType, &data, 1, myStructType, 0, MPI_COMM_WORLD); //scatter the structs
 
   printf("%d: received: myIntA=%d, myIntB=%d, myShort=%d, myDouble=\"%s\", myChar='%c', myFloat=%f.\n",
          rank, data.myIntA, data.myIntB, data.myShort, (char*)&data.myDouble, data.myChar, data.myFloat);

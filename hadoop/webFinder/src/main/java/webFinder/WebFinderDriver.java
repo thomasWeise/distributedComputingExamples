@@ -38,9 +38,9 @@ public class WebFinderDriver extends Configured implements Tool {
     final Job job;
 
     conf = new Configuration();
-    job = Job.getInstance(conf, "Your job name");
+    job = Job.getInstance(conf, "WebFinder MapReduce");
 
-    job.setJarByClass(WebFinderDriver.class);
+    job.setJarByClass(WebFinderDriver.class);// use current jar
 
     if (args.length < 2) {
       return 1;
@@ -49,17 +49,16 @@ public class WebFinderDriver extends Configured implements Tool {
       conf.setInt("maxDepth", Integer.parseInt(args[2]));
     }
 
-    job.setMapperClass(WebFinderMapper.class);
-    job.setMapOutputKeyClass(Text.class);
-    job.setMapOutputValueClass(Text.class);
+    job.setMapperClass(WebFinderMapper.class);// set mapper
+    job.setMapOutputKeyClass(Text.class);// set mapper output key type
+    job.setMapOutputValueClass(Text.class); // set mapper output value type
 
-    job.setReducerClass(WebFinderReducer.class);
+    job.setReducerClass(WebFinderReducer.class);// set reducer
+    job.setOutputKeyClass(Text.class);// set reducer output key type
+    job.setOutputValueClass(List.class);// set reducer output value
 
-    job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(List.class);
-
-    job.setInputFormatClass(TextInputFormat.class);
-    job.setOutputFormatClass(TextOutputFormat.class);
+    job.setInputFormatClass(TextInputFormat.class);// set input format
+    job.setOutputFormatClass(TextOutputFormat.class);// set output format
 
     FileInputFormat.setInputPaths(job, new Path(args[0]));
     FileOutputFormat.setOutputPath(job, new Path(args[1]));

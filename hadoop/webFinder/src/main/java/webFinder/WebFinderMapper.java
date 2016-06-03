@@ -19,8 +19,8 @@ import org.apache.log4j.Logger;
  * resources that are loaded by a given website URL and emits tuples of
  * kind {@code <resource URL, website URL>}.
  */
-public class WebFinderMapper extends
-    Mapper<LongWritable, Text, Text, Text> {
+public class WebFinderMapper
+    extends Mapper<LongWritable, Text, Text, Text> {
 
   /** the logger we use */
   private static Logger LOGGER = Logger.getLogger(WebFinderMapper.class);
@@ -39,16 +39,16 @@ public class WebFinderMapper extends
     final HashSet<URL> done;
     String str;
 
-    maxDepth = context.getConfiguration().getInt("maxDepth", 1);
-
     str = WebFinderMapper.__prepare(line.toString(), true);
-    if (str == null) {
+    if (str == null) {// prepare base url
       return;
     }
+    // set maximum depth of spider
+    maxDepth = context.getConfiguration().getInt("maxDepth", 1);
 
     baseUri = URI.create(str).normalize();
     baseUrl = baseUri.toURL();
-    done = new HashSet<>();
+    done = new HashSet<>();// URLs that have been processed
     done.add(baseUrl);
     try {
       done.add(new URL(baseUrl.toString() + '/'));
@@ -56,13 +56,14 @@ public class WebFinderMapper extends
       // ignore
     }
     baseUrlText = new Text(baseUrl.toString());
-    context.write(baseUrlText, baseUrlText);
+    context.write(baseUrlText, baseUrlText);// url itself is done
+    // now recursively spider resources
     WebFinderMapper.__load(maxDepth, baseUrl, baseUrlText, baseUrl,
         baseUri, new StringBuilder(), new char[16384], done, context);
   }
 
   /**
-   * load a given URL
+   * load a given URL of a HTML document
    *
    * @param remainingDepth
    *          how deep we can still go
@@ -105,7 +106,7 @@ public class WebFinderMapper extends
       int read;
 
       stringBuilder.setLength(0);
-      uconn = loadUrl.openConnection();
+      uconn = loadUrl.openConnection(); // setup the connection
       uconn.setConnectTimeout(10_000);
       uconn.setReadTimeout(10_000);
       uconn.setDoInput(true);
@@ -114,26 +115,26 @@ public class WebFinderMapper extends
       uconn.setDefaultUseCaches(true);
       try (final InputStream inputStream = loadUrl.openStream()) {
         try (final InputStreamReader inputReader = new InputStreamReader(
-            inputStream)) {
+            inputStream)) { // load all the data of the text resource
           while ((read = inputReader.read(buffer)) > 0) {
             stringBuilder.append(buffer, 0, read);
           }
         }
       }
 
-      text = stringBuilder.toString().replace('\n', ' ')//
+      text = stringBuilder.toString().replace('\n', ' ')// delete newlines
           .replace('\r', ' ').replace('\t', ' ').replaceAll("  ", " ");
-      lower = text.toLowerCase();
+      lower = text.toLowerCase(); // create a lower case version
 
       nextDesc: for (final __LinkDesc desc : WebFinderMapper.DESCS) {
 
-        last = 0;// find and load scripts
-        findDesc: for (;;) {
+        last = 0;// find and load other resources
+        findDesc: for (;;) {// find begin tag
           index1 = lower.indexOf(desc.m_begin, last);
           if (index1 <= last) {
             continue nextDesc;
           }
-          last = index1 + desc.m_begin.length();
+          last = index1 + desc.m_begin.length();// find URL attribute
           index1 = lower.indexOf(desc.m_urlIndicatorQuote, last);
           index2 = lower.indexOf(desc.m_urlIndicatorPrime, last);
           sep = '"';
@@ -144,7 +145,7 @@ public class WebFinderMapper extends
             }
           }
           index2 = lower.indexOf('>', last);
-          if (index1 <= last) {
+          if (index1 <= last) {// check for problem with tag end
             continue nextDesc;
           }
           if ((index2 < index1) && (index2 >= last)) {
@@ -157,7 +158,7 @@ public class WebFinderMapper extends
             continue nextDesc;
           }
 
-          test = text.substring(last, index1);
+          test = text.substring(last, index1);// take URL
           last = index1;
           test = WebFinderMapper.__prepare(test, desc.m_loadRecursive);
           if (test == null) {
@@ -181,8 +182,8 @@ public class WebFinderMapper extends
                 error.addSuppressed(error2);
                 error.addSuppressed(error3);
                 if (WebFinderMapper.LOGGER != null) {
-                  WebFinderMapper.LOGGER.warn(
-                      "Error while trying to build URL with string '"
+                  WebFinderMapper.LOGGER
+                      .warn("Error while trying to build URL with string '"
                           + test + "' under load URL '"
                           + loadUrl.toString() + "' for base URL '"
                           + baseUrl.toString() + "'.", error2);
@@ -225,8 +226,8 @@ public class WebFinderMapper extends
       }
     } catch (final Throwable error) {
       if (WebFinderMapper.LOGGER != null) {
-        WebFinderMapper.LOGGER.warn("Error while trying to load URL '"
-            + loadUrl + "'.", error);
+        WebFinderMapper.LOGGER.warn(
+            "Error while trying to load URL '" + loadUrl + "'.", error);
       }
     }
 
@@ -324,7 +325,7 @@ public class WebFinderMapper extends
 
   /** the link descriptions */
   static final __LinkDesc[] DESCS = { //
-  new __LinkDesc(false, "<link rel=\"stylesheet\"", "href="), //
+      new __LinkDesc(false, "<link rel=\"stylesheet\"", "href="), //
       new __LinkDesc(false, "<link rel='stylesheet'", "href="), //
       new __LinkDesc(false, "<img", "src="), //
       new __LinkDesc(false, "<script", "src="), //

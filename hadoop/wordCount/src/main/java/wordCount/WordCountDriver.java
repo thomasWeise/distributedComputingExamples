@@ -34,15 +34,17 @@ public class WordCountDriver extends Configured implements Tool {
       return 1;
     }
 
-    job.setMapperClass(WordCountMapper.class);
-    job.setReducerClass(WordCountReducer.class);
-    job.setCombinerClass(WordCountReducer.class);
+    job.setMapperClass(WordCountMapper.class);// set mapper
+    job.setReducerClass(WordCountReducer.class);// set reducer
+    // a combiner performs something like a reduction step right after
+    // mapping, on the mapper's computer, before sending on the data
+    job.setCombinerClass(WordCountReducer.class);// set combiner
 
-    job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(IntWritable.class);
+    job.setOutputKeyClass(Text.class);// set output key class
+    job.setOutputValueClass(IntWritable.class);// set output value class
 
-    job.setInputFormatClass(TextInputFormat.class);
-    job.setOutputFormatClass(TextOutputFormat.class);
+    job.setInputFormatClass(TextInputFormat.class);// set input format
+    job.setOutputFormatClass(TextOutputFormat.class);// set output format
 
     FileInputFormat.setInputPaths(job, new Path(args[0]));
     FileOutputFormat.setOutputPath(job, new Path(args[1]));
