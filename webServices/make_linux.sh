@@ -9,7 +9,7 @@ set -o errexit   # set -e : exit the script if any statement returns a non-true 
 currentDir=`pwd`
 echo "We now build all the Web Service examples in directory '$currentDir'."
 
-axisVersion="1.7.3"
+axisVersion="1.7.4"
 echo "For this purpose, we need to download, install, and run axis2 $axisVersion in a temporary directory."
 tempDir=$(mktemp -d)
 echo "Created temporary folder '$tempDir'."
