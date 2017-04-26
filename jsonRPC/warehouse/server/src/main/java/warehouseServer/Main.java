@@ -1,15 +1,11 @@
 package warehouseServer;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import java.io.File;    import java.io.IOException;   import java.net.URL;
 import java.net.URLClassLoader;
 
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.SimpleInstanceManager;
+import org.apache.tomcat.InstanceManager;   import org.apache.tomcat.SimpleInstanceManager;
 import org.eclipse.jetty.annotations.ServletContainerInitializersStarter;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.Server;     import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 /**
@@ -47,17 +43,13 @@ public class Main {
       context.setAttribute(InstanceManager.class.getName(),
           new SimpleInstanceManager());
 
-      context.addBean(//
-          new ServletContainerInitializersStarter(context), true);
-      context.setClassLoader(
-          new URLClassLoader(new URL[0], Main.class.getClassLoader()));
+      context.addBean(new ServletContainerInitializersStarter(context), true);
+      context.setClassLoader(new URLClassLoader(new URL[0], Main.class.getClassLoader()));
 
       context.addServlet(WarehouseServlet.class, "/");//$NON-NLS-1$
-
       server.setHandler(context);
 
-      // start the server and wait for termination
-      server.start();
+      server.start(); // start the server and wait for termination
       server.join();
     }
   }
