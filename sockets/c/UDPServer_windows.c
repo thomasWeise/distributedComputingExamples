@@ -17,7 +17,7 @@ int main(int argc, char *argv[])  {
   server = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);//Allocate UDP socket
   bind(server, (struct sockaddr *) &serverAddr, sizeof(serverAddr)); //(*@\serverBox{1)}@*)
 
-  for (j = 5; (--j) >= 0;)  {
+  for (j = 5; (--j) >= 0;)  { // then receive 1 byte package data and get client address, with flags=0
     recvfrom(server, &data, 1, 0, (struct sockaddr *) &clientAddr, &addrSize); //(*@\serverBox{2)}@*)
     printf("New message %d from %s\n", data, inet_ntoa(clientAddr.sin_addr));  //(*@\serverBox{3)}@*)
   }

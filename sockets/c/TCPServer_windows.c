@@ -21,7 +21,7 @@ int main(int argc, char *argv[])  {
   for (j = 5; (--j) >= 0;)  {
     client = accept(server, (struct sockaddr *) &clientAddr, &addrSize); //(*@\serverBox{3)}@*)
     printf("New connection from %s\n", inet_ntoa(clientAddr.sin_addr));
-
+    // now receive 1 byte of data to client, flags=0
     if(recv(client, &data, 1, 0) == 1) { printf("%d\n", data);  } //(*@\serverBox{4} + \clientBox{3})@*)
     closesocket(client); //(*@\clientBox{4)}@*)
   }

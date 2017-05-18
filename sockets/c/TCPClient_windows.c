@@ -16,7 +16,7 @@ int main(int argc, char *argv[])  {
   connect(client, (struct sockaddr *)&address, sizeof(address)); //(*@\clientBox{1+2)}@*)
 
   data = 2;
-  send(client, &data, 1, 0);  //(*@\clientBox{3)}@*)
+  send(client, &data, 1, 0);  //(*@\clientBox{3)}@*) send 1 byte of data to client, flags=0
 
   closesocket(client);  //(*@\clientBox{4)}@*)
   WSACleanup();  //Finalize WinSock
