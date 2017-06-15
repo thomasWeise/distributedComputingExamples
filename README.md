@@ -134,7 +134,7 @@ You can download Eclipse from the [Eclipse website](http://www.eclipse.org). I r
 
 ### 3.4. GlassFish Server
 
-For running some of the [Java Servlets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/) and [JavaServer Pages](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/) examples, you need to download the [GlassFish Server](https://glassfish.java.net/) from the corresponding [download website](https://glassfish.java.net/download.html). I recommend using at least GlassFish 4.1.1.
+For running some of the [Java Servlets](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServlets/) and [JavaServer Pages](http://github.com/thomasWeise/distributedComputingExamples/tree/master/javaServerPages/) examples, you need to download the [GlassFish Server](http://javaee.github.io/glassfish) from the corresponding [download website](http://javaee.github.io/glassfish/download). I recommend using at least GlassFish 4.1.2.
 
 ### 3.5. Apache Axis2/Java
 
@@ -142,7 +142,7 @@ For running the [Web Service](http://github.com/thomasWeise/distributedComputing
 
 ### 3.6. GCC
 
-In order to compile the examples written in the C programming language (such as the C-based [sockets examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c)), you will need a C compiler such as GCC. Under Linux, it should normally be already installed and can otherwise be installed via `sudo apt-get install gcc`. Under Windows, you will need to install [MinGW](http://mingw.org/), usually via the [web installer](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download).
+In order to compile the examples written in the C programming language (such as the `C`-based [sockets examples](http://github.com/thomasWeise/distributedComputingExamples/tree/master/sockets/c)), you will need a C compiler such as GCC. Under Linux, it should normally be already installed and can otherwise be installed via `sudo apt-get install gcc`. Under Windows, you will need to install [MinGW](http://mingw.org/), usually via the [web installer](https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download).
 
 ### 3.7. Cross-Compiling for Windows under Linux with GCC
 
