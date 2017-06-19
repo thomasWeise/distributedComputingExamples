@@ -5,7 +5,7 @@ public class RemotePrintClientErroneous { // the erroneous remote print client
     RemotePrintInterface rmiServer;         Registry registry;
 
     try {
-      // find the object registry
+      // find the (local) object registry
       registry = LocateRegistry.getRegistry(9999);
 
       //! invalid cast to server class !

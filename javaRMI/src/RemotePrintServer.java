@@ -6,7 +6,8 @@ public class RemotePrintServer extends UnicastRemoteObject implements RemotePrin
     super();
   }
 
-  @Override // the actual implementation of the method specified by IPrint
+ // the actual implementation of the method specified by RemotePrintInterface
+  @Override
   public void print(final String what) throws RemoteException {
     System.out.println(what); 
   }
@@ -15,7 +16,7 @@ public class RemotePrintServer extends UnicastRemoteObject implements RemotePrin
     Registry registry;
 
     try {
-      // create the object registry
+      // create the (local) object registry
       registry = LocateRegistry.createRegistry(9999);
       // bind the object to the name "server"
       registry.rebind("server", new RemotePrintServer());

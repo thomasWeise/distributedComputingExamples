@@ -5,7 +5,7 @@ public class RemotePrintClient { // the remote print rmi client
     RemotePrintInterface rmiServer;         Registry registry;
 
     try {
-      // find the object registry
+      // find the (local) object registry
       registry = LocateRegistry.getRegistry(9999);
 
       // find the server object

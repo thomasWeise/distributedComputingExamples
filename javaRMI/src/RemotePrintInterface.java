@@ -1,7 +1,7 @@
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-// the IPrint interface
+// the RemotePrint interface
 public interface RemotePrintInterface extends Remote {
 
   /** A method to be remote-accessible
